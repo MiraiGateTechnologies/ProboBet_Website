@@ -1,0 +1,101 @@
+<div class="container-fluid">
+  <div class="card" *ngIf="currentSport == 'cricket'">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-5  header-first">
+          <h2 style="font-family: Protest Riot;"><img src="assets/ball.png" class="img-fluid" alt="..." style="margin-right: 5px;">Cricket</h2>
+        </div>
+        <div class="col-7 header-second">
+          <div class="second">
+            <ul>
+              <li>1</li>
+              <li>x</li>
+              <li>2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-body" *ngFor="let data of cricketMatch"  (click)="inPlayDetails(data)">
+      <!-- <button class="btn btn-sm btn-danger rounded-pill live" type="button">Live</button> -->
+      <div class="col-5 first-body">
+        <h5>{{data.team1}}</h5>
+        <h5>{{data.team2}}</h5>
+      </div>
+      <div class="col-7 second-body justify-content-end">
+          <div class="box-1">
+            <h5 style="line-height: 0.5;">{{data.back}}</h5>
+            <h5 style="line-height: 0.5;">{{data.totalBetPlayerBack}}</h5>
+          </div>
+          <div class="box-1"><h5 style="line-height: 0.5;">{{data.lay}}</h5><h5 style="line-height: 0.5;">{{data.totalBetPlayerLay}}</h5>
+          </div>
+      </div>
+      <hr>
+    </div>
+</div>
+<div class="card" *ngIf="currentSport == 'football'">
+  <div class="card-header">
+    <!-- <button class="btn btn-sm btn-danger rounded-pill upcoming-box" type="button">Live</button> -->
+
+    <div class="row">
+      <div class="col-5  header-first" >
+        <h2 style="font-family: 'poppins'; margin-left: 4px;margin-top: 7px;"><img src="assets/football-1.png" class="img-fluid"  alt="...">Football</h2>
+      </div>
+      <div class="col-7 header-second">
+        <div class="second">
+          <ul>
+            <li>1</li>
+            <li>x</li>
+            <li>2</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-body-football" >
+    <div class="col-5 first-body">
+      <h5>Argentana</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+
+        </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row row-body-football"  >
+    <div class="col-5 first-body">
+      <h5>France</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+      <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+
+        </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row row-body-football"  >
+    <div class="col-5 first-body">
+      <h5>The Draw</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+      <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+
+        </div>
+    </div>
+    <hr>
+  </div>
+
+</div>
+
+
+      </div>
+
+

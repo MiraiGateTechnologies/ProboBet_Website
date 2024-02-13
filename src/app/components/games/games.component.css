@@ -1,0 +1,61 @@
+.game-box {
+  display: flex;
+  overflow-x: auto;
+}
+.row{
+  margin-bottom: 20px;;
+}
+.image-container {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  text-align: center; /* Center the text */
+}
+
+.image-wrapper {
+  position: relative;
+  width: 80px; /* Set a fixed width for the circular background */
+  height: 80px; /* Set a fixed height for the circular background */
+  background-color: #1C1C1E;
+  border-radius: 50%; /* Create a circular background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px; /* Adjust the margin as needed */
+}
+
+.image-container img {
+  width: 45px; /* Set a fixed width for the images (adjust as needed) */
+  height: 40px;
+  /* Make the image circular */
+}
+
+.image-label {
+  color: aliceblue;
+  justify-content: center;
+  display: flex;
+}
+
+@media screen and (max-width: 480px) {
+  .image-container img {
+    width: 33px;
+    height: 30px;
+  }
+
+  .image-wrapper {
+    width: 60px; /* Adjust the width for smaller screens */
+    height: 60px; /* Adjust the height for smaller screens */
+  }
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #00a65a;
+  outline: 0;
+}
+.image-wrapper.active {
+  border: none;
+  background-color:rgb(78, 78, 78); /* Replace with your desired background color */
+}
+/* .image-wrapper.active img{
+
+} */

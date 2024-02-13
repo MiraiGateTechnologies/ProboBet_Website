@@ -1,0 +1,17 @@
+.multi {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin-bottom: 15px;
+}
+
+.multi img {
+    width: 101px;
+    height: 68px;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 6%;
+}
+
+.multi img:hover {
+    transform: scale(1.1);
+}

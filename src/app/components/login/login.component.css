@@ -1,0 +1,89 @@
+/* styles.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: url('../../../assets/betting.jpg');
+  background-size: cover;
+}
+
+.login-title {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #45a049;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.options a {
+  color: #00BFFF;
+  text-decoration: none;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .login-form {
+    width: 100%;
+    border-radius: 0;
+  }
+  .login-container {
+    background-image: url('../../../assets/mobileres.webp'); /* Hide the background image on mobile */
+    background-size: cover;
+    background-position: center;
+  }
+
+}

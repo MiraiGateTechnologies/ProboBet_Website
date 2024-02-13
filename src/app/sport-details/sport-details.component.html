@@ -1,0 +1,438 @@
+<!-- <ng-template #betsTemplate> -->
+  <div class="col-12 mt-4 p-0" >
+    <!-- *ngIf="matchBets?.length > 0" -->
+      <!-- <span class="title" style="color:black">MATCH BETS</span>
+      <div class="bid_section col-12 pd0 mt-2" > -->
+        <!-- *ngFor="let bet of matchBets" -->
+          <!-- <div class="head">
+      <div>{{ bet.bitteam }}</div>
+    </div> -->
+    <div class="container-fluid">
+      <div class="card" >
+        <div class="card-header">
+          <div class="row">
+            <div class="col-5  header-first">
+              <h2 style="font-family: Protest Riot;margin-left:5px ">MATCH ODDS</h2>
+            </div>
+            <div class="col-7 header-second">
+              <div class="second">
+                <ul>
+                  <li>BACK</li>
+                  <li>LAY</li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row row-body" *ngFor="let data of cricketMatch"  >
+        <!-- <button class="btn btn-sm btn-danger rounded-pill live" type="button">Live</button> -->
+        <div class="col-5 first-body" >
+          <h5>{{data.team1}}</h5>
+          <h5>{{data.team2}}</h5>
+        </div>
+        <div class="col-7 second-body justify-content-end">
+            <div class="box-1">
+              <h5 style="line-height: 0.5;">{{data.back}}</h5>
+              <h5 style="line-height: 0.5;">{{data.totalBetPlayerBack}}</h5>
+            </div>
+            <div class="box-1">
+              <h5 style="line-height: 0.5;">{{data.lay}}</h5>
+              <h5 style="line-height: 0.5;">{{data.totalBetPlayerLay}}</h5>
+            </div>
+        </div>
+        <hr>
+      </div>
+
+        </div>
+    </div>
+  </div>
+  <div class="col-12 mt-4 p-0" >
+    <div class="container-fluid">
+      <div class="card" >
+        <div class="card-header">
+          <div class="row">
+            <div class="col-5">
+              <div class="header-first">
+                <h2 style="font-family: Protest Riot; font-size: 14px; line-height: 1.2rem; margin-left:5px">MATCH WINNER (BOOKMARKER)</h2>
+              </div>
+              <!-- <p>header-first</p> -->
+            </div>
+            <div class="col-7 header-second">
+              <div class="second">
+                <ul>
+                  <li>BACK</li>
+                  <li>LAY</li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row row-body" *ngFor="let data of cricketMatch"  >
+        <!-- <button class="btn btn-sm btn-danger rounded-pill live" type="button">Live</button> -->
+        <div class="col-5 first-body">
+          <h5>{{data.team1}}</h5>
+          <h5>{{data.team2}}</h5>
+        </div>
+        <div class="col-7 second-body justify-content-end">
+            <div class="box-1">
+              <h5 style="line-height: 0.5;">{{data.back}}</h5>
+              <h5 style="line-height: 0.5;">{{data.totalBetPlayerBack}}</h5>
+            </div>
+            <div class="box-1">
+              <h5 style="line-height: 0.5;">{{data.lay}}</h5>
+              <h5 style="line-height: 0.5;">{{data.totalBetPlayerLay}}</h5>
+            </div>
+        </div>
+        <hr>
+      </div>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="col-12 mt-4 p-0" >
+    <div class="container-fluid">
+      <div class="card" >
+        <div class="card-header">
+          <div class="row">
+            <div class="col-5  header-first">
+              <h2 style="font-family: Protest Riot;margin-left:5px ">Live Market </h2>
+            </div>
+            <div class="col-7 header-second">
+              <div class="second">
+                <ul>
+                  <li>BACK</li>
+                  <li>LAY</li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row row-body" *ngFor="let data of cricketMatch"  >
+        <!-- <button class="btn btn-sm btn-danger rounded-pill live" type="button">Live</button> -->
+        <div class="col-5 first-body">
+          <h5>{{data.team1}}</h5>
+          <h5>{{data.team2}}</h5>
+        </div>
+        <div class="col-7 second-body justify-content-end">
+            <div class="box-1">
+              <h5 style="line-height: 0.5;">{{data.back}}</h5>
+              <h5 style="line-height: 0.5;">{{data.totalBetPlayerBack}}</h5>
+            </div>
+            <div class="box-1">
+              <h5 style="line-height: 0.5;">{{data.lay}}</h5>
+              <h5 style="line-height: 0.5;">{{data.totalBetPlayerLay}}</h5>
+            </div>
+        </div>
+        <hr>
+      </div>
+
+        </div>
+    </div>
+  </div>
+
+
+<!-- </ng-template> -->
+
+<!-- <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs"
+  [ngStyle]="{ display: isOld || innerWidth > 767 ? 'none' : 'block' }"> -->
+  <ul>
+  <li >
+    <!-- [ngbNavItem]="1" -->
+    <a ngbNavLink>Game Info</a>
+      <ng-template ngbNavContent>
+          <div *ngIf="!isOld">
+              <div class="header">
+                  <div class="bg-image">
+                      <div class="match-title">
+                          <img src="../../../assets/images/rightArrow.png" routerLink="../../game-in-play"
+                               class="pr-3"/>
+
+                          <div class="matchHeader">
+                              <!-- {{ matchTitle }} -->
+                          </div>
+                      </div>
+
+                      <div class="block-summary mob-none">
+                          <!-- <div class="ml-2 score-summary fnt-11 text-center pt-2 fnt-clr">
+                              <marquee hspace="0" scrollamount="4" behavior="SCROLL" onmouseover="this.stop();"
+                                       onmouseout="this.start();"><p>{{ oddsModel?.score.msg }}</p></marquee>
+                               <marquee scrollamount="1" direction="left">
+                                   <p></p>
+                               </marquee>
+                          </div> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="mob-block">
+                  <div class="block-summary">
+                      <div class="ml-2 fnt-11 text-center pt-2 fnt-clr">
+                          <!-- <marquee scrollamount="4" behavior="right">
+                              <span class="score-summary">{{ oddsModel?.score.msg }}</span>
+                          </marquee> -->
+<!--                            <marquee hspace="0" scrollamount="4" behavior="SCROLL" onmouseover="this.stop();"-->
+<!--                                     onmouseout="this.start();"><p>{{ ScoreBoard?.score.msg }}</p></marquee>-->
+
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row col-12 p-0 m-0 scoreBackground">
+                  <div class="col-8 px-4 pt-4 column-full">
+                      <div class="row justify-content-between align-items-center mb-2">
+                          <div class="toggles m-0 pl-3">
+                              <!-- <ui-switch [checked]="isOld" size="small"
+                                         (change)="matchDetail.changeVersion($event)">
+                              </ui-switch> -->
+                              <span class="Switch-to">Switch To Classic Mode</span>
+                          </div>
+                          <!-- <button class="live-tv popupBtn" (click)="streamTv=!streamTv">
+                            <img class="livePlayBtn"
+                                                                                             src="./assets/images/tv_icon.png"/><span>View Tv</span>
+                          </button> -->
+                      </div>
+                      <!-- <div class="stream" *ngIf="streamTv">
+                          <iframe style="width: 100%; height: 100%;" [src]="streamLink"></iframe>
+                      </div> -->
+                      <div>
+                          <div class="tbl d-flex brder01">
+                              <div class="col-6 grayRow brLftTop">
+                                  <!-- {{ oddsModel?.score.player1.toUpperCase()}}* -->
+                              </div>
+                              <div class="col-6 grayRow brRhtTop">
+                                  <!-- {{ oddsModel?.score.team1.toUpperCase()}} {{ oddsModel?.score.score1}} -->
+                              </div>
+                          </div>
+
+                          <div class="tbl d-flex brder02">
+                              <div class="col-6 whiteRow brLftCenter">
+                                  <!-- {{ oddsModel?.score.player2.toUpperCase()}} -->
+                              </div>
+                              <div class="col-6 whiteRow brRhtCenter">
+                                  <!-- {{ oddsModel?.score.team2.toUpperCase()}} {{ oddsModel?.score.score2 }} -->
+                              </div>
+                          </div>
+                          <div class="tbl d-flex brder03">
+                              <div class="col-6 grayRow brLftBottom">
+                                  <!-- {{ oddsModel?.score.bwl.toUpperCase()}} -->
+                              </div>
+                              <div class="col-6 grayRow brRhtBottom">
+                                  <!-- {{ oddsModel?.score.recentBall.toUpperCase()}} -->
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="mt-4">
+                          <table class="table second-table">
+                              <thead>
+                              <tr>
+                                  <th>TEAM: MAX </th>
+                                  <!-- {{maxMatch}} -->
+                                  <th>LAGAI</th>
+                                  <th>KHAI</th>
+                                  <th>POSITION</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <!-- <tr class="gryBck" *ngFor="let sb of oddsModel?.matchOdds; let i = index">
+                                  <td class="cell-odds" style="width: 60%">
+                                      {{ sb?.team }}
+                                  </td>
+                                  <td class="cell-blue" (contextmenu)="onRightClick('K', sb)" (click)="open('K', sb)">
+                                      {{ toDecimal(sb?.krate)  }}
+                                  </td>
+                                  <td class="cell-red" (contextmenu)="onRightClick('L', sb)" (click)="open('L', sb)">
+                                      {{ toDecimal(sb?.lrate)  }}
+                                  </td>
+                                  <td class="text-center" style="font-weight: 600">
+                                      <span [ngStyle]="{'color':bitsposition[i]<=0?'red':'blue'}">{{ bitsposition[i] }}</span>
+                                  </td>
+                              </tr> -->
+                              </tbody>
+                          </table>
+                      </div>
+                      <div class="mt-2">
+                          <div class="section_plus">
+                              <div>Session Plus/Minus</div>
+                              <div style="font-weight: 600">{{sessionPM}}</div>
+                          </div>
+                      </div>
+
+                      <!-- Fancy_odds Begin  -->
+                      <div class="mt-4">
+                          <table class="table third-table">
+                              <thead>
+                              <tr>
+                                  <th>SESSION</th>
+                                  <th>NO</th>
+                                  <th>YES</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <!-- <tr *ngFor="let sb of mainSession" class="gryBck" style="
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                  ">
+                                  <td class="cell-odds" style="width: 70%">
+                                      <p style="margin-top:15px">
+                                          {{ sb?.name }} <br> Max: {{ sb?.slimit }}</p>
+                                  </td>
+                                  <td class="cell-red" (contextmenu)="onRightClick('N', sb)" (click)="open('NO', sb)">
+                                      <div class="sm-text">{{ sb?.nrun }}</div>
+                                      <div class="xs-text">{{ toDecimal(sb?.nrate) }}</div>
+                                  </td>
+                                  <td class="cell-blue" (contextmenu)="onRightClick('Y', sb)"
+                                      (click)="open('YES', sb)">
+                                      <div class="sm-text">{{ sb?.yrun }}</div>
+                                      <div class="xs-text">{{ toDecimal(sb?.yrate) }}</div>
+                                  </td>
+                              </tr> -->
+                              </tbody>
+                          </table>
+                      </div>
+
+                      <!-- Fancy_odds End  -->
+
+                      <!-- Over Only Session Begin  -->
+                      <div class="mt-4" >
+                        <!-- *ngIf="ballOnlySession.length>0" -->
+                          <table class="table third-table">
+                              <thead>
+                              <tr>
+                                  <th>Over By Over Session</th>
+                                  <th>NO</th>
+                                  <th>YES</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <!-- *ngFor="let sb of ballOnlySession" class="gryBck" style="
+                                border-top-left-radius: 10px;
+                                border-bottom-left-radius: 10px;
+                              " -->
+                                  <td class="cell-odds" style="width: 70%">
+                                      <p style="margin-top:15px">
+                                          <!-- {{ sb?.name }} <br> Max: {{ sb?.slimit }}</p> -->
+                                  </td>
+                                  <!-- <td class="cell-red" (contextmenu)="onRightClick('N', sb)" (click)="open('NO', sb)">
+                                      <div class="sm-text">{{ sb?.nrun }}</div>
+                                      <div class="xs-text">{{ toDecimal(sb?.nrate) }}</div>
+                                  </td> -->
+                                  <!-- <td class="cell-blue" (contextmenu)="onRightClick('Y', sb)"
+                                      (click)="open('YES', sb)">
+                                      <div class="sm-text">{{ sb?.yrun }}</div>
+                                      <div class="xs-text">{{ toDecimal(sb?.yrate) }}</div>
+                                  </td> -->
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <!-- Over Only Session End  -->
+
+                      <!-- Ball By Ball Session Begin  -->
+                      <div class="mt-4" *ngIf="ballByBall.length>0">
+                          <table class="table third-table">
+                              <thead>
+                              <tr>
+                                  <th>Ball By Ball Session</th>
+                                  <th>NO</th>
+                                  <th>YES</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let sb of ballByBall" class="gryBck" style="
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                  ">
+                                  <!-- <td class="cell-odds" style="width: 70%">
+                                      <p style="margin-top:15px">
+                                          {{ sb?.name }} <br> Max: {{ sb?.slimit }}</p>
+                                  </td>
+                                  <td class="cell-red" (contextmenu)="onRightClick('N', sb)" (click)="open('NO', sb)">
+                                      <div class="sm-text">{{ sb?.nrun }}</div>
+                                      <div class="xs-text">{{ toDecimal(sb?.nrate) }}</div>
+                                  </td>
+                                  <td class="cell-blue" (contextmenu)="onRightClick('Y', sb)"
+                                      (click)="open('YES', sb)">
+                                      <div class="sm-text">{{ sb?.yrun }}</div>
+                                      <div class="xs-text">{{ toDecimal(sb?.yrate) }}</div>
+                                  </td> -->
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <!-- Ball By Ball  Session End  -->
+                  </div>
+
+                  <div class="col-4 column-full" style="background-color: #f1f0f5">
+                      <div style="padding: 13px 10px 5rem" class="side-section">
+                          <!-- <div class="col-12 p-0">
+              <span class="title">PLACE BET</span>
+              <div class="bid_section col-12 pd0 mt-2">
+                <div class="head">
+                  <div>
+                    <img
+                      src="./assets/images/cross.png"
+                      style="margin-right: 5px"
+                    />
+                    India Legends
+                  </div>
+                  <div>1.48</div>
+                </div>
+                <div class="amout_section col-12">
+                  <div class="level">AMOUNT</div>
+                  <div class="chip_section pd0 col-12 row">
+                    <div class="chip col-4 pd0">1,000</div>
+                    <div class="chip col-4 pd0">25,000</div>
+                    <div
+                      class="chip col-4 pd0"
+                      style="background: #e2edf9; border: 1px solid #1886eb"
+                    >
+                      25,000
+                    </div>
+                    <div class="chip col-4 pd0">25,000</div>
+                    <div class="chip col-4 pd0">25,000</div>
+                    <div class="chip col-4 pd0">25,000</div>
+                  </div>
+                </div>
+                <div class="input_section">
+                  <input type="text" value="₹ 10,000" />
+                </div>
+                <div class="button_section">
+                  <div>
+                    <div class="lvl1">Place Bet</div>
+                    <div class="lvl2">Possible profit: 10.000</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+                          <!-- <ng-container *ngIf="this.innerWidth > 767">
+                              <div *ngTemplateOutlet="betsTemplate"></div>
+                          </ng-container> -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </li>
+  <!-- <li [ngbNavItem]="2"> -->
+    <li>
+      <a ngbNavLink>Your Bets</a>
+      <!-- <ng-template ngbNavContent>
+          <ng-container *ngTemplateOutlet="betsTemplate"></ng-container>
+      </ng-template> -->
+  </li>
+</ul>
+<!-- <div [ngbNavOutlet]="nav" class="mt-2"></div> -->
+
+<!-- <div *ngIf="isOld"> -->
+  <!-- <app-match-detail-old [oddsModel]="oddsModel" [sessionPM]="sessionPM"
+                        [maxMatch]="maxMatch" [streamLink]="streamLink" [streamTv]="streamTv"
+                        [bitsposition]="bitsposition" [matchTitle]="matchTitle" [matchBets]="matchBets"
+                        [sessionBets]="sessionBets"
+                        (placeBet)="position()" [id]="id">
+  </app-match-detail-old> -->
+<!-- </div> -->

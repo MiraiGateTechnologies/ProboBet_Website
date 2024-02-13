@@ -1,0 +1,259 @@
+
+
+
+<div class="sport-main">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <button class="btn btn-sm btn-success rounded-pill upcoming-box " type="button" style="font-family: 'Single Day';">Upcoming</button>
+            <div class="row">
+              <div class="col-6" >
+                <h2 style="font-family: Protest Riot; margin-left: 4px;"><img src="assets/ball.png" class="img-fluid "  alt="...">Cricket</h2>
+              </div>
+              <div class="col-2">
+                1
+              </div>
+              <div class="col-2">
+                X
+              </div>
+              <div class="col-2">
+                2
+              </div>
+
+            </div>
+          </div>
+          <div class="row row-body" *ngFor="let data of cricketMatch" >
+            <div class="col-6">
+              <h5 class="first-header">{{data.team1}}</h5>
+            </div>
+              <div class=" second-body justify-content-end">
+                  <div class="col-2 box-1">
+                    <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5>
+                  </div>
+                  <div class="col-2 box-1">
+                  </div>
+                  <div class="col-2 box-1">
+                    <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5>
+                  </div>
+            </div>
+            <hr>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="card">
+    <div class="card-header">
+      <button class="btn btn-sm btn-danger rounded-pill upcoming-box" type="button" style="font-family: 'Single Day';">Live</button>
+      <div class="row">
+        <div class="col-5  header-first" >
+          <h2 style="font-family: Protest Riot;"><img src="assets/ball.png" class="img-fluid" alt="...">Cricket</h2>
+        </div>
+        <div class="col-7 header-second">
+          <div class="second">
+
+            <ul>
+              <li>1</li>
+              <li>x</li>
+              <li>2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-body" *ngFor="let data of cricketMatch" >
+      <div class="col-5 first-body">
+        <h5>{{data.team1}}</h5>
+        <h5>{{data.team2}}</h5>
+      </div>
+      <div class="col-7 second-body justify-content-end">
+        <div class="main-box">
+          <div class="box-1">
+            <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5>
+          </div>
+          <div class="box-1"><h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5>
+          </div>
+
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+    <div class="card">
+      <div class="card-header">
+        <button class="btn btn-sm btn-success rounded-pill upcoming-box " type="button" style="font-family: 'Single Day';">Upcoming</button>
+        <div class="row">
+          <div class="col-5  header-first" >
+            <h2 style="font-family: Protest Riot; margin-left: 4px;"><img src="assets/ball.png" class="img-fluid "  alt="...">Cricket</h2>
+          </div>
+
+          <div class="col-7 header-second">
+            <div class="second">
+              <ul>
+                <li>1</li>
+                <li>x</li>
+                <li>2</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-body-upcomming" *ngFor="let data of cricketMatch" >
+        <div class="col-5 first-body">
+          <h5>{{data.team1}}</h5>
+          <h5>{{data.team2}}</h5>
+        </div>
+
+        <div class="col-7 second-body justify-content-end">
+            <div class="box-1-upcomming">
+              <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5>
+            </div>
+            <div class="box-1-upcomming"><h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5>
+            </div>
+            <div class="box-1-upcomming"><h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5>
+            </div>
+        </div>
+        <p class="cricketdate">Feb 15 - Feb 19  •  9:30 AM at Rajkot</p>
+
+        <hr>
+      </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <button class="btn btn-sm btn-danger rounded-pill upcoming-box" style="font-family: 'Single Day';" type="button">Live</button>
+
+    <div class="row">
+      <div class="col-5  header-first" >
+        <h2 style="font-family: Protest Riot; margin-left: 4px;margin-top: 7px;"><img src="assets/football-1.png" class="img-fluid"  alt="...">Football</h2>
+      </div>
+      <div class="col-7 header-second">
+        <div class="second">
+          <ul>
+            <li>1</li>
+            <li>x</li>
+            <li>2</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-body-football"  >
+    <div class="col-5 first-body">
+      <h5>Argentana</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+
+        </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row row-body-football"  >
+    <div class="col-5 first-body">
+      <h5>France</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+      <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+
+        </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row row-body-football"  >
+    <div class="col-5 first-body">
+      <h5>The Draw</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+      <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+
+        </div>
+    </div>
+    <hr>
+  </div>
+
+</div>
+<div class="card">
+  <div class="card-header">
+    <button class="btn btn-sm btn-success rounded-pill upcoming-box " style="font-family: 'Single Day';" type="button">Upcoming</button>
+    <div class="row">
+      <div class="col-5  header-first"  >
+        <h2 style="font-family: Protest Riot; margin-left: 4px;margin-top: 7px;"><img src="assets/ball.png" class="img-fluid "  alt="...">Football</h2>
+      </div>
+
+      <div class="col-7 header-second">
+        <div class="second">
+          <ul>
+            <li>1</li>
+            <li>x</li>
+            <li>2</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-body-football"  >
+    <div class="col-5 first-body">
+      <h5>Argentana</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row row-body-football"  >
+    <div class="col-5 first-body">
+      <h5>France</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+      <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row row-body-football"  >
+    <div class="col-5 first-body">
+      <h5>The Draw</h5>
+    </div>
+    <div class="col-7 second-body justify-content-end">
+      <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+        <div class="box-1-football"><h5>1.95</h5><h5>1.5Cr+</h5>
+        </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row" >
+    <div class="col-12">
+      <p class="cricketdate">Feb 15 - Feb 19  •  9:30 AM at Rajkot,</p>
+    </div></div>
+</div> -->
+</div>
+
+
+
+
+
+  <app-game-show></app-game-show>
+
+
+
+

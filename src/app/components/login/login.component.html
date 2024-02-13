@@ -1,0 +1,20 @@
+<div class="login-container">
+  <h1 class="login-title">Probo Bet Login</h1>
+  <form class="login-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="input-group">
+      <label for="code">code</label>
+      <input type="text" id="code" name="code" [(ngModel)]="model.code" required #code="ngModel">
+      <div *ngIf="code.invalid && (code.dirty || code.touched)" class="error">
+        <div style="color: red;" *ngIf="code.errors?.required">code is required.</div>
+      </div>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="model.password" required #password="ngModel">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
+        <div *ngIf="password.errors?.required" style="color: red;">Password is required.</div>
+      </div>
+    </div>
+    <button type="submit" class="login-button">Login</button>
+  </form>
+</div>
