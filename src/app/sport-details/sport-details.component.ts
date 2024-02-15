@@ -7,7 +7,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 // import {ToastrService} from 'ngx-toastr';
 import {of, Subscription, timer} from 'rxjs';
 import {catchError, filter, switchMap} from 'rxjs/operators';
-import {liveCricketMatch, OddsModel, SessionOdds} from './OddsModel';
+import { SportService } from '../service/sport.service';
+import {liveCricketMatch, MatchOdds, OddsModel, SessionOdds} from './OddsModel';
 
 @Component({
   selector: 'app-sport-details',
@@ -17,6 +18,7 @@ import {liveCricketMatch, OddsModel, SessionOdds} from './OddsModel';
   styleUrl: './sport-details.component.css'
 })
 export class SportDetailsComponent {
+  matchcode:any;
   isOld = false;
   public innerWidth: any;
   oddsModel: OddsModel[]=[];
@@ -25,7 +27,7 @@ export class SportDetailsComponent {
   mainSession: SessionOdds[]=[];
   ballOnlySession: SessionOdds[] = [];
   ballByBall: SessionOdds[] = [];
-
+  MatchOdds:MatchOdds[]=[]
   oddsLink: any;
   maxMatch: any;
   liveStatus: any;
@@ -51,6 +53,7 @@ export class SportDetailsComponent {
       private route: ActivatedRoute,
       // private headerService: HeaderService,
       private modalService: NgbModal,
+      private sportServive:SportService,
       // public matchDetail: MatchDetailService,
       // private toastr: ToastrService,
       // private dashsvc: DashboardService,
@@ -58,15 +61,24 @@ export class SportDetailsComponent {
   ) {
       // this.innerWidth = window.innerWidth;
       this.subscription = new Subscription();
-      // this.id = this.route.snapshot.paramMap.get('id');
+      this.matchcode = this.route.snapshot.paramMap.get('matchcode');
       // headerService.getMsg();
   }
 
   ngOnInit(): void {
-      // this.position();
-      // this.matchDetail.version.subscribe(
-      //     (value: boolean) => (this.isOld = value)
-      // );
+    this.SportDetails();
+  }
+
+  SportDetails(){
+    if(this.matchcode != undefined ||this.matchcode != ''){
+      this.sportServive.getSportDetails(this.matchcode).subscribe({
+        next:(res)=>{
+          this.MatchOdds = res.matchOdds.slice(0,2);
+          this.sessionBets = res.sessionOdds;
+        }
+      })
+    }
+    console.log(this.MatchOdds)
   }
 
   open(mode: string, data: any) {

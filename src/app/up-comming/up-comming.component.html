@@ -19,25 +19,27 @@
         </div>
       </div>
     </div>
-    <div class="row row-body-upcomming" *ngFor="let data of cricketMatch" >
+    <div class="row row-body-upcomming" *ngFor="let data of cricketUpcommingData" >
       <div class="col-5 first-body">
-        <h5>{{data.team1}}</h5>
-        <h5>{{data.team2}}</h5>
-      <!-- <p class="cricketdate">Feb 15 - Feb 19  •  9:30 AM at Rajkot</p> -->
-
+        <h5>{{data.title}}</h5>
       </div>
 
       <div class="col-7 second-body justify-content-end">
           <div class="box-1-upcomming">
-            <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5>
+            <!-- <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5> -->
           </div>
-          <div class="box-1-upcomming"><h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5>
+          <div class="box-1-upcomming">
+            <!-- <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5> -->
           </div>
-          <div class="box-1-upcomming"><h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5>
+          <div class="box-1-upcomming">
+            <!-- <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5> -->
           </div>
       </div>
 
       <hr>
+    </div>
+    <div class="col-12">
+      <p *ngIf="cricketUpcommingData.length == 0"  style="margin-top: 10px;text-align: center;">No Upcomming Mtch right Now </p>
     </div>
 </div></div>
 

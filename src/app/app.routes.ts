@@ -10,7 +10,9 @@ export const routes: Routes = [
   {path:'login',pathMatch:'full',component:LoginComponent},
     {path:'',component:SliderComponent},
     { path: 'cricket', loadComponent:() => import('./cricket/cricket.component').then(m => m.CricketComponent)},
-    { path: 'sportDetails/:id', loadComponent:() => import('./sport-details/sport-details.component').then(m => m.SportDetailsComponent)},
+    { path: 'football', loadComponent:() => import('./cricket/cricket.component').then(m => m.CricketComponent)},
+
+    { path: 'sportDetails/:matchcode', loadComponent:() => import('./sport-details/sport-details.component').then(m => m.SportDetailsComponent)},
 
     // { path: 'games', loadChildren:() => import('./cricket/cricket.component').then(m => m.CricketComponent)},
 

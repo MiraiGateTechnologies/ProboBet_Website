@@ -1,54 +1,65 @@
 .card{
-  border-radius: 10px;
+  border-radius: 17.5px;
   border: none;
 }
 .header-first{
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
+  /* height: 40px; */
 }
 .img-fluid{
   width: 20px;
   height: 20px;
 }
 .header-second{
+  margin-top: 10px;
   color: white;
 }
 .first-body{
   margin-left: 0;
-  margin-top: 10px;
 }
-
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 h5{
-  padding-left: 7px;
-  margin-top: 5px;
-  margin-left: 0;
-  line-height: 0.5em;
+  margin-bottom: 0.2rem;
   font-family: 'Poppins';font-weight: 900;
 }
 .container-fluid{
   width: 100%;
 }
+
 p{
   padding-left: 7px;
 
-  line-height: 0.5em;font-weight: 900;
+  line-height: 0.5em;font-weight: 700;
 }
 .second-body{
   display: flex; justify-content: center;
 }
 .second{
+  padding-top: 10px;
   justify-content: center; display: flex;font-size: 24px;margin-right: 15px; justify-content: end;
 }
-ul{
-  display: flex;list-style-type: none; color :white; gap: 40px; font-size: 24px;
+h4{
+  padding-top: 2px;
 }
+ul{
+  display: flex;
+  list-style-type: none;
+  color :white;
+  gap: 60px;
+  font-size: 24px;
+}
+
 .card-body {
   margin-left: 0px;
     display: flex;
     /* gap: 10px; */
-    height: 70px;
 }
 
 .container{
@@ -80,7 +91,7 @@ ul{
 
 .custom-button {
     width: 67px; /* Set your desired width */
-    height: 25px;
+    /* height: 25px; */
     margin-bottom: 5px; /* Set your desired height */
     display: flex;
     justify-content: center;
@@ -114,25 +125,16 @@ h6{
     max-width: 74px;
 }
 
-.row-body {
-  height: 60px;
-  margin-top:0 ;
-    padding-top: 10px;
-}
-.row {
-  margin-top:0 ;
-    padding-top: 10px;
-}
 
-/* .card{
-margin: 5px;
-} */
 
 .card-header{
     margin: 0;
     padding: 0;
-background: rgb(232,170,13);
-background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rgba(14,13,13,1) 94%);
+    border: none;
+    border-top-left-radius: 17.5px;
+    border-top-right-radius: 17.5px;
+    background: rgb(232,170,13);
+    background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rgba(14,13,13,1) 94%);
 
 }
 .card-header-first{
@@ -140,27 +142,23 @@ background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rg
     padding: 0;
 }
 
-.main-box {
-  /* border: 1px solid #ddd; */
-  padding: 5px;
-  text-align: center;
-  height: 50px;
-  width: 140px;
-}
 
 
-.box-1{
-  border:none;
+
+.box-1 {
+  border: none;
   border-radius: 5px;
-  margin: 2px;
+  margin-top: 5px;
   border: 1px solid #ddd;
   padding: 5px;
   text-align: center;
-  width: 100px;
-  height: 45px;
+  width: 64px;
+  height: 41px;
   background: #a5d9fe;
-
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
+
 
 
 .upcomming{
