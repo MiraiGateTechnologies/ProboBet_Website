@@ -8,7 +8,7 @@
       <button class="btn btn-sm btn-danger rounded-pill upcoming-box" type="button">Live</button>
       <div class="row">
         <div class="col-5" >
-    <h2 style="margin-top: 10px;">
+    <h2>
       <img src="assets/ball.png" class="img-fluid" alt="...">Cricket</h2>
         </div>
         <div class="col-7">
@@ -24,7 +24,7 @@
     <div class="row-body"  >
       <div class="row" *ngFor="let data of cricketData">
         <div class="col-5">
-          <h5 style="margin-top: 15px;">{{data.title}}</h5>
+          <h5 >{{data.title}}</h5>
         </div>
         <div class="col-7 second-body justify-content-end">
             <div class="box-1">
@@ -40,6 +40,9 @@
               <p>1c+</p>
             </div>
         </div>
+      </div>
+      <div class="col-12"  *ngIf="cricketData.length == 0">
+        <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No Live Match Yet...</h5>
       </div>
       <hr >
     </div>
@@ -67,7 +70,7 @@
       <div class="row row-body-upcomming" *ngFor="let data of upcomingCricketData" >
         <div class="col-5 ">
 
-          <h5 >{{data.title}}</h5>
+          <h5 class="first-body">{{data.title}}</h5>
         </div>
 
         <div class="col-7 second-body justify-content-end">

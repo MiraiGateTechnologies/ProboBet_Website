@@ -18,7 +18,7 @@ export class ProbobetService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
+    if (error.error instanceof HttpErrorResponse) {
       // A client-side or network error occurred.
       console.error('Network error:', error.error.message);
       return throwError('Network error: Please check your internet connection.');

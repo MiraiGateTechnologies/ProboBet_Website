@@ -31,16 +31,15 @@ export class SportsComponent implements OnInit,OnDestroy {
           const currentTime: Date = new Date(); // Specify the type of 'currentTime' as 'Date'
           const liveCricketMatches: any[] = res.gameList.filter((data: any) => data.type === 'CRICKET' && new Date(data.time) <= currentTime);
           const upcommingCricketMatches: any[] = res.gameList.filter((data: any) => data.type === 'CRICKET' && new Date(data.time) >= currentTime);
-
+          console.log(upcommingCricketMatches)
           const liveFootBallMatches: any[] = res.gameList.filter((data: any) => data.type === 'FOOTBALL' && new Date(data.time) <= currentTime);
-          // If there are live cricket matches, add them to the cricketData array
           if (liveCricketMatches.length > 0) {
             this.cricketData.push(...liveCricketMatches.slice(0, 2));
             this.cricketData.sort((a: any, b: any) => Number(new Date(a.time)) - Number(new Date(b.time)));
           }
           if(upcommingCricketMatches.length>0){
             this.upcomingCricketData.push(...upcommingCricketMatches.slice(0,2));
-            this.cricketData.sort((a: any, b: any) => Number(new Date(a.time)) - Number(new Date(b.time)));
+            this.upcomingCricketData.sort((a: any, b: any) => Number(new Date(a.time)) - Number(new Date(b.time)));
 
           }
 

@@ -15,12 +15,9 @@ import { liveCricketMatch, TeamBet } from './inpaly.interface';
 export class InPlayComponent implements OnInit{
    currentSport = '';
    @Input() sport!: string;
-
-  //  cricketMatch:TeamBet[] = [];
    cricketData:any[]=[];
    footballData:any[]=[];
   constructor(private activatedRoute:ActivatedRoute,private BetService:ProbobetService,private router:Router){
-
     this.activatedRoute.params.subscribe(data => {
       console.log(data)
       this.sport = data.sport;
@@ -28,14 +25,12 @@ export class InPlayComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // this.cricketMatch = liveCricketMatch;
     this.BetService.getCricketBet().subscribe({
       next: (res: any) => { // Specify the type of 'res' as 'any'
         if (res.gameList.length > 0) {
           const currentTime: Date = new Date(); // Specify the type of 'currentTime' as 'Date'
           const liveCricketMatches: any[] = res.gameList.filter((data: any) => data.type === 'CRICKET' && new Date(data.time) <= currentTime);
           const liveFootBallMatches: any[] = res.gameList.filter((data: any) => data.type === 'FOOTBALL' && new Date(data.time) <= currentTime);
-          // If there are live cricket matches, add them to the cricketData array
           if (liveCricketMatches.length > 0) {
             this.cricketData.push(...liveCricketMatches);
             this.cricketData.sort((a: any, b: any) => Number(new Date(a.time)) - Number(new Date(b.time)));
@@ -46,11 +41,10 @@ export class InPlayComponent implements OnInit{
           }
         }
       },
-      error: (err: any) => { // Specify the type of 'err' as 'any'
+      error: (err: any) => {
         console.error('Error fetching cricket bet:', err);
       }
     });
-
   }
 
   inPlayDetails(data:any){

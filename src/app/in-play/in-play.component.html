@@ -36,12 +36,12 @@
 
 <div class="col-12" *ngIf="cricketData.length ==0" >
   <div class="card">
-    <p style="text-align: center;margin-top: 10px;">No Match Available</p>
+    <p style="text-align: center;margin-top: 10px;">No Live Match Available</p>
   </div>
 </div>
     </div>
   </div>
-<div class="card" *ngIf="sport == 'cricket'">
+<div class="card" *ngIf="sport == 'football'">
   <div class="card-header">
 
     <div class="row">
@@ -76,10 +76,10 @@
         </div>
       </div>
   </div>
-</div>
-<div class="col-12" *ngIf="footballData.length ==0" >
-  <div class="card">
-    <p style="text-align: center;margin-top: 10px;">No Match Available</p>
+  <div class="col-12" *ngIf="footballData.length ==0" >
+    <div class="card">
+      <p style="text-align: center;margin-top: 10px;">No Match Available</p>
+    </div>
   </div>
 </div>
 

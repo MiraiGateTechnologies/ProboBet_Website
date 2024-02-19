@@ -94,31 +94,19 @@ ul{
   color :white;
   font-size: 24px;
 }
+li{
+  margin-top: 10px;
+}
 .card-body {
   margin-left: 0px;
     display: flex;
     height: 70px;
-    /* gap: 10px; */
 }
 
 .container{
     position: relative;
-
 }
-/* .main-box{
-  display: flex;
-  max-width: 300px;
-} */
-/*
-.live{
-  animation: blink 1s linear infinite alternate;
-    position: absolute;
-    margin-top: 10px;
-    left: 32%;
-    width: 40px;
-    font-size: 10px;
-    margin-bottom: 0px;
-} */
+
 @keyframes blink {
   0% {
     opacity: 1; /* Start with full opacity */
@@ -161,7 +149,9 @@ ul{
 h6{
     font-size: 12px;
 }
-
+h2{
+  margin-top: 10px;
+}
 
 .mx-auto {
     align-self: baseline;
@@ -182,8 +172,22 @@ h6{
   .container-fluid{
     width: 390px;
   }
+  h2{
+    margin-top: 10px;
+  }
 }
-
+li{
+  margin-top: 10px;
+}
+ul{
+  max-width: 300px;
+  margin-top: 7px;
+  gap:60px;
+  display: flex;
+  list-style-type: none;
+  color :white;
+  font-size: 24px;
+}
   /* .
   -body {
     height: 60px;
@@ -285,5 +289,8 @@ background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rg
     width: 50px;
     height: 41px;
     background: #a5d9fe;
+  }
+  h2{
+    margin-top: 10px;
   }
 }
