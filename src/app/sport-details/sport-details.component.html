@@ -40,7 +40,6 @@
                 <ul>
                   <li>BACK</li>
                   <li>LAY</li>
-
                 </ul>
               </div>
             </div>
@@ -73,7 +72,7 @@
           <div class="row">
             <div class="col-5">
               <div class="header-first">
-                <h2 style="font-family: Protest Riot; font-size: 14px; line-height: 1.2rem; margin-left:5px">MATCH WINNER (BOOKMARKER)</h2>
+                <h2 style="font-family: poppins; font-size: 14px; font-weight: 700; line-height: 1.2rem; margin-left:5px">MATCH WINNER (BOOKMARKER)</h2>
               </div>
               <!-- <p>header-first</p> -->
             </div>
@@ -95,12 +94,10 @@
         </div>
         <div class="col-7 second-body justify-content-end">
             <div class="box-1">
-              <h5 style="line-height: 0.5;">{{data.krate}}</h5>
-              <h5 style="line-height: 0.5;">{{data.lrate}}</h5>
+              <h5>{{data.krate}}</h5>
             </div>
-            <div class="box-1">
-              <h5 style="line-height: 0.5;">{{data.krate}}</h5>
-              <h5 style="line-height: 0.5;">{{data.lrate}}</h5>
+            <div class="box-2">
+              <h5>{{data.lrate}}</h5>
             </div>
         </div>
         <hr>
@@ -112,9 +109,9 @@
   <div class="container-fluid" style="margin-top: 8px;margin-bottom: 8px;">
     <div class="col-12">
       <div class="sport-details-button-right" style="display: flex;">
-        <button class="btn btn-sm rounded-pill" style="background-color: #F55F13;margin-right: 5px;">FANCY
+        <button class="btn btn-sm rounded-pill" style="background-color: #F55F13;margin-right: 5px; font-family: 'poppins';" >FANCY
         </button>
-        <button class="btn btn-sm rounded-pill" style="background-color: #6DAF46;">
+        <button class="btn btn-sm rounded-pill" style="background-color: #6DAF46; font-family: 'poppins'">
           PREMIUM CRICKET
         </button>
       </div>
@@ -126,7 +123,16 @@
         <div class="card-header">
           <div class="row">
             <div class="col-5  header-first">
-              <h2 style="font-family: Protest Riot;margin-left:5px ">Fancy </h2>
+              <h2 style="font-family:'poppins';font-weight: 700;margin-left:5px ">Fancy </h2>
+            </div>
+            <div class="col-7 header-second">
+              <div class="second">
+                <ul>
+                  <li>Yes</li>
+                  <li>No</li>
+
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -136,16 +142,19 @@
         </div>
         <div class="col-7 second-body justify-content-end">
             <div class="box-1">
+              <h5 style="line-height: 0.5;padding-top: 0;">{{data.nrun}}</h5>
               <h5 style="line-height: 0.5;">{{data.nrate}}</h5>
-              <h5 style="line-height: 0.5;">{{data.nrun}}</h5>
             </div>
-            <div class="box-1">
+            <div class="box-2">
+              <h5 style="line-height: 0.5;padding-top: 0;">{{data.yrun}}</h5>
               <h5 style="line-height: 0.5;">{{data.yrate}}</h5>
-              <h5 style="line-height: 0.5;">{{data.yrun}}</h5>
             </div>
         </div>
         <hr>
 
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
       </div>
 
         </div>

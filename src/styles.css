@@ -24,7 +24,7 @@
 }
 h1, h2{
     color: antiquewhite;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'poppins', sans-serif;
 }
 .img-fluid{
   width: 20px;
@@ -42,7 +42,9 @@ h1, h2{
 h5{
   padding-left: 7px;
   margin-left: 0;
-  line-height: 0.5em; font-family: Arial, Helvetica, sans-serif;font-weight: 900;
+  line-height: 0.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
 }
 p{
   padding-left: 7px;
@@ -95,7 +97,7 @@ p{
 }
 
 html, body { height: 100%; }
-body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'Roboto', sans-serif; }
+body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-serif; }
 
 
   .container{
@@ -107,9 +109,37 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'Roboto', sans-ser
     overflow: hidden; /* or 'auto' */
     margin: 5px;
   }
+
+
+  .box-1{
+    border:none;
+    border-radius: 5px;
+    margin: 1px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    width: 64px;
+    height: 50px;
+    background: #a5d9fe;
+  }
+  .box-2{
+    border:none;
+    border-radius: 5px;
+    margin: 1px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    width: 64px;
+    height: 50px;
+    background: #FF6A6A;
+  }
+
 @media screen and (max-width: 480px){
   .sport-main{
     overflow: hidden; /* or 'auto' */
+  }
+  .row{
+    margin-top: 10px;
   }
   .sport-details-header{
     background-color: #272727;
@@ -119,6 +149,15 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'Roboto', sans-ser
   .row-body{
     margin-top: 5px;
   }
+  /* ul{
+    max-width: 300px;
+    margin-top: 7px;
+    gap:60px;
+    display: flex;
+    list-style-type: none;
+    color :white;
+    font-size: 24px;
+  } */
   .sport-details-text  {
     font-size: 13.37px !important;
     line-height: 0.5em !important;
@@ -142,5 +181,134 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'Roboto', sans-ser
     font-size: 13.37px;
     position: relative;
     padding-right: 5px;
+  }
+
+  .box-1{
+    border:none;
+    border-radius: 5px;
+    margin: 1px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    width: 64px;
+    height: 50px;
+    background: #a5d9fe;
+  }
+  .box-2{
+    border:none;
+    border-radius: 5px;
+    margin: 1px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    width: 64px;
+    height: 50px;
+    background: #FF6A6A;
+  }
+  hr {
+    height: 1px; /* Adjust the height as needed */
+    margin-bottom: 0;
+    margin-top: 3px; /* Remove any default margin */
+    border: 1px solid black; /* Remove the default border */
+    background-color: black; /* Set the color of the line */
+  }
+  .img-fluid{
+    margin-left: 5px;
+  }
+  h2{
+    font-family: 'poppins';
+    margin-top: 5px;
+  }
+  .btn{
+    font-family: 'poppins';
+  }
+}
+@media screen and (max-width: 800px){
+  .sport-main{
+    overflow: hidden; /* or 'auto' */
+  }
+  .sport-details-header{
+    background-color: #272727;
+    height: 42.99px;
+    position: relative;
+  }
+  .row-body{
+    margin-top: 5px;
+  }
+  /* ul{
+    max-width: 300px;
+    margin-top: 7px;
+    gap:60px;
+    display: flex;
+    list-style-type: none;
+    color :white;
+    font-size: 24px;
+  } */
+  .sport-details-text  {
+    font-size: 13.37px !important;
+    line-height: 0.5em !important;
+    font-family: "poppins" !important;
+    color: white !important;
+    position: absolute;
+    top: 14px;
+  }
+  .sport-details-market{
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .market-button{
+    background-color: #FFFFFF;
+    width: 94.56px;
+    height: 33px;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 13.37px;
+    position: relative;
+    padding-right: 5px;
+  }
+
+  .box-1{
+    border:none;
+    border-radius: 5px;
+    margin: 1px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    width: 64px;
+    height: 50px;
+    background: #a5d9fe;
+  }
+  .box-2{
+    border:none;
+    border-radius: 5px;
+    margin: 1px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    width: 64px;
+    height: 50px;
+    background: #FF6A6A;
+  }
+
+  hr {
+    height: 1px; /* Adjust the height as needed */
+    margin-top: 3px; /* Remove any default margin */
+    margin-bottom: 0;
+    border: 1px solid black; /* Remove the default border */
+    background-color: black; /* Set the color of the line */
+    overflow: hidden;
+  }
+
+  .img-fluid{
+    margin-left: 5px;
+  }
+  h2{
+    font-family: 'poppins';
+    margin-top: 5px;
+  }
+  .btn{
+    font-family: 'poppins';
   }
 }

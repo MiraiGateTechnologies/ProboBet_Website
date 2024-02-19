@@ -19,19 +19,20 @@
         </div>
       </div>
     </div>
-    <div class="row row-body-upcomming" *ngFor="let data of cricketUpcommingData" >
+    <div class="row row-body" *ngFor="let data of cricketUpcommingData" >
       <div class="col-5 first-body">
+        <p style="font-size: 12px; line-height: 0.2rem; color: red;">{{data.time}}</p>
         <h5>{{data.title}}</h5>
       </div>
 
       <div class="col-7 second-body justify-content-end">
-          <div class="box-1-upcomming">
+          <div class="box-1">
             <!-- <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5> -->
           </div>
-          <div class="box-1-upcomming">
+          <div class="box-1">
             <!-- <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5> -->
           </div>
-          <div class="box-1-upcomming">
+          <div class="box-1">
             <!-- <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5> -->
           </div>
       </div>

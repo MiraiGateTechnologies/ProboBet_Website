@@ -654,10 +654,14 @@ span.Switch-to {
     background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rgba(14,13,13,1) 94%);
   }
   .second{
-    justify-content: center; display: flex;font-size: 24px;margin-right: 15px; justify-content: end;
+    justify-content: center;
+     display: flex;
+     font-size: 24px;
+     margin-right: 15px;
+     justify-content: end;
   }
   ul{
-    display: flex;list-style-type: none; color :white; gap: 35px; font-size: 18.27px;font-family: 'Poppins',sans-serif
+    display: flex;list-style-type: none; color :white; gap: 45px; font-size: 18.27px;font-family: 'Poppins',sans-serif
   }
   .row-body {
     height: 60px;
@@ -668,18 +672,7 @@ span.Switch-to {
     margin-top:0 ;
       padding-top: 10px;
   }
-  .box-1{
-    border:none;
-    border-radius: 5px;
-    margin: 1px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-    width: 63px;
-    height: 41px;
-    background: #a5d9fe;
 
-  }
   h5{
     padding-left: 7px;
     margin-top: 5px;
@@ -706,7 +699,7 @@ span.Switch-to {
     border: none;
   }
   ul{
-    display: flex;list-style-type: none; color :white; gap: 35px; font-size: 24px;
+    display: flex;list-style-type: none; color :white; gap: 45px; font-size: 24px;
   }
   h2{
     font-size: 18px;
@@ -724,18 +717,7 @@ span.Switch-to {
     margin-left: 0;
     margin-top: 0px;
   }
-  .box-1{
-    border:none;
-    border-radius: 5px;
-    margin: 2px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-    width: 63px;
-    height: 41px;
-    background: #a5d9fe;
 
-  }
   .amout_section .chip {
     max-width: 50%;
     width: 45% !important;
@@ -775,7 +757,7 @@ span.Switch-to {
     justify-content: center; display: flex;font-size: 24px;margin-right: 15px; justify-content: end;
   }
   ul{
-    display: flex;list-style-type: none; color :white; gap: 35px; font-size: 18.27px;font-family: 'Poppins',sans-serif;
+    display: flex;list-style-type: none; color :white; gap: 45px; font-size: 18.27px;font-family: 'Poppins',sans-serif;
   }
   .row-body {
     height: 60px;
@@ -1111,18 +1093,7 @@ button.live-tv.popupBtn span {
     margin-top:0 ;
       padding-top: 10px;
   }
-  .box-1{
-    border:none;
-    border-radius: 5px;
-    margin: 2px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-    width: 63.9px;
-    height: 41px;
-    background: #a5d9fe;
 
-  }
   h5{
     padding-left: 7px;
     margin-top: 5px;
@@ -1154,18 +1125,7 @@ button.live-tv.popupBtn span {
   li{
     font-size: 12px;
   }
-  .box-1{
-    border:none;
-    border-radius: 5px;
-    margin: 2px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-    width: 63px;
-    height: 41px;
-    background: #a5d9fe;
 
-  }
   h5{
     padding-left: 7px;
     margin-top: 5px;
@@ -1182,18 +1142,6 @@ button.live-tv.popupBtn span {
   }
   .second{
     justify-content: center; display: flex;font-size: 24px;margin-right: 15px; justify-content: end;
-  }
-  .box-1{
-    border:none;
-    border-radius: 5px;
-    margin: 2px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-    width: 63px;
-    height: 41px;
-    background: #a5d9fe;
-
   }
   h5{
     padding-left: 7px;
@@ -1233,18 +1181,7 @@ button.live-tv.popupBtn span {
     margin-top:0 ;
       padding-top: 10px;
   }
-  .box-1{
-    border:none;
-    border-radius: 5px;
-    margin: 2px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-    width: 63px;
-    height: 41px;
-    background: #a5d9fe;
 
-  }
   h5{
     padding-left: 7px;
     margin-top: 5px;
@@ -1340,23 +1277,13 @@ button.live-tv.popupBtn span {
   .second{
     justify-content: center; display: flex;font-size: 24px;margin-right: 15px; justify-content: end;
   }
-  .box-1{
-    border:none;
-    border-radius: 5px;
-    margin: 1px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-    width: 63px;
-    height: 41px;
-    background: #a5d9fe;
 
-  }
+
   ul{
     display: flex;
     list-style-type: none;
     color :white;
-    gap: 35px;
+    gap: 45px;
     font-size: 16px;
     font-family: 'Poppins',sans-serif
   }
@@ -1371,10 +1298,11 @@ button.live-tv.popupBtn span {
   }
   h5{
     padding-left: 7px;
-    margin-top: 5px;
-    margin-left: 0;
-    line-height: 0.5em;
-    font-family: 'Poppins';font-weight: 900;
+    margin-top: 10px;
+    /* margin-left: 0; */
+    /* line-height: 0.5em; */
+    font-family: 'Poppins';
+    font-weight: 900;
   }
   .ml-2.score-summary.fnt-11.text-center.pt-2.fnt-clr {
     margin-bottom: 0;

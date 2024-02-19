@@ -1,31 +1,35 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { FooterComponent } from '../../footer/footer.component';
 import { SportsComponent } from '../sports/sports.component';
-import { ActivatedRoute, provideRouter, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-games',
   standalone: true,
-  imports: [CommonModule,FooterComponent, SportsComponent],
-  providers: [
-    // provideRouter(routes)
-  ],
+  imports: [CommonModule, FooterComponent, SportsComponent],
   templateUrl: './games.component.html',
-  styleUrl: './games.component.css'
+  styleUrls: ['./games.component.css']
 })
 export class GamesComponent {
-constructor(private router:Router){
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
-}
+  navigateToSport(sport: string) {
+    this.router.navigate(['/' + sport]);
+  }
 
-navigateToSport(sport: string) {
-  this.router.navigate(['/' + sport], { queryParams: { sport: sport } });
-}
+  isActive(sport: string): boolean {
+    return this.router.url.includes(sport);
+  }
 
-isActive(sport: string): boolean {
-  return this.router.url.includes(sport);
-}
-
+  getCurrentRouteParams() {
+    const currentRoute = this.activatedRoute.snapshot;
+    // Access current route's parameters
+    const sport = currentRoute.params['sport'];
+    console.log('Current Sport:', sport);
+    // Access current route's query parameters
+    const queryParams = currentRoute.queryParams;
+    console.log('Query Parameters:', queryParams);
+  }
 }

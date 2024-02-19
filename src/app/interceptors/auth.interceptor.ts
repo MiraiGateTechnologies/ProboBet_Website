@@ -14,13 +14,10 @@ export class TokenInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>>{
-    console.log('working 1')
     const token = this.authService.getToken();
     if (token) {
-      console.log(token)
       request = request.clone({
         setHeaders: {
-      //     Origin:'https://1exch.net',
           Authorization: `Bearer ${token}`
         },
       });

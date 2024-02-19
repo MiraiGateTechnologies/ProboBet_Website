@@ -17,7 +17,8 @@ import {liveCricketMatch, MatchOdds, OddsModel, SessionOdds} from './OddsModel';
   templateUrl: './sport-details.component.html',
   styleUrl: './sport-details.component.css'
 })
-export class SportDetailsComponent {
+
+export class SportDetailsComponent implements OnDestroy {
   matchcode:any;
   isOld = false;
   public innerWidth: any;
@@ -42,7 +43,8 @@ export class SportDetailsComponent {
   bitsposition: any = [];
   matchTitle = '';
   streamTv: boolean = false;
-
+  filteredSessionBets: any = [];
+  errorMessage: string = '';
   // @HostListener('window:resize', ['$event'])
   // onResize(event) {
   //     this.innerWidth = event.target.innerWidth;
@@ -66,7 +68,12 @@ export class SportDetailsComponent {
   }
 
   ngOnInit(): void {
+    this.filteredSessionBets = setInterval(() => {
     this.SportDetails();
+    }, 700);
+
+    // Update every second
+    // setInterval(this.SportDetails,1000)
   }
 
   SportDetails(){
@@ -75,10 +82,12 @@ export class SportDetailsComponent {
         next:(res)=>{
           this.MatchOdds = res.matchOdds.slice(0,2);
           this.sessionBets = res.sessionOdds;
+          this.sessionBets.filter((item:any,index:any)=> index %2 ==0)
+        },error:(error) =>{
+          this.errorMessage = error;
         }
       })
     }
-    console.log(this.MatchOdds)
   }
 
   open(mode: string, data: any) {
@@ -179,9 +188,11 @@ export class SportDetailsComponent {
   //     });
   // }
 
-  // ngOnDestroy() {
-  //     this.subscription.unsubscribe();
-  // }
+  ngOnDestroy() {
+    clearInterval(this.filteredSessionBets); // Corrected: Pass the interval ID directly
+    this.subscription.unsubscribe();
+  }
+
 
   onRightClick(mode: string, data: any) {
       this.open(mode, data);

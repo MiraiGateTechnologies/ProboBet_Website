@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProbobetService } from '../betting/probobet.service';
 import { liveCricketMatch, TeamBet } from './inpaly.interface';
@@ -14,12 +14,16 @@ import { liveCricketMatch, TeamBet } from './inpaly.interface';
 })
 export class InPlayComponent implements OnInit{
    currentSport = '';
+   @Input() sport!: string;
+
   //  cricketMatch:TeamBet[] = [];
    cricketData:any[]=[];
    footballData:any[]=[];
   constructor(private activatedRoute:ActivatedRoute,private BetService:ProbobetService,private router:Router){
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.currentSport = params['sport'];
+
+    this.activatedRoute.params.subscribe(data => {
+      console.log(data)
+      this.sport = data.sport;
     });
   }
 
@@ -27,7 +31,6 @@ export class InPlayComponent implements OnInit{
     // this.cricketMatch = liveCricketMatch;
     this.BetService.getCricketBet().subscribe({
       next: (res: any) => { // Specify the type of 'res' as 'any'
-        console.log(res)
         if (res.gameList.length > 0) {
           const currentTime: Date = new Date(); // Specify the type of 'currentTime' as 'Date'
           const liveCricketMatches: any[] = res.gameList.filter((data: any) => data.type === 'CRICKET' && new Date(data.time) <= currentTime);

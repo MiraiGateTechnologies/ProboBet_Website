@@ -14,9 +14,20 @@ import {MatTabsModule} from '@angular/material/tabs';
   styleUrl: './cricket.component.css'
 })
 export class CricketComponent {
-constructor(private router:Router){
+  sport: string = 'cricket';
+  constructor(private router:Router,private route: ActivatedRoute,){
 
 }
+ngOnInit() {
+  const path = this.route.snapshot.url[0].path;
+  if (path === 'cricket' || path === 'football') {
+    this.sport = path;
+  } else {
+    this.sport == 'cricket'
+    // Handle other cases or redirect
+  }
+}
+
 // abc(){
 //   this.router.navigate(['/inplay'],{queryParams:{order:'cricket'}})
 // }

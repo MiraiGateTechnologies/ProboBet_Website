@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="card" *ngIf="currentSport == 'cricket'">
+  <div class="card" *ngIf="sport == 'cricket'">
     <div class="card-header">
       <div class="row">
         <div class="col-5  header-first">
@@ -33,9 +33,15 @@
           </div>
           <hr style="margin-top: 0.2rem;margin-bottom: 0.2rem;">
       </div>
+
+<div class="col-12" *ngIf="cricketData.length ==0" >
+  <div class="card">
+    <p style="text-align: center;margin-top: 10px;">No Match Available</p>
+  </div>
+</div>
     </div>
   </div>
-<div class="card" *ngIf="currentSport == 'football'">
+<div class="card" *ngIf="sport == 'cricket'">
   <div class="card-header">
 
     <div class="row">
@@ -70,7 +76,9 @@
         </div>
       </div>
   </div>
-  <div class="col-12" >
+</div>
+<div class="col-12" *ngIf="footballData.length ==0" >
+  <div class="card">
     <p style="text-align: center;margin-top: 10px;">No Match Available</p>
   </div>
 </div>
