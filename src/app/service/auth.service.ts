@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { response } from 'express';
 import { map, Observable } from 'rxjs';
 import { User } from '../interface/login.interface';
@@ -8,9 +9,12 @@ import { User } from '../interface/login.interface';
   providedIn: 'root'
 })
 export class AuthService {
+
+
   private  TOKEN_KEY:any;
   private url ='https://api.1exch.net/login';
-  constructor(private http:HttpClient) { }
+  static router: Router;
+  constructor(private http:HttpClient,private router:Router) { }
 
   login(code:string,password:string):Observable<User>{
     // const headers = new HttpHeaders({
@@ -28,4 +32,9 @@ export class AuthService {
   getToken(): string | null {
     return this.TOKEN_KEY;
   }
+  static logOut() {
+    this.router.navigate(['/login']);
+    throw new Error('Method not implemented.');
+  }
+
 }

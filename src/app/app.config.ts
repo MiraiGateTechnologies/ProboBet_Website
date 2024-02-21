@@ -8,8 +8,9 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } fro
 import { TokenInterceptor } from './interceptors/auth.interceptor';
 import { tokenInterceptor } from './interceptors/token.interceptor';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { errorIntercepter } from './interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),provideHttpClient(withFetch()), provideClientHydration(), provideAnimations(),
-  provideHttpClient(withInterceptors([tokenInterceptor]))]
+  provideHttpClient(withInterceptors([tokenInterceptor,errorIntercepter]))]
 };
