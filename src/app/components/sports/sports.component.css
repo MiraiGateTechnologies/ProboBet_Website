@@ -57,16 +57,21 @@ h5{
   padding-left: 7px;
   margin-left: 0;
   line-height: 0.9em; font-family:'Poppins', sans-serif;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 14px;
+}
+h4{
+  line-height: 1.2rem;padding-left: 5px; font-family:'Poppins', sans-serif;
+
 }
 .cricketdate{
   font-family: 'Poppins';font-size: small; padding-left: 20px; justify-content: center;margin-top: 5px;
 }
 p{
   padding-left: 7px;
-
-  line-height: 0.5em;font-weight: 900;
+  font-family: 'poppins',sans-serif;
+  line-height: 0.5em;
+  font-weight: 500;
 }
 
 .second{
@@ -99,6 +104,13 @@ li{
 }
 .second-body h5{
   line-height: 0.6em;
+}
+h4{
+padding-top: 2px;
+  line-height: 1.2rem;
+  padding-left: 5px;
+  font-family:'Poppins', sans-serif;
+
 }
 .card-body {
   margin-left: 0px;
@@ -182,7 +194,7 @@ h2{
 li{
   margin-top: 10px;
 }
-ul{
+/* ul{
   max-width: 300px;
   margin-top: 7px;
   gap:60px;
@@ -190,7 +202,7 @@ ul{
   list-style-type: none;
   color :white;
   font-size: 24px;
-}
+} */
   /* .
   -body {
     height: 60px;
@@ -203,7 +215,7 @@ ul{
     padding-top: 10px;
 }
 .row-body-upcomming{
-  height: 80px;
+  height: 60px;
   /* display: flex; */
   /* margin-left: 0; */
 }
