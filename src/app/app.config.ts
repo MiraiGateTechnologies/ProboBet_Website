@@ -7,6 +7,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/auth.interceptor';
 import { tokenInterceptor } from './interceptors/token.interceptor';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),provideHttpClient(withFetch()), provideClientHydration(), provideAnimations(),

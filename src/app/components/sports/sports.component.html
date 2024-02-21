@@ -23,7 +23,7 @@
     </div>
     <div class="row-body"  >
       <div class="row" *ngFor="let data of cricketData">
-        <div class="col-5">
+        <div class="col-5" (click)="navigateToEvent(data.matchcode)">
           <h5 >{{data.title}}</h5>
         </div>
         <div class="col-7 second-body justify-content-end">

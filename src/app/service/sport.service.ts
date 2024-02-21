@@ -15,7 +15,6 @@ export class SportService {
 
   constructor(private http:HttpClient) { }
 
-
   getSportDetails(matchcode:any):Observable<any>{
     const url = `https://odds.betguru.net/api/v2/get/${matchcode}`;
     return this.http.get(url)
