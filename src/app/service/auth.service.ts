@@ -13,7 +13,7 @@ export class AuthService {
 
   private  TOKEN_KEY:any;
   private url ='https://api.1exch.net/login';
-  static router: Router;
+  static logOut: any;
   constructor(private http:HttpClient,private router:Router) { }
 
   login(code:string,password:string):Observable<User>{
@@ -32,7 +32,7 @@ export class AuthService {
   getToken(): string | null {
     return this.TOKEN_KEY;
   }
-  static logOut() {
+   logOut() {
     this.router.navigate(['/login']);
     throw new Error('Method not implemented.');
   }

@@ -1,0 +1,151 @@
+/* Add this to your stylesheet */
+.upi-text {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  background-color: #f6dca3; /* Background color as per the image */
+  justify-content: center;
+  align-items: center; /* Vertically center the text */
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px; /* Font size as per your code */
+  padding: 10px; /* Padding as per the image */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
+  border-radius: 25px; /* Rounded corners as seen in the image */
+  text-align: center; /* Ensures text is centered if it wraps */
+  box-sizing: border-box; /* Makes sure padding doesn't affect width */
+}
+.container {
+  max-width: 600px; /* Or your desired max width */
+  margin: auto;
+}
+
+.col-12 {
+  padding: 0; /* Ensures no padding from grid system */
+}
+
+.deposit-instructions {
+  color: #fff; /* White text color */
+  padding: 15px;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.quick-deposit-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4CAF50; /* Green color for header */
+  font-size: 18px; /* Adjust to match your design */
+  margin-bottom: 15px;
+}
+
+.whatsapp-icon {
+  margin-right: 8px;
+}
+
+.instructions-text ul {
+  padding-left: 20px;
+}
+
+.instructions-text li {
+  margin-bottom: 5px; /* Space between list items */
+}
+
+.quick-deposit-btn {
+  background-color: #4CAF50; /* Green background to match header */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0; /* Space above and below the button */
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners for the button */
+}
+.quick-deposit-box {
+  border-radius: 0.25rem; /* Rounded corners */
+  border: 1px solid #ddd; /* Border color */
+}
+
+.account-details {
+  background-color: #000; /* Black background */
+  border-radius: 0.25rem;
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account-label {
+  font-weight: bold;
+  font-size: 12px;
+  font-family: 'poppins',sans-serif;
+}
+
+.account-value {
+  margin-left: 8px;
+}
+
+.icon-check {
+  width: 24px;
+  height: 24px;
+  /* -webkit-mask: url('path-to-check-icon.svg') no-repeat 50% 50%;
+  mask: url('path-to-check-icon.svg') no-repeat 50% 50%; */
+  mask-size: cover;
+}
+.upload-form {
+  background-color: #333; /* Match the dark theme from the image */
+  color: white;
+}
+
+.upload-form .form-control {
+  background-color: #555; /* Darker elements */
+  border: 1px solid #666;
+  color: white;
+}
+
+.upload-form .form-control::placeholder {
+  color: #bbb;
+}
+
+.upload-form .btn-outline-warning {
+  border-color: #ffc107; /* Bootstrap's warning color for border */
+  color: #ffc107; /* Bootstrap's warning color for text */
+  background-color: transparent;
+}
+
+.upload-form .btn-outline-warning:not(:last-child) {
+  margin-bottom: 10px; /* Space between buttons */
+}
+
+.upload-form .btn-outline-warning:hover {
+  background-color: #ffc107; /* Background color on hover */
+  color: #333; /* Text color on hover */
+}
+
+.upload-form .btn-warning {
+  background-color: #ffc107; /* Bootstrap's warning color */
+  border: none;
+}
+
+.upload-form .btn-warning:hover {
+  background-color: #e0a800; /* Darker on hover */
+}
+
+.upload-form label {
+  font-weight: bold;
+}
+
+
+/* Add media queries as necessary for responsiveness */
+
+
+/* Responsive font size */
+@media (min-width: 768px) {
+  .upi-text p {
+    font-size: 16px; /* Larger text for larger screens */
+  }
+}

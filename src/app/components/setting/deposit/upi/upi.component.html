@@ -1,0 +1,178 @@
+<div class="container" *ngIf="currentRoute">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12" [ngClass]="currentRoute">
+        <div *ngIf="currentRoute === 'whatsapp'">
+         <ul class="whatsappp-text">
+           <li> Instant 24/7 Deposit & Withdrawal Guaranteed!! </li>
+           <li> All Pay Option Available Like Paytm, Gpay, Upi, Imps & Hawala. </li>
+           <li> No Tension Of Pending Transaction & Inactive Account. </li>
+           <li> Ask updated bank details on given Options. </li>
+           <li> All Clients are Requested To Shift On Below Given Options For Smooth Service. </li>
+         </ul>
+         <div class="whatsapp-button-container col-12">
+           <button type="button" class="btn btn-sm whatsapp-button">
+            <img class="whatsapp-img" src="https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/wa.svg" alt="WhatsApp">
+            Deposit with Whatsapp
+          </button>
+
+         </div>
+
+        </div>
+        <div *ngIf="currentRoute === 'upi'">
+          <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="whatsapp-tab" data-bs-toggle="tab" data-bs-target="#whatsapp" type="button" role="tab" aria-controls="whatsapp" aria-selected="true">
+                WhatsApp
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="upi-tab" data-bs-toggle="tab" data-bs-target="#upi" type="button" role="tab" aria-controls="upi" aria-selected="false">
+                UPI
+              </button>
+            </li>
+            <!-- Add more tabs as necessary -->
+          </ul>
+          <div class="container">
+            <div class="col-12">
+              <div class="upi-text">
+                <p style="line-height: 1rem;">Easy & Fast deposit and withdraw from WhatsApp. We have a dedicated agent assigned for you.</p>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="col-12">
+              <div class="deposit-instructions">
+                <h3 class="quick-deposit-header">
+                <button class="quick-deposit-btn"><span class="whatsapp-icon">
+            <img class="whatsapp-img" src="https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/wa.svg" alt="WhatsApp">
+                </span>Quick Deposit</button>
+                </h3>
+                <div class="instructions-text">
+                  <p class="note">Please Note:</p>
+                  <ul>
+                    <li>Deposit money only in the below available account to get the fastest credit & avoid possible delays.</li>
+                    <li>After Deposit, upload your deposit slip screenshot and enter UTR number to receive balance.</li>
+                    <li>Requested amount should be the same as deposit slip amount for smooth deposit process.</li>
+                    <li>If UPI service is not available please use bank transfer or whatsapp option.</li>
+                    <li>यदि यूपीआई सेवा उपलब्ध नहीं है तो कृपया बैंक ट्रांसफर या व्हाट्सएप्प विकल्प का उपयोग करें।</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="whatsapp" role="tabpanel" aria-labelledby="whatsapp-tab">
+              <div class="container my-3">
+                <div class="col-12">
+                  <!-- Quick Deposit Box -->
+                  <div class="quick-deposit-box p-3  rounded shadow-sm">
+                    <!-- QR Code -->
+                    <div class="text-center mb-3 bg-white">
+                      <img src="../../../../../assets/download.jfif" alt="QR Code" class="img-fluid" style="width: 200px;height: 200px;">
+                    </div>
+                    <!-- Download & Pay Button -->
+                    <div class="text-center mb-3">
+                      <button class="btn btn-warning btn-lg">Download & Pay</button>
+                    </div>
+                    <!-- Account Details -->
+
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="account-details bg-dark text-white p-3">
+                    <!-- Account Number -->
+                    <div class="account-item mb-2">
+                      <span class="account-label">Account Number:</span>
+                      <span class="account-value">IND.GAUSWAMI&#64;JIO</span>
+                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                    </div>
+                    <!-- Holder Name -->
+                    <div class="account-item mb-2">
+                      <span class="account-label">Holder Name:</span>
+                      <span class="account-value">LOVEPREET SINGH</span>
+                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                    </div>
+                    <!-- Bank Name -->
+                    <div class="account-item mb-2">
+                      <span class="account-label">Bank Name:</span>
+                      <span class="account-value">INDUSIND BANK</span>
+                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                    </div>
+                    <!-- IFSC Code -->
+                    <div class="account-item">
+                      <span class="account-label">IFSC Code:</span>
+                      <span class="account-value">IND.GAUSWAMI&#64;JIO</span>
+                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <div class="upload-form bg-dark text-white p-4 rounded">
+                  <!-- Upload File -->
+                  <div class="mb-3">
+                    <label for="fileUpload" class="form-label">Upload File</label>
+                    <input class="form-control" type="file" id="fileUpload">
+                  </div>
+
+                  <!-- Amount -->
+                  <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" id="amount" class="form-control" placeholder="0">
+                  </div>
+
+                  <!-- Preset Amount Buttons -->
+                  <div class="col-12">
+                  <div class="row">
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning">+500</button>
+                      </div>
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning">+1000</button>
+                      </div>
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning">+2000</button>
+                      </div>
+                      <div class="col-4">
+                      <button type="button" class="btn btn-outline-warning">+5000</button>
+                      </div>
+                      <button type="button" class="btn btn-outline-warning">+10000</button>
+                      <button type="button" class="btn btn-outline-warning">+20000</button>
+                      <button type="button" class="btn btn-outline-warning">+25000</button>
+                      <button type="button" class="btn btn-outline-warning">+50000</button>
+                      <button type="button" class="btn btn-outline-warning">+100000</button>
+                    </div>
+                  </div>
+
+                  <!-- Unique Transaction Reference -->
+                  <div class="mb-3">
+                    <label for="transactionRef" class="form-label">Unique Transaction Reference</label>
+                    <input type="text" class="form-control" id="transactionRef" placeholder="6 to 12 Digits UTR Number">
+                  </div>
+
+                  <!-- Submit Button -->
+                  <div class="d-grid">
+                    <button class="btn btn-warning" type="submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="tab-pane fade" id="upi" role="tabpanel" aria-labelledby="upi-tab">
+              <!-- Content for UPI tab -->
+            </div>
+            <!-- Add more tab content as necessary -->
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
