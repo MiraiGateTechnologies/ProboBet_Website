@@ -115,7 +115,7 @@ p{
 
 }
 .nav-tabs .nav-link.active {
-  background: linear-gradient(90deg, rgba(37,211,102,1) 0%, rgba(242,215,26,1) 100%);
+  /* background: linear-gradient(90deg, rgba(37,211,102,1) 0%, rgba(242,215,26,1) 100%); */
   color: #000;
   border: none;
 }
@@ -236,12 +236,31 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
   .whatsapp-button:hover {
     background: linear-gradient(90deg, rgba(33,189,92,1) 0%, rgba(230,205,36,1) 100%);
   }
-
+  .amount-btn{
+    width: 92%;
+    margin: 5px;
+    color: white;
+    /* background-color: yellow ; */
+    opacity: 0.9;
+  }
+  .account-details{
+    margin-top: 10px;
+  }
+  .withdraw-table{
+    margin-top: 20px;
+  }
+  .withdraw-table .table thead{
+    background-color: #020c1b;
+    color: white;
+  }
 @media screen and (max-width: 480px){
   .sport-main{
     overflow: hidden; /* or 'auto' */
   }
   .row{
+    margin-top: 10px;
+  }
+  .account-details{
     margin-top: 10px;
   }
   .sport-details-header{
@@ -251,6 +270,10 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
   }
   .row-body{
     margin-top: 5px;
+  }
+  .withdraw-table .table thead tr{
+    background-color: #020c1b;
+    color: white;
   }
   /* ul{
     max-width: 300px;
@@ -297,6 +320,13 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
     height: 50px;
     background: #a5d9fe;
   }
+  .amount-btn{
+    width: 100%;
+    margin: 5px;
+    font-size: 12px;
+    color: white !important;
+    opacity: 0.9;
+  }
   .box-2{
     border:none;
     border-radius: 5px;
@@ -342,6 +372,40 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
     margin: 5px;
 
 }
+.notes-list-head{
+  padding-left: 20px;
+}
+.notes-list {
+  color: white;
+  padding-left: 40px;
+  font-family: 'Poppins', sans-serif;
+  list-style: none; /* Remove default list styling */
+  position: relative; /* Needed for absolute positioning of pseudo-element */
+}
+
+.notes-list::before {
+  content: '';
+  position: absolute;
+  left: 20px; /* Adjust as necessary */
+  top: 0;
+  bottom: 0;
+  width: 3px; /* Width of the dotted line */
+  background-image: linear-gradient(white 50%, rgba(255,255,255,0) 0%);
+  background-position: left;
+  background-size: 2px 10px; /* Size of the dots */
+  background-repeat: repeat-y;
+}
+
+.notes-list li {
+  position: relative;
+  padding-left: 20px; /* Adjust space for text from the dotted line */
+  margin-bottom: 10px; /* Space between list items */
+}
+
+.notes-list li img {
+  vertical-align: middle;
+}
+
 .deposit-box img{
   width: 100px;
   height: 60px;
@@ -389,7 +453,7 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
   color: white;
 }
 .nav-tabs .nav-link.active {
-  background: linear-gradient(90deg, rgba(37,211,102,1) 0%, rgba(242,215,26,1) 100%);
+  /* background: linear-gradient(90deg, rgba(37,211,102,1) 0%, rgba(242,215,26,1) 100%); */
   color: #000;
   border: none;
   font-family: 'poppins';
@@ -402,7 +466,6 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
   font-family: 'poppins';
   border-radius: 6px 6px 0 0; /* Rounded top corners */
 }
-
 /* Style for the tab content */
 .tab-content {
   border: none;
@@ -534,11 +597,18 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
   color: white;
 }
 .nav-tabs .nav-link.active {
-  background: linear-gradient(90deg, rgba(37,211,102,1) 0%, rgba(242,215,26,1) 100%);
+  /* background: linear-gradient(90deg, rgba(37,211,102,1) 0%, rgba(242,215,26,1) 100%); */
   color: #000;
   border: none;
   font-family: 'poppins';
 
+}
+.amount-btn{
+  width: 92%;
+  margin: 5px;
+  color: white;
+  /* background-color: yellow ; */
+  opacity: 0.9;
 }
 
 .nav-tabs .nav-link {
@@ -590,11 +660,11 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
   background: linear-gradient(90deg, rgba(33,189,92,1) 0%, rgba(230,205,36,1) 100%);
 }
 
-.whatsapp-img {
-  width: 24px; /* Adjust size as needed */
-  height: auto;
-  margin-right: 10px; /* Adjust spacing as needed */
-}
+  .whatsapp-img {
+    width: 24px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px; /* Adjust spacing as needed */
+  }
 
 .box-wrapper{
   float: left;
@@ -621,5 +691,8 @@ body { margin: 0;background-color: rgb(0, 0, 0); font-family: 'poppins', sans-se
     border: 1px solid #FFC107; /* Example: yellow border */
     background-color: #9898a7;
 
+  }
+  .account-details{
+    margin-top: 10px;
   }
 }

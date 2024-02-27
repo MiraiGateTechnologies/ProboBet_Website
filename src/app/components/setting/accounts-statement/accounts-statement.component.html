@@ -1,1 +1,48 @@
-<p>accounts-statement works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="bet-details">
+        <form>
+          <div class="mb-3">
+            <label for="order-type">Start Date</label>
+            <input type="date" class="form-control form-control-sm">
+          </div>
+
+          <div class="mb-3">
+            <label for="order-type">End  Date</label>
+            <input type="date" class="form-control form-control-sm">
+          </div>
+          <button class="btn btn-sm load-report">Load Report</button>
+        </form>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-dark ">
+        <thead>
+          <tr style="white-space: nowrap;" class="table-account">
+            <th >Voucher ID</th>
+            <th >Market ID</th>
+            <th >Settled Date</th>
+            <th >Narration</th>
+            <th >Debit</th>
+            <th >Credit</th>
+            <th >Running Balance</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.voucherID }}</td>
+            <td>{{ transaction.marketID }}</td>
+            <td>{{ transaction.settledDate }}</td>
+            <td style="color: blue">{{ transaction.narration }}</td>
+            <td style="color: red">{{ transaction.debit }}</td>
+            <td style="color: green">{{ transaction.credit }}</td>
+            <td style="color: green">{{ transaction.runningBalance }}</td>
+          </tr>
+
+
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>

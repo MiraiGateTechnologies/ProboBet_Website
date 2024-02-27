@@ -1,0 +1,47 @@
+.bet-details{
+  font-family: 'poppins';
+}
+.form-select{
+  background-color: #222c3b;
+  color: white;
+
+}
+.load-report{
+  color: white;
+  width: 100%;
+  background-color: #2dc3e8;
+}
+
+.select {
+  color: white;
+}
+.form-control{
+  background-color: #222c3b;
+  color: white;
+}
+.profit-loss{
+  margin-top: 10px;
+  background: #001e50;
+  background-color: linear-gradient(105deg,#001e50 10%,#040404d9 70%);
+}
+h3{
+  font-family: 'poppins',sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  padding-left: 5px;
+}
+tr{
+  border: 1px solid gray;
+}
+th{
+  font-family: 'poppins',sans-serif;
+  color: gray;
+  font-weight: 400;
+}
+label{
+  margin: 2px;
+  color: white;
+  font-family: 'poppins',sans-serif;
+  font-weight: 400;
+}

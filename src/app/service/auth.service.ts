@@ -6,14 +6,13 @@ import { map, Observable } from 'rxjs';
 import { User } from '../interface/login.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
 
   private  TOKEN_KEY:any;
   private url ='https://api.1exch.net/login';
-  static logOut: any;
   constructor(private http:HttpClient,private router:Router) { }
 
   login(code:string,password:string):Observable<User>{
@@ -33,6 +32,8 @@ export class AuthService {
     return this.TOKEN_KEY;
   }
    logOut() {
+     debugger
+     console.log('working well')
     this.router.navigate(['/login']);
     throw new Error('Method not implemented.');
   }

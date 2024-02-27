@@ -1,1 +1,194 @@
-<p>withdrow works!</p>
+<div class="withdrawal-container">
+  <h2 class="withdrow">Withdrow</h2>
+  <div class="withdrawal-note">
+      <strong class="withdrow-note">Please Note:</strong>
+      <ul>
+          <li>The bonus amount can be used to place bets across the platform and the winnings can be withdrawn.</li>
+          <li>A player can use bonus amount to place bets and play games on Kheloyar.</li>
+          <li>If the withdrawals are pending from the bank, it may take up to 72 banking hours for your transaction to clear.</li>
+          <li>If a user only deposits and attempts to withdraw the money without placing a single bet, 100% of the amount will be withheld due to suspicious activity. If this is repeated, no withdrawal will be given to the user.</li>
+      </ul>
+  </div>
+  <div class="withdrawal-container">
+    <!-- Tab Navigation -->
+    <ul class="nav nav-tabs" id="withdrawalTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="add-account-tab" data-bs-toggle="tab" data-bs-target="#addAccount" type="button" role="tab" aria-controls="addAccount" aria-selected="true">Add Account</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="existing-account-tab" data-bs-toggle="tab" data-bs-target="#existingAccount" type="button" role="tab" aria-controls="existingAccount" aria-selected="false">Existing Account</button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+  </div>
+
+
+</div>
+
+<div class="tab-content" id="withdrawalTabContent">
+    <div class="tab-pane fade show active" id="addAccount" role="tabpanel" aria-labelledby="add-account-tab">
+
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+<div class="mb-3">
+  <label for="paymentOptions" class="form-label">Payment Options</label>
+  <select class="form-select" id="paymentOptions">
+    <option>Bank</option>
+  </select>
+</div>
+
+<div class="mb-3">
+  <label for="holderName" class="form-label">Holder Name</label>
+  <input type="text" class="form-control" id="holderName" formControlName="holderName" placeholder="Holder Name">
+  <div *ngIf="paymentForm.get('holderName')?.invalid && paymentForm.get('holderName')?.touched" class="alert alert-danger error-msg">
+    Account holder name is required
+  </div>
+</div>
+<div class="mb-3">
+  <label for="BankName" class="form-label">Bank Name</label>
+  <input type="text" class="form-control" id="bankName" formControlName="bankName" placeholder="Bank Name">
+  <div *ngIf="paymentForm.get('bankName')?.invalid && paymentForm.get('bankName')?.touched" class="alert alert-danger error-msg">
+    Bank name is required
+  </div>
+</div>
+<div class="mb-3">
+  <label for="branckName" class="form-label">Branch Name</label>
+  <input type="text" class="form-control" id="branchName" formControlName="branchName" placeholder="Branch Name">
+  <div *ngIf="paymentForm.get('branchName')?.invalid && paymentForm.get('branchName')?.touched" class="alert alert-danger error-msg">
+    Branch name is required
+  </div>
+</div>
+<div class="mb-3">
+  <label for="branckName" class="form-label">Account Number</label>
+  <input type="number" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Account Number">
+  <div *ngIf="paymentForm.get('accountNumber')?.invalid && paymentForm.get('accountNumber')?.touched" class="alert alert-danger error-msg">
+    Account Number is required
+  </div>
+</div>
+<div class="mb-3">
+  <label for="ibanNumber" class="form-label">IBAN Number</label>
+  <input type="number" class="form-control" id="ibanNumber" formControlName="ibanNumber" placeholder="IBAN Number">
+  <div *ngIf="paymentForm.get('ibanNumber')?.invalid && paymentForm.get('ibanNumber')?.touched" class="alert alert-danger error-msg">
+    IBAN Number is required
+  </div>
+</div>
+<!-- Repeat for other form fields -->
+
+<div class="col-12 col-md-12">
+  <button type="submit" class="btn btn-warning">Submit</button>
+</div>
+</form>
+<div class="table-responsive withdraw-table">
+  <table class="table table-dark">
+    <thead>
+      <tr style="white-space: nowrap;">
+        <th>Account Number</th>
+        <th>Holder Number</th>
+        <th>IBAN/IFSC Number</th>
+        <th>Bank Name</th>
+        <th>Branch Name</th>
+        <th>Payment Option</th>
+        <th>Delete</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>434545455445</td>
+        <td>Mark More</td>
+        <td>SBIN 00012</td>
+        <td>State Bank of India</td>
+        <td>Indrustrial Estate</td>
+        <td>Bank</td>
+        <td><button class="btn btn-warning btn-sm" style="border-radius: 5px;">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+    </div>
+    <div class="tab-pane fade" id="existingAccount" role="tabpanel" aria-labelledby="existing-account-tab">
+        <div class="scroll p-2">
+          <div class="existing-card" *ngFor="let item of existingAccount" [class.active-card]="activeCard === item" (click)="setActive(item)">
+            <img [src]="activeCard === item ? yellowTickImage : tickImage" class="card-tick" alt="Card Status Tick">
+            <p>{{item.accountName}}</p>
+            <p>{{item.accountNumber}}</p>
+            <p>{{item.bank}}</p>
+          </div>
+        </div>
+        <div class="container existing-input">
+          <form [formGroup]="existingAccountForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="accountNumber" class="form-label">Account Number</label>
+              <input type="number" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Account Number">
+              <div *ngIf="existingAccountForm.get('accountNumber')?.invalid && existingAccountForm.get('accountNumber')?.touched" class="alert alert-danger error-msg">
+                Account Number is required
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="accountName" class="form-label">Holder Name</label>
+              <input type="text" class="form-control" id="accountName" formControlName="accountName" placeholder="Account Name">
+              <div *ngIf="existingAccountForm.get('accountName')?.invalid && existingAccountForm.get('accountName')?.touched" class="alert alert-danger error-msg">
+                Account name is required
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="amount" class="form-label">Amount</label>
+              <input type="text" class="form-control" id="amount" formControlName="amount" placeholder="Amount">
+              <div *ngIf="existingAccountForm.get('amount')?.invalid && existingAccountForm.get('amount')?.touched" class="alert alert-danger error-msg">
+                Amount is required
+              </div>
+            </div>
+          </form>
+          <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500')">500</button>
+                </div>
+                <div class="col-4">
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('5000')">5000</button>
+                </div>
+                <div class="col-4">
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('10000')">10000</button>
+                </div>
+              </div>
+            <div class="row">
+              <div class="col-4">
+                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('200000')">200000</button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500000')">500000</button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('1000000')">1000000</button>
+              </div>
+          </div>
+            <div class="d-grid" style="margin: 10px;">
+              <button class="btn btn-warning" type="submit">Submit</button>
+            </div>
+            <div class="table-responsive withdraw-table">
+              <table class="table table-dark">
+                <thead>
+                  <tr style="white-space: nowrap;">
+                    <th>Transaction No</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Date & Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.transactionNo }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.status }}</td>
+        <td>{{ transaction.dateTime }}</td>
+      </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+    </div>
+

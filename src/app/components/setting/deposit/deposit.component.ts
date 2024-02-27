@@ -22,8 +22,7 @@ export class DepositComponent {
     { id: 'paytm', name: 'Paytm', image: 'https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/paytm.svg' },
     { id: 'phonepe', name: 'PhonePe', image: 'https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/phonepe.svg' },
     { id: 'qrcode', name: 'QR Code', image: 'https://m.kheloyaar360.net/assets/images/payment-deposit/qrcode-icon.png' },
-    { id: 'bank-transfer', name: 'QR Code', image: 'https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/bank-transfer.svg' }
-
+    { id: 'banktransfer', name:'Bank Transfer', image: 'https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/bank-transfer.svg' }
   ];
 
 }

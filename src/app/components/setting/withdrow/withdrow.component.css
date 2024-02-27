@@ -1,0 +1,135 @@
+
+.withdrawal-container {
+  margin: auto;
+  padding: 20px;
+  color:white;
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: for some shadow */
+}
+.withdrow{
+  color: white;
+  text-align: center;
+}
+.withdrow-note{
+  color: red;
+}
+.withdrawal-note {
+  padding: 10px;
+  border-radius: 5px;
+  color:white;
+
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.tab-content {
+  border: none;
+  border-top: none;
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  color: white;
+}
+
+
+.form-label {
+  font-weight: bold;
+}
+.form-control{
+  background-color: #2c2c2c!important;
+  color: white;
+}
+.form-select{
+  background-color: #2c2c2c!important;
+  color: white;
+}
+/* CSS to change placeholder color */
+input::placeholder {
+  color: #909090; /* Your desired placeholder color */
+  opacity: 1; /* Firefox lowers the opacity by default, so reset it if needed */
+}
+
+/* For Internet Explorer 10-11 */
+input:-ms-input-placeholder {
+  color: #909090;
+}
+
+/* For Microsoft Edge */
+input::-ms-input-placeholder {
+  color: #909090;
+}
+
+.btn-warning {
+  width: 100%;
+  background-color: #f1c40f;
+  border: none;
+}
+.error-msg{
+  margin-top: 5px;
+  height: 20px;
+  font-family: 'poppins',sans-serif;
+  padding: 0;
+  font-weight: 800;
+}
+tr{
+  background-color: #020c1b;
+}
+.withdraw-table .table{
+  border: 2px solid gray;
+}
+.withdraw-table .table thead tr{
+  border: 2px solid gray;
+}
+
+.withdraw-table .table thead tr th{
+  color: white !important;
+  border: 2px solid gray;
+  font-family: 'poppins',sans-serif;
+  font-weight:400 !important;
+  background-color: #01173b !important;
+}
+
+.withdraw-table .table tbody tr td{
+  color: white !important;
+  border: 2px solid gray;
+
+  font-family: 'poppins',sans-serif;
+  font-weight:400 !important;
+  white-space: nowrap;
+}
+.scroll {
+  margin-left: 20px;
+  display: flex;
+  overflow-x: scroll;
+  max-width: 100%;
+}
+.existing-card {
+  max-width: 180px;
+  border-radius: 8px;
+  padding: 15px;
+  margin-left: 10px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  transform: scale(1.1);
+  background-color: #1f1d14!important;
+  color: white;
+
+  position: relative; /* Add this to position the image absolutely relative to the card */
+}
+
+/* CSS */
+.active-card {
+  border: 2px solid yellow; /* Highlight with yellow border */
+  transform: scale(1.15); /* Slightly larger scale for zoom effect */
+  background-color: #292711 !important; /* Slightly different background to distinguish */
+}
+.card-tick {
+  position: absolute;
+  top: 2px; /* Adjust as necessary */
+  right: 10px; /* Adjust as necessary */
+  width: 24px; /* Adjust size as necessary */
+  height: 24px; /* Adjust size as necessary */
+}
+.existing-input{
+  color: white;
+  font-family: 'poppins',sans-serif;
+  font-weight: 200 !important;
+}

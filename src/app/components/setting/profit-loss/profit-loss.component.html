@@ -1,1 +1,49 @@
-<p>profit-loss works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="bet-details">
+        <form>
+          <div class="mb-3">
+            <label for="order-type">Start Date</label>
+            <input type="date" class="form-control form-control-sm">
+          </div>
+          <div class="mb-3">
+            <label for="order-type">End  Date</label>
+            <input type="date" class="form-control form-control-sm">
+          </div>
+          <button class="btn btn-sm load-report">Load Report</button>
+        </form>
+        <div class="profit-loss">
+          <h3>Profit and Loss Statement</h3>
+        </div>
+        <div class="col-12">
+          <table class="table table-dark">
+
+
+            <tbody *ngFor="let item of profitLossData">
+              <tr >
+                <th>Event Name</th>
+                <td >{{ item.Event }}</td>
+              </tr>
+              <tr >
+                <th>Profit Loss</th>
+                <td >{{ item.ProfitLoss }}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Total:</td>
+                <td>{{ calculateTotal() }}</td>
+              </tr>
+            </tfoot>
+          </table>
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

@@ -19,6 +19,7 @@
   margin: auto;
 }
 
+
 .col-12 {
   padding: 0; /* Ensures no padding from grid system */
 }
@@ -96,48 +97,11 @@
   mask: url('path-to-check-icon.svg') no-repeat 50% 50%; */
   mask-size: cover;
 }
-.upload-form {
-  background-color: #333; /* Match the dark theme from the image */
-  color: white;
-}
 
-.upload-form .form-control {
-  background-color: #555; /* Darker elements */
-  border: 1px solid #666;
-  color: white;
-}
 
-.upload-form .form-control::placeholder {
-  color: #bbb;
-}
 
-.upload-form .btn-outline-warning {
-  border-color: #ffc107; /* Bootstrap's warning color for border */
-  color: #ffc107; /* Bootstrap's warning color for text */
-  background-color: transparent;
-}
 
-.upload-form .btn-outline-warning:not(:last-child) {
-  margin-bottom: 10px; /* Space between buttons */
-}
 
-.upload-form .btn-outline-warning:hover {
-  background-color: #ffc107; /* Background color on hover */
-  color: #333; /* Text color on hover */
-}
-
-.upload-form .btn-warning {
-  background-color: #ffc107; /* Bootstrap's warning color */
-  border: none;
-}
-
-.upload-form .btn-warning:hover {
-  background-color: #e0a800; /* Darker on hover */
-}
-
-.upload-form label {
-  font-weight: bold;
-}
 
 
 /* Add media queries as necessary for responsiveness */

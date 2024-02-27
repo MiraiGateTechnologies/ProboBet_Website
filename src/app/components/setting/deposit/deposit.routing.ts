@@ -1,5 +1,4 @@
 import { Routes } from "@angular/router";
-import { BankTransferComponent } from "../bank-transfer/bank-transfer.component";
 import { UpiComponent } from "./upi/upi.component";
 
 
@@ -11,7 +10,7 @@ export const deposit: Routes = [
   {path:'paytm',component:UpiComponent},
   {path:'phonepe',component:UpiComponent},
   {path:'qrcode',component:UpiComponent},
-  {path:'bank-transfer',component:BankTransferComponent},
+  {path:'banktransfer',component:UpiComponent},
 
 
 

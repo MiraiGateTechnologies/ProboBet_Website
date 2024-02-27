@@ -1,0 +1,39 @@
+.bet-details{
+  font-family: 'poppins';
+}
+.form-select{
+  background-color: #222c3b;
+  color: white;
+
+}
+.load-report{
+  color: white;
+  width: 100%;
+  background-color: #2dc3e8;
+}
+
+.select {
+  color: white;
+}
+.form-control{
+  background-color: #222c3b;
+  color: white;
+}
+.table-responsive{
+  margin-top: 20px;
+
+}
+
+
+label{
+  margin: 2px;
+  color: white;
+  font-family: 'poppins',sans-serif;
+  font-weight: 400;
+}
+
+.table-account{
+  font-size: 12px;
+  font-family: 'poppins',sans-serif;
+  font-weight: 400 !important;
+}

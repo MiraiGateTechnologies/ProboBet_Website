@@ -15,11 +15,10 @@
             <img class="whatsapp-img" src="https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/wa.svg" alt="WhatsApp">
             Deposit with Whatsapp
           </button>
-
+          this
          </div>
-
         </div>
-        <div *ngIf="currentRoute === 'upi'">
+        <div *ngIf="currentRoute === 'upi'||currentRoute === 'gpay' || currentRoute =='paytm'||currentRoute =='phonepe'||currentRoute =='qrcode'||currentRoute =='banktransfer'">
           <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="whatsapp-tab" data-bs-toggle="tab" data-bs-target="#whatsapp" type="button" role="tab" aria-controls="whatsapp" aria-selected="true">
@@ -112,14 +111,20 @@
               </div>
               <div class="container">
                 <div class="upload-form bg-dark text-white p-4 rounded">
-                  <!-- Upload File -->
+
                   <div class="mb-3">
                     <label for="fileUpload" class="form-label">Upload File</label>
-                    <input class="form-control" type="file" id="fileUpload">
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text" >
+                        <i class="bi bi-camera-fill"></i>
+                      </span>
+                      <input type="file" class="form-control" id="fileUpload" hidden>
+                      <label for="fileUpload" class="form-control file-upload-label">Choose file</label>
+                    </div>
                   </div>
 
                   <!-- Amount -->
-                  <div class="mb-3">
+                  <div class="mb-3 input-group-sm">
                     <label for="amount" class="form-label">Amount</label>
                     <input type="number" id="amount" class="form-control" placeholder="0">
                   </div>
@@ -128,28 +133,43 @@
                   <div class="col-12">
                   <div class="row">
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning">+500</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn">+500</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning">+1000</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn">+1000</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning">+2000</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn">+2000</button>
                       </div>
-                      <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning">+5000</button>
-                      </div>
-                      <button type="button" class="btn btn-outline-warning">+10000</button>
-                      <button type="button" class="btn btn-outline-warning">+20000</button>
-                      <button type="button" class="btn btn-outline-warning">+25000</button>
-                      <button type="button" class="btn btn-outline-warning">+50000</button>
-                      <button type="button" class="btn btn-outline-warning">+100000</button>
                     </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-warning amount-btn">+5000</button>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-warning amount-btn">+10000</button>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-warning amount-btn">+20000</button>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <button type="button" class="btn btn-outline-warning amount-btn">+5000</button>
                   </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-outline-warning amount-btn">+25000</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-outline-warning amount-btn">+100000</button>
+                  </div>
+              </div>
+
+
 
                   <!-- Unique Transaction Reference -->
                   <div class="mb-3">
-                    <label for="transactionRef" class="form-label">Unique Transaction Reference</label>
+                    <label for="transactionRef" class="form-label" style="padding-top: 10px;">Unique Transaction Reference</label>
                     <input type="text" class="form-control" id="transactionRef" placeholder="6 to 12 Digits UTR Number">
                   </div>
 
@@ -162,8 +182,126 @@
 
 
             </div>
-
+            </div>
             <div class="tab-pane fade" id="upi" role="tabpanel" aria-labelledby="upi-tab">
+              <div class="container my-3">
+                <div class="col-12">
+                  <!-- Quick Deposit Box -->
+                  <!-- <div class="quick-deposit-box p-3  rounded shadow-sm"> -->
+                    <!-- QR Code -->
+                    <!-- <div class="text-center mb-3 bg-white">
+                      <img src="../../../../../assets/download.jfif" alt="QR Code" class="img-fluid" style="width: 200px;height: 200px;">
+                    </div> -->
+                    <!-- Download & Pay Button -->
+                    <!-- <div class="text-center mb-3">
+                      <button class="btn btn-warning btn-lg">Download & Pay</button>
+                    </div> -->
+                    <!-- Account Details -->
+
+                  <!-- </div> -->
+                </div>
+                <div class="col-12">
+                  <div class="account-details bg-dark text-white p-3">
+                    <!-- Account Number -->
+                    <div class="account-item mb-2">
+                      <span class="account-label">Account Number:</span>
+                      <span class="account-value">IND.GAUSWAMI&#64;JIO</span>
+                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                    </div>
+                    <!-- Holder Name -->
+                    <div class="account-item mb-2">
+                      <span class="account-label">Holder Name:</span>
+                      <span class="account-value">LOVEPREET SINGH</span>
+                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                    </div>
+                    <!-- Bank Name -->
+                    <div class="account-item mb-2">
+                      <span class="account-label">Bank Name:</span>
+                      <span class="account-value">INDUSIND BANK</span>
+                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                    </div>
+                    <!-- IFSC Code -->
+                    <div class="account-item">
+                      <span class="account-label">IFSC Code:</span>
+                      <span class="account-value">IND.GAUSWAMI&#64;JIO</span>
+                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <div class="upload-form bg-dark text-white p-4 rounded">
+
+                  <div class="mb-3">
+                    <label for="fileUpload" class="form-label">Upload File</label>
+                    <div class="input-group input-group-sm">
+                      <span class="input-group-text" >
+                        <i class="bi bi-camera-fill"></i>
+                      </span>
+                      <input type="file" class="form-control" id="fileUpload" hidden>
+                      <label for="fileUpload" class="form-control file-upload-label">Choose file</label>
+                    </div>
+                  </div>
+
+                  <!-- Amount -->
+                  <div class="mb-3 input-group-sm">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" id="amount" class="form-control" placeholder="0">
+                  </div>
+
+                  <!-- Preset Amount Buttons -->
+                  <div class="col-12">
+                  <div class="row">
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning amount-btn">+500</button>
+                      </div>
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning amount-btn">+1000</button>
+                      </div>
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning amount-btn">+2000</button>
+                      </div>
+                    </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-warning amount-btn">+5000</button>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-warning amount-btn">+10000</button>
+                    </div>
+                    <div class="col-4">
+                      <button type="button" class="btn btn-outline-warning amount-btn">+20000</button>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <button type="button" class="btn btn-outline-warning amount-btn">+5000</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-outline-warning amount-btn">+25000</button>
+                  </div>
+                  <div class="col-4">
+                    <button type="button" class="btn btn-outline-warning amount-btn">+100000</button>
+                  </div>
+              </div>
+
+
+
+                  <!-- Unique Transaction Reference -->
+                  <div class="mb-3">
+                    <label for="transactionRef" class="form-label" style="padding-top: 10px;">Unique Transaction Reference</label>
+                    <input type="text" class="form-control" id="transactionRef" placeholder="6 to 12 Digits UTR Number">
+                  </div>
+
+                  <!-- Submit Button -->
+                  <div class="d-grid">
+                    <button class="btn btn-warning" type="submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
               <!-- Content for UPI tab -->
             </div>
             <!-- Add more tab content as necessary -->
@@ -172,6 +310,15 @@
 
 
         </div>
+          <div class="notes-section">
+            <h2 class="notes-list-head">Notes</h2>
+            <ul class="notes-list">
+              <li>Send your deposit amount on given Bank account.</li>
+              <li>Copy and Enter the 12 digits UTR Number.</li>
+              <li><img src="https://dqqdyv927mezc.cloudfront.net/kheloyar/utr.svg"></li>
+              <li>Copy and Enter the 12 digits UTR Number.</li>
+            </ul>
+          </div>
       </div>
     </div>
   </div>
