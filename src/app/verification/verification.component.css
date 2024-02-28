@@ -1,0 +1,151 @@
+
+  .login-container{
+    height: 30vh;
+    background-color: #000;
+    position: relative;
+  }
+.login-title {
+    position: absolute;
+    bottom: 21px;
+    left: 24px;
+    color: #fff;
+
+   
+
+}
+.title {
+  position: absolute;
+  bottom: 61px;
+  left: 23px;
+  font-size: 28px;
+  color: #FFB449;
+}
+
+.main-container {
+  background-color: white;
+  height: 70vh;
+  width: 100%;
+  padding: 15px;
+}
+  .verify-container {
+    background: white;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust as per your requirement */
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .checkbox-group {
+    margin: 10px 0;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #get-otp {
+    background-color: #ff9800; /* Adjust the color to match the design */
+  }
+  
+  #whatsapp {
+    background-color: #25d366; /* WhatsApp color */
+  }
+  
+  .divider {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+ 
+ 
+  .whatsapp-button-container{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .whatsapp-img {
+    width: 24px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px; /* Adjust spacing as needed */
+  }
+  .whatsapp-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 6px;
+    font-size: 16px; /* Adjust font size as needed */
+    color: #ffffff; /* Adjust text color as needed */
+    background: linear-gradient(90deg, rgba(37,211,102,1) 0%, rgb(44, 230, 72) 100%);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .whatsapp-button:hover {
+    background: linear-gradient(90deg, rgba(33,189,92,1) 0%, rgb(72, 230, 36) 100%);
+  }
+.bonus-offers{
+  width: 157px;
+  height: 63px;
+  background: linear-gradient(90deg, #FF0098 0%, #8F05BD 100%);
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+
+}
+
+.b2{
+  width: 157px;
+  height: 63px;
+  background: linear-gradient(90deg, #006B30 0%, #48CD83 100%);
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  line-height: 1.1em;
+
+}
+.offer-class{
+line-height: 1.1em;
+width: 100%;
+}
+.bi-gift-fill{
+  color: white;
+font-size: 32px;
+margin: 10px;
+
+}
+
+.offer-buttons{
+  display: flex;
+}
+
+.bonus-offer {
+  display: flex;
+  gap: 25px;
+}

@@ -1,0 +1,39 @@
+<app-games></app-games>
+<!-- <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center"  [backgroundColor]="'accent'">
+    <mat-tab label="First">Content 1</mat-tab>
+    <mat-tab label="Second">Content 2</mat-tab>
+    <mat-tab label="Third">Content 3</mat-tab>
+  </mat-tab-group>
+   -->
+
+
+   <div class="card border-0" style="border-radius: 0%;">
+   <ul class="nav nav-tabs d-flex justify-content-between" id="myTabs" style="background-color: black; border: none; margin-bottom: 10px;">
+    <li class="nav-item">
+        <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#content1">IN PLAY</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#content2">UPCOMING</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="tab3" data-bs-toggle="tab" href="#content3">RESULTS</a>
+    </li>
+</ul>
+
+    <div class="tab-content mt-3" style="background-color: black;">
+        <div class="tab-pane fade show active" id="content1">
+            <app-in-play [sport]="sport"></app-in-play>
+        </div>
+        <div class="tab-pane fade" id="content2">
+            <app-up-comming></app-up-comming>
+        </div>
+        <div class="tab-pane fade" id="content3">
+          <app-result></app-result>
+            <!-- <app-result></app-cricket> -->
+        </div>
+    </div>
+</div>
+<!-- <h3 style="
+  font-family: 'Protest Riot', sans-serif; color:white
+">kdlfjas;dflk</h3> -->
+

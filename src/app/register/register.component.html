@@ -1,0 +1,41 @@
+<div class="login-container">
+    <a class="navbar-brand" href="#">
+        <h1 class="title">NEW MEMBER</h1>
+  </a>
+    <h2 class="login-title">Register Now 👋</h2>
+  </div>
+  <div class="container">
+    
+    <div class="otp-section">
+      <h3 class="otp-title">Enter OTP</h3>
+      <div class="otp-details">
+
+
+      <p class="otp-description">An 4 digit code has been sent to</p>
+      <p class="phone-number">+91 977 040 2243</p>
+    </div>
+      <div class="otp-inputs">
+        <input type="text" class="otp-input" maxlength="1">
+        <input type="text" class="otp-input" maxlength="1">
+        <input type="text" class="otp-input" maxlength="1">
+        <input type="text" class="otp-input" maxlength="1">
+
+        
+       
+      </div>
+      <button class="verify-button">Verify</button>
+    </div>
+
+    <div class="password-section">
+   
+      <div class="input-group">
+        
+        <input [type]="showPassword ? 'text' : 'password'" id="password" class="password-input" placeholder="Password">
+     
+        <i class="material-icons toggle-icon" (click)="togglePasswordVisibility()">{{showPassword ? 'visibility' : 'visibility_off'}}</i>
+      </div>
+      <button class="submit-button">Submit</button>
+    </div>
+  </div>
+
+

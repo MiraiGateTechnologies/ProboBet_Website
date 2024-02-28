@@ -1,0 +1,18 @@
+.actors {
+    display: flex;
+    gap: 15px;
+
+}
+
+.actors img {
+    width: 88.5px;
+    height: 88.5px;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 6%;
+
+}
+
+.actors img:hover {
+    transform: scale(1.1);
+}
+

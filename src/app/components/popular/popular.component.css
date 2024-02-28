@@ -1,0 +1,29 @@
+
+  
+  /* .image-box div img {
+    width: 105px;
+    height: 80px;
+  } */
+  .img-thumbnail{
+  
+   width:90px;
+   height:80px;
+   background-color: black;
+   border: 1px solid black;
+   margin-right: 10px;
+   
+  }
+
+
+  .popular {
+    white-space: nowrap; /* Prevents images from wrapping to the next line */
+    overflow-x: auto;
+    margin-bottom: 15px;
+    ; /* Enables horizontal scrolling if the images exceed the container width */
+  }
+
+  .img-thumbnail {
+    display: inline-block; /* Display images in a line */
+    margin-right: 5px; /* Add some space between images (adjust as needed) */
+    max-width: 100%; /* Ensure images don't exceed their container's width */
+  }

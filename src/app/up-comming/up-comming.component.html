@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+
+      <!-- <button class="btn btn-sm btn-success rounded-pill upcoming-box " type="button">Upcoming</button> -->
+      <div class="row">
+        <div class="col-5  header-first" >
+          <h2 style="font-family: poppins;"><img src="assets/ball.png" class="img-fluid" alt="..." style="margin-right: 5px;">Cricket</h2>
+        </div>
+
+        <div class="col-7 header-second">
+          <div class="second">
+            <ul>
+              <li>1</li>
+              <li>x</li>
+              <li>2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row row-body" *ngFor="let data of cricketUpcommingData" >
+      <div class="col-5 first-body">
+        <p style="font-size: 12px; line-height: 0.2rem; color: red;">{{data.time}}</p>
+        <h5>{{data.title}}</h5>
+      </div>
+
+      <div class="col-7 second-body justify-content-end">
+          <div class="box-1">
+            <!-- <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5> -->
+          </div>
+          <div class="box-1">
+            <!-- <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5> -->
+          </div>
+          <div class="box-1">
+            <!-- <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5> -->
+          </div>
+      </div>
+
+      <hr>
+    </div>
+    <div class="col-12">
+      <p *ngIf="cricketUpcommingData.length == 0"  style="margin-top: 10px;text-align: center;">No Upcomming Mtch right Now </p>
+    </div>
+</div></div>
+
+

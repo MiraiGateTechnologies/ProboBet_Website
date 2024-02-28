@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="card" *ngIf="sport == 'cricket'">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-5  header-first">
+          <h2 style="margin-top: 5px;"><img src="assets/ball.png" class="img-fluid" alt="..." style="margin: 5px;">Cricket</h2>
+        </div>
+        <div class="col-7 ">
+          <div class="second">
+            <ul>
+              <li>1</li>
+              <li>x</li>
+              <li>2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row-body" >
+      <div class="row" *ngFor="let data of cricketData"  (click)="inPlayDetails(data.matchcode)">
+        <div class="col-5">
+          <h5 class="first-body">{{data.title}}</h5>
+        </div>
+        <div class="col-7 second-body justify-content-end">
+            <div class="box-1">
+              <p style="line-height: 0.2rem;margin-top: 5px;">1.34</p>
+              <p style="line-height: 0.2rem;margin-top: 5px;">1c+</p>
+            </div>
+            <div class="box-1"><p style="line-height: 0.2rem; margin-top: 5px;">1.54</p><p style="line-height: 0.2rem">1cr+</p>
+            </div>
+            <div class="box-1"><p style="line-height: 0.2rem;margin-top: 5px;">1.54</p><p style="line-height: 0.2rem;">1cr+</p>
+            </div>
+          </div>
+          <hr style="margin-top: 0.2rem;margin-bottom: 0.2rem;">
+      </div>
+
+<div class="col-12" *ngIf="cricketData.length ==0" >
+  <div class="card">
+    <p style="text-align: center;margin-top: 10px;">No Live Match Available</p>
+  </div>
+</div>
+    </div>
+  </div>
+<div class="card" *ngIf="sport == 'football'">
+  <div class="card-header">
+
+    <div class="row">
+      <div class="col-5  header-first" >
+        <h2 style="font-family: 'poppins'; margin-left: 4px;margin-top: 7px;"><img src="assets/football-1.png" class="img-fluid"  alt="..." style="margin: 5px;">Football</h2>
+      </div>
+      <div class="col-7 header-second">
+        <div class="second">
+          <ul>
+            <li>1</li>
+            <li>x</li>
+            <li>2</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row-body" *ngFor="let data of footballData"  (click)="inPlayDetails(data.matchcode)">
+    <div class="row">
+      <div class="col-5">
+        <h5 class="first-body">{{data.title}}</h5>
+      </div>
+      <div class="col-7 second-body justify-content-end">
+          <div class="box-1">
+            <h6>1.34</h6>
+            <h6 >1c+</h6>
+          </div>
+          <div class="box-1"><h5 style="line-height: 0.5;">1.54</h5><h5 style="line-height: 0.5;">1cr+</h5>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-12" *ngIf="footballData.length ==0" >
+    <div class="card">
+      <p style="text-align: center;margin-top: 10px;">No Match Available</p>
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+
