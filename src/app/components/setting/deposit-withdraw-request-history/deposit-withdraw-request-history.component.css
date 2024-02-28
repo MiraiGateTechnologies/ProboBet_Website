@@ -1,0 +1,21 @@
+.nav-tabs{
+  margin: 10px;
+  border: none;
+}
+.tab-content{
+  border: none;
+}
+.nav-link {
+  border-radius: 0;
+
+  background-color: #01173b;
+  color: #ffffff; /* Set text color to white */
+}
+.nav-tabs{
+  border-radius: 0;
+  color: #ffffff; /* Set text color to white */
+
+}
+.nav-link.active {
+  background-color: #2dc3e8;
+}

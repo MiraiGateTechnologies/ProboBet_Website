@@ -80,7 +80,9 @@ header{
      }
 
 
-
+a{
+  text-decoration: none;
+}
 
     .navbar {
         flex-direction: row; /* Change back to row for smaller screens */
@@ -163,7 +165,7 @@ header{
 .sidebar-header{
   margin-top: 0;
   padding: 10px;
-  background-color: #ECE9FF;
+  background-color: #FFB449;
 }
 .deposit-header{
   background: green;
@@ -191,7 +193,7 @@ header{
 
 .profile-name {
   line-height: 0.1rem;
-  font-family: 'poppins';
+  font-family: 'poppins',sans-serif;
   font-weight: 900;
   /* Add any additional styling for the profile name here */
 }
@@ -205,13 +207,14 @@ header{
 .sidebar-menu li {
   padding: 10px 15px;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px; /* Adjust as per your design */
-  border-bottom: 1px solid #ddd; /* To create the horizontal lines */
+  font-weight: 700 ;
+  font-size: 14px; /* Adjust as per your design */
+}
+.sidebar-menu a{
+  color: black;
 }
 
-.sidebar-menu li:hover {
-  background-color: #f0f0f0; /* Hover color */
-}
+
 .logout-button {
   width: 100%;
   background-color: #FFA500; /* Adjust color to match the image */

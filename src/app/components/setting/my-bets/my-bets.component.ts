@@ -18,9 +18,8 @@ export class MyBetsComponent {
     { value: 'VOIDED', label: 'VOIDED' },
     { value: 'LAPSED', label: 'LAPSED' },
     { value: 'UN-MATCHED', label: 'UN-MATCHED' }
-
-
   ];
+
   onSelectChange(event: Event) {
     const selectedValue = (event.target as HTMLSelectElement).value;
     console.log('Selected Value:', selectedValue);

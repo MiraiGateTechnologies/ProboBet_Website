@@ -1,1 +1,91 @@
-<p>deposit-withdraw-request-history works!</p>
+<!-- <div class="container">
+  <div class="row">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link col-6" [ngClass]="{'active': activeTab === 'withdrawalRequests'}" (click)="activeTab = 'withdrawalRequests'">Withdrawal Requests</button>
+        <button class="nav-link col-6" [ngClass]="{'active': activeTab === 'profile'}" (click)="activeTab = 'profile'">Deposit Requests</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show" [class.show.active]="activeTab === 'withdrawalRequests'" id="nav-home" role="tabpanel">
+        <div class="table-responsive withdraw-table">
+          <table class="table table-dark">
+            <thead>
+              <tr style="white-space: nowrap;">
+                <th>Transaction No</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date & Time</th>
+              </tr>
+            </thead>
+            <tbody>
+             <tr *ngFor="let transaction of transactions">
+    <td>{{ transaction.transactionNo }}</td>
+    <td>{{ transaction.amount }}</td>
+    <td>{{ transaction.status }}</td>
+    <td>{{ transaction.dateTime }}</td>
+  </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+      <div class="tab-pane fade" [class.show.active]="activeTab === 'profile'" id="nav-profile" role="tabpanel">
+      </div>
+  </div>
+</div>
+
+ -->
+
+
+ <nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active col-6" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Withdrawal Requests</button>
+    <button class="nav-link col-6" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Deposit Requests</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+    <div class="table-responsive withdraw-table">
+      <table class="table table-dark">
+        <thead>
+          <tr style="white-space: nowrap;">
+            <th>Transaction No</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let transaction of transactions">
+<td>{{ transaction.requestedAmount }}</td>
+<td>{{ transaction.amount }}</td>
+<td><button class="btn btn-success btn-sm">Approved</button></td>
+
+</tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+    <div class="table-responsive withdraw-table">
+      <table class="table table-dark">
+        <thead>
+          <tr style="white-space: nowrap;">
+            <th>Requested Amount</th>
+            <th>Requested Time	</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.requestedAmount }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td><button class="btn btn-success btn-sm">Approved</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

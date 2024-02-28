@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SliderComponent } from '../components/slider/slider.component';
+import { Router, RouterLink, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [SliderComponent,CommonModule],
+  imports: [SliderComponent,CommonModule,RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

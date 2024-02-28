@@ -8,7 +8,6 @@ export const errorIntercepter:HttpInterceptorFn = (req,next) =>{
     console.log(error)
     if([401,403].includes(error.status)){
       console.log('Unauthorized Login');
-      debugger
       const auth = inject(AuthService);
       console.log(auth)
       auth.logOut();

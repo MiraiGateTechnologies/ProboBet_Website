@@ -1,1 +1,29 @@
-<p>fancy-reports works!</p>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="bet-details">
+        <form>
+          <div class="mb-3">
+            <label for="order-type">Filter Data</label>
+            <select [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" class="form-select form-select-sm select" aria-label="small select example">
+              <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="order-type">Start Date</label>
+            <input type="date" class="form-control form-control-sm">
+          </div>
+          <div class="mb-3">
+            <label for="order-type">End  Date</label>
+            <input type="date" class="form-control form-control-sm">
+          </div>
+          <button class="btn btn-sm load-report">Load Report</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

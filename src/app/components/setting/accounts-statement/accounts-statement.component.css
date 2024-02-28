@@ -37,3 +37,6 @@ label{
   font-family: 'poppins',sans-serif;
   font-weight: 400 !important;
 }
+tr{
+  white-space: nowrap;
+}
