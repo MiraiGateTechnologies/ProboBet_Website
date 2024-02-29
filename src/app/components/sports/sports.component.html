@@ -23,8 +23,8 @@
     </div>
     <div class="row-body"  >
       <div class="row" *ngFor="let data of cricketData">
-        <div class="col-5" (click)="navigateToEvent(data.matchcode)">
-          <h4>{{data.title}}</h4>
+        <div class="col-5">
+          <h5 >{{truncateTitle(data.title)}}</h5>
         </div>
         <div class="col-7 second-body justify-content-end">
             <div class="box-1">
@@ -40,12 +40,11 @@
               <p>1c+</p>
             </div>
         </div>
-    <hr >
-
       </div>
       <div class="col-12"  *ngIf="cricketData.length == 0">
         <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No Live Match Yet...</h5>
       </div>
+      <hr >
     </div>
   </div>
 
@@ -68,9 +67,9 @@
       </div>
     </div>
     <div class="row-body"  >
-      <div class="row" *ngFor="let data of cricketData">
-        <div class="col-5" (click)="navigateToEvent(data.matchcode)">
-          <h4>{{data.title}}</h4>
+      <div class="row" *ngFor="let data of upcomingCricketData">
+        <div class="col-5">
+          <h5 >{{truncateTitle(data.title)}}</h5>
         </div>
         <div class="col-7 second-body justify-content-end">
             <div class="box-1">
@@ -86,281 +85,105 @@
               <p>1c+</p>
             </div>
         </div>
-    <hr >
-
-      </div>
-      <div class="col-12"  *ngIf="cricketData.length == 0">
-        <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No Live Match Yet...</h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <button class="btn btn-sm btn-danger rounded-pill upcoming-box" type="button">Live</button>
-      <div class="row">
-        <div class="col-5" >
-    <h2>
-      <img src="assets/football-1.png" class="img-fluid"  alt="...">Football</h2>
-        </div>
-        <div class="col-7">
-
-            <ul>
-              <li>1</li>
-              <li>x</li>
-              <li>2</li>
-            </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row-body"  >
-      <div class="row" *ngFor="let data of cricketData">
-        <div class="col-5" (click)="navigateToEvent(data.matchcode)">
-          <h4>{{data.title}}</h4>
-        </div>
-        <div class="col-7 second-body justify-content-end">
-            <div class="box-1">
-              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
-              <p>1c+</p>
-            </div>
-            <div class="box-1">
-              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
-              <p>1c+</p>
-            </div>
-            <div class="box-1">
-              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
-              <p>1c+</p>
-            </div>
-        </div>
-    <hr >
-
-      </div>
-      <div class="col-12"  *ngIf="cricketData.length == 0">
-        <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No Live Match Yet...</h5>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="card">
-    <div class="card-header">
-      <button class="btn btn-sm btn-danger rounded-pill upcoming-box" type="button">Live</button>
-      <div class="row">
-        <div class="col-5" >
-    <h2>
-      <img src="assets/football-1.png" class="img-fluid"  alt="...">Football</h2>
-        </div>
-        <div class="col-7">
-
-            <ul>
-              <li>1</li>
-              <li>x</li>
-              <li>2</li>
-            </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row-body"  >
-      <div class="row" *ngFor="let data of cricketData">
-        <div class="col-5" (click)="navigateToEvent(data.matchcode)">
-          <h4>{{data.title}}</h4>
-        </div>
-        <div class="col-7 second-body justify-content-end">
-            <div class="box-1">
-              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
-              <p>1c+</p>
-            </div>
-            <div class="box-1">
-              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
-              <p>1c+</p>
-            </div>
-            <div class="box-1">
-              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
-              <p>1c+</p>
-            </div>
-        </div>
-    <hr >
-
-      </div>
-      <div class="col-12"  *ngIf="cricketData.length == 0">
-        <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No Live Match Yet...</h5>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <!-- <div class="card">
-      <div class="card-header">
-        <div class="row">
-          <div class="col-5" >
-
-      <h2 style="margin-top: 10px;">
-          </div>
-          <div class="col-7">
-
-              <ul>
-                <li>1</li>
-                <li>x</li>
-                <li>2</li>
-              </ul>
-          </div>
-        </div>
-      </div>
-      <div class="row row-body-upcomming" *ngFor="let data of upcomingCricketData" >
-        <div class="col-5 ">
-
-          <h5 class="first-body">{{data.title}}</h5>
-        </div>
-
-        <div class="col-7 second-body justify-content-end">
-          <div class="box-1">
-            <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5>
-          </div>
-          <div class="box-1"><h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5>
-          </div>
-          <div class="box-1"><h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5>
-          </div>
-      </div>
-        <hr>
-
       </div>
       <div class="col-12"  *ngIf="upcomingCricketData.length == 0">
-        <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No Upcoming Match Yet...</h5>
+        <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No upcoming Match Yet...</h5>
       </div>
-  </div> -->
+      <hr >
+    </div>
+  </div>
 
-  <!-- <div class="card">
+  <div class="card">
     <div class="card-header">
-      <button class="btn btn-sm btn-danger rounded-pill upcoming-box " style="font-family: 'poppins';" type="button">Live</button>
+      <button class="btn btn-sm btn-danger rounded-pill upcoming-box" type="button">Live</button>
       <div class="row">
-        <div class="col-5  header-first"  >
-          <h2 style="margin-top: 10px;"><img src="assets/football-1.png" class="img-fluid"  alt="...">Football</h2>
-        </div>
+        <div class="col-5" >
 
-        <div class="col-7 header-second">
-          <div class="second">
+    <h2><img src="assets/football-1.png" class="img-fluid"  alt="...">Football</h2>
+        </div>
+        <div class="col-7">
+
             <ul>
               <li>1</li>
               <li>x</li>
               <li>2</li>
             </ul>
-          </div>
         </div>
       </div>
     </div>
-    <div class="row row-body"  >
-      <div class="col-5 first-body">
-        <h5>Argentana</h5>
-      </div>
-      <div class="col-7 second-body justify-content-end">
-
-          <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-          <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-          <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-      </div>
-      <hr>
-    </div>
-    <div class="row row-body"  >
-      <div class="col-5 first-body">
-        <h5>France</h5>
-      </div>
-      <div class="col-7 second-body justify-content-end">
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-          <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-          <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-      </div>
-      <hr>
-    </div>
-    <div class="row row-body-football"  >
-      <div class="col-5 first-body">
-        <h5>The Draw</h5>
-      </div>
-      <div class="col-7 second-body justify-content-end">
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-          <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-          <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-          </div>
-      </div>
-      <hr>
-    </div>
-    <div class="row" >
-      <div class="col-12">
-      </div></div>
-  </div> -->
-<!-- <div class="card">
-  <div class="card-header">
-    <button class="btn btn-sm btn-success rounded-pill upcoming-box " style="font-family: 'poppins';" type="button">Upcoming</button>
-    <div class="row">
-      <div class="col-5  header-first"  >
-        <h2 style="margin-top: 10px;"><img src="assets/football-1.png" class="img-fluid"  alt="...">Football</h2>
-      </div>
-
-      <div class="col-7 header-second">
-        <div class="second">
-          <ul>
-            <li>1</li>
-            <li>x</li>
-            <li>2</li>
-          </ul>
+    <div class="row-body"  >
+      <div class="row" *ngFor="let data of cricketData">
+        <div class="col-5">
+          <h5 >{{truncateTitle(data.title)}}</h5>
+        </div>
+        <div class="col-7 second-body justify-content-end">
+            <div class="box-1">
+              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
+              <p>1c+</p>
+            </div>
+            <div class="box-1">
+              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
+              <p>1c+</p>
+            </div>
+            <div class="box-1">
+              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
+              <p>1c+</p>
+            </div>
         </div>
       </div>
+      <div class="col-12"  *ngIf="cricketData.length == 0">
+        <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No Live Match Yet...</h5>
+      </div>
+      <hr >
     </div>
   </div>
-  <div class="row row-body-football"  >
-    <div class="col-5 first-body">
-      <h5 style="margin-top: 10px;">Argentana</h5>
-    </div>
-    <div class="col-7 second-body justify-content-end">
 
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
+  <div class="card">
+    <div class="card-header">
+      <button class="btn btn-sm btn-success rounded-pill upcoming-box " type="button" >Upcoming</button>
+
+      <div class="row">
+        <div class="col-5" >
+
+    <h2><img src="assets/football-1.png" class="img-fluid"  alt="...">Football</h2>
         </div>
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
+        <div class="col-7">
+
+            <ul>
+              <li>1</li>
+              <li>x</li>
+              <li>2</li>
+            </ul>
         </div>
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-        </div>
+      </div>
     </div>
-    <hr>
-  </div>
-  <div class="row row-body-football"  >
-    <div class="col-5 first-body">
-      <h5>France</h5>
+    <div class="row-body"  >
+      <div class="row" *ngFor="let data of cricketData">
+        <div class="col-5">
+          <h5 >{{truncateTitle(data.title)}}</h5>
+        </div>
+        <div class="col-7 second-body justify-content-end">
+            <div class="box-1">
+              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
+              <p>1c+</p>
+            </div>
+            <div class="box-1">
+              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
+              <p>1c+</p>
+            </div>
+            <div class="box-1">
+              <p style="line-height: 0.2rem;margin-top: 10px;">1.34</p>
+              <p>1c+</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-12"  *ngIf="cricketData.length == 0">
+        <h5 style="align-items: center;justify-content: center;display: flex;margin-top: 10px;">No Live Match Yet...</h5>
+      </div>
+      <hr >
     </div>
-    <div class="col-7 second-body justify-content-end">
-      <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-        </div>
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-        </div>
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-        </div>
-    </div>
-    <hr>
-  </div>
-  <div class="row row-body-football"  >
-    <div class="col-5 first-body">
-      <h5>The Draw</h5>
-    </div>
-    <div class="col-7 second-body justify-content-end">
-      <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-        </div>
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-        </div>
-        <div class="box-1"><h5>1.95</h5><h5>1.5Cr+</h5>
-        </div>
-    </div>
-    <hr>
   </div>
 
-</div> -->
 </div>
 
 

@@ -1,7 +1,12 @@
 .card{
   border-radius: 17.5px;
   border: none;
+  padding-bottom: 10px;
 }
+h2{
+  font-family:  'poppins',sans-serif !important;
+}
+
 .header-first{
   padding-top: 10px;
   display: flex;
@@ -19,6 +24,7 @@
 }
 .first-body{
   margin-left: 0;
+  margin-top: 7px;
 }
 .truncate {
   white-space: nowrap;
@@ -34,7 +40,7 @@ h5{
 }
 
 p{
-  padding-left: 7px;
+  padding-left: 0px;
   line-height: 0.5em;font-weight: 700;
 }
 .second-body{

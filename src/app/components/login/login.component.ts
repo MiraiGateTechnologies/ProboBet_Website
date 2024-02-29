@@ -7,6 +7,7 @@ import { AuthService } from '../../service/auth.service';
 import { TokenInterceptor } from '../../interceptors/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DataFetchingInteceptor } from '../../interceptors/Datafetching.interceptor';
+import { RegisterComponent } from '../../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,13 @@ import { DataFetchingInteceptor } from '../../interceptors/Datafetching.intercep
   ]
 })
 export class LoginComponent {
+
+
+  showPassword = false;
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
   model = {
     code: '',
     password: ''

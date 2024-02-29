@@ -11,7 +11,7 @@ describe('PopularComponent', () => {
       imports: [PopularComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(PopularComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -6,7 +6,9 @@
     overflow-x: auto;
     margin-bottom: 15px;
 }
-
+h2{
+  font-family:  'poppins',sans-serif !important;
+}
 .game-shows img {
     width: 90px;
     height: 115px;

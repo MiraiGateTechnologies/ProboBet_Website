@@ -1,47 +1,93 @@
-<div class="container-fluid">
-  <div class="card">
-    <div class="card-header">
+<!-- <p style="font-size: 12px; line-height: 0.2rem; color: red;">{{data.time}}</p> -->
 
-      <!-- <button class="btn btn-sm btn-success rounded-pill upcoming-box " type="button">Upcoming</button> -->
-      <div class="row">
-        <div class="col-5  header-first" >
-          <h2 style="font-family: Protest Riot;"><img src="assets/ball.png" class="img-fluid" alt="..." style="margin-right: 5px;">Cricket</h2>
-        </div>
 
-        <div class="col-7 header-second">
-          <div class="second">
-            <ul>
-              <li>1</li>
-              <li>x</li>
-              <li>2</li>
-            </ul>
-          </div>
+<div class="card" *ngIf="sport=='cricket'">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-5  header-first">
+        <h2 style="margin-top: 5px;"><img src="assets/ball.png" class="img-fluid" alt="..." style="margin: 5px;">Cricket</h2>
+      </div>
+      <div class="col-7 ">
+        <div class="second">
+          <ul>
+            <li>1</li>
+            <li>x</li>
+            <li>2</li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="row row-body" *ngFor="let data of cricketUpcommingData" >
-      <div class="col-5 first-body">
-        <p style="font-size: 12px; line-height: 0.2rem; color: red;">{{data.time}}</p>
-        <h5>{{data.title}}</h5>
-      </div>
+  </div>
+  <div class="row-body" >
+    <div class="row" *ngFor="let data of cricketUpcommingData" >
+      <div class="col-5">
 
+        <h5 class="first-body" >{{truncateTitle(data.title)}}</h5>
+
+      </div>
       <div class="col-7 second-body justify-content-end">
           <div class="box-1">
-            <!-- <h5>{{data.back}}</h5><h5>{{data.totalBetPlayerBack}}</h5> -->
+            <p style="line-height: 0.2rem;margin-top: 7px;">1.34</p>
+            <p style="line-height: 0.2rem;margin-top: 7px;">1c+</p>
           </div>
-          <div class="box-1">
-            <!-- <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5> -->
+          <div class="box-1"><p style="line-height: 0.2rem; margin-top: 5px;">1.54</p><p style="line-height: 0.2rem">1cr+</p>
           </div>
-          <div class="box-1">
-            <!-- <h5>{{data.lay}}</h5><h5>{{data.totalBetPlayerLay}}</h5> -->
+          <div class="box-1"><p style="line-height: 0.2rem;margin-top: 5px;">1.54</p><p style="line-height: 0.2rem;">1cr+</p>
           </div>
+        </div>
+
+        <p style=" margin-left: 10px;font-size: 12px; line-height: 0.2rem; color: red;">{{data.time}}</p>
+        <!-- <hr style="margin-top: 0.2rem;margin-bottom: 0.2rem;"> -->
       </div>
 
-      <hr>
-    </div>
-    <div class="col-12">
-      <p *ngIf="cricketUpcommingData.length == 0"  style="margin-top: 10px;text-align: center;">No Upcomming Mtch right Now </p>
-    </div>
-</div></div>
+<div class="col-12" *ngIf="cricketUpcommingData.length ==0" >
+<div class="card">
+  <p style="text-align: center;margin-top: 10px;">No Live Match Available</p>
+</div>
+</div>
+  </div>
+</div>
 
+<div class="card" *ngIf="sport=='football'">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-5  header-first">
+        <h2 style="margin-top: 5px;"><img src="assets/football-1.png" class="img-fluid" alt="..." style="margin: 5px;">Football</h2>
+      </div>
+      <div class="col-7 ">
+        <div class="second">
+          <ul>
+            <li>1</li>
+            <li>x</li>
+            <li>2</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-body" >
+    <div class="row" *ngFor="let data of footBallUpcommingData" >
+      <div class="col-5">
+        <p style="font-size: 12px; line-height: 0.2rem; color: red;">{{data.time}}</p>
+        <h5 class="first-body" >{{truncateTitle(data.title)}}</h5>
+      </div>
+      <div class="col-7 second-body justify-content-end">
+          <div class="box-1">
+            <p style="line-height: 0.2rem;margin-top: 7px;">1.34</p>
+            <p style="line-height: 0.2rem;margin-top: 7px;">1c+</p>
+          </div>
+          <div class="box-1"><p style="line-height: 0.2rem; margin-top: 5px;">1.54</p><p style="line-height: 0.2rem">1cr+</p>
+          </div>
+          <div class="box-1"><p style="line-height: 0.2rem;margin-top: 5px;">1.54</p><p style="line-height: 0.2rem;">1cr+</p>
+          </div>
+        </div>
+        <!-- <hr style="margin-top: 0.2rem;margin-bottom: 0.2rem;"> -->
+    </div>
 
+<div class="col-12" *ngIf="footBallUpcommingData.length ==0" >
+<div class="card">
+  <p style="text-align: center;margin-top: 10px;">No Live Match Available</p>
+</div>
+</div>
+  </div>
+</div>

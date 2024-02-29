@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { upcommingCricketTeam, TeamBet } from './upcomming.interface';
@@ -12,15 +12,17 @@ import { ProbobetService } from '../betting/probobet.service';
   styleUrl: './up-comming.component.css'
 })
 export class UpCommingComponent  implements OnInit{
-  currentSport = '';
+  @Input() sport!: string;
   // cricketMatch:TeamBet[]=[];
   cricketUpcommingData:any[]=[]
   footBallUpcommingData:any[]=[]
  constructor(private activatedRoute:ActivatedRoute,private BetService:ProbobetService){
-   this.activatedRoute.queryParams.subscribe(params => {
-     this.currentSport = params['sport'];
+
+   console.log(this.activatedRoute.snapshot.paramMap.get('cricket'))
+   this.activatedRoute.url.subscribe(data => {
+   this.sport = data.map(data => data.path).join('/');
    });
- }
+}
 
  ngOnInit(): void {
   this.BetService.getCricketBet().subscribe({
@@ -45,4 +47,11 @@ export class UpCommingComponent  implements OnInit{
     }
   });
  }
+ truncateTitle(title: string): string {
+  if (title.length > 25) {
+    return title.substring(0, 25) + '...';
+  } else {
+    return title;
+  }
+}
 }

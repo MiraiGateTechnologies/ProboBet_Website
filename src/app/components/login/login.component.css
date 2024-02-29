@@ -1,89 +1,178 @@
-/* styles.css */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, sans-serif;
+/* Reset some basic elements */
+.login-container{
+  width: 100%;
+  height: 25vh;
+  color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  font-family: "Poppins", sans-serif;
 }
 
-.login-container {
-  display: flex;
-  flex-direction: column;
+.login-title{
+  position: absolute;
+  bottom: 20px;
+  left: 29px;
+  font-size: 32px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+
+.navbar-brand img{
+width: 140px;
+position: absolute;
+left: 29px;
+bottom: 104px;
+}
+body  {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+
+/* Center the login container */
+.login-container2 {
+ padding: 30px;
+
   justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-image: url('../../../assets/betting.jpg');
-  background-size: cover;
+  height: 75vh;
+  width: 100%;
+  background: #ffffff; /* Assuming a black background */
 }
 
-.login-title {
-  color: #fff;
-  margin-bottom: 20px;
+input {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #000; /* Only a bottom border */
+  outline: none; /* Removes the highlight around the input when selected */
+  padding: 8px 0; /* Padding to ensure text does not touch the borders */
+  font-size: 16px; /* Adjust the font size as needed */
+  background-color: transparent; /* Ensures the input has no background */
+
+  border-radius: 0px;
 }
 
-.login-form {
-  background: rgba(0, 0, 0, 0.75);
-  padding: 20px;
-  border-radius: 5px;
-  width: 90%;
-  max-width: 400px;
+
+
+
+
+ button {
+  border: 0;
+  border-bottom: 2px solid #000;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+
+  border-radius: 0px;
+}
+.input-group i{
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+}
+
+
+
+input::placeholder {
+
+  font-size: 20px;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 0px;
 }
 
 .input-group {
-  margin-bottom: 15px;
+  border-radius: 0%;
 }
 
-.input-group label {
-  display: block;
-  color: #fff;
-  margin-bottom: 5px;
+.forgot-password-container {
+  text-align: right;
+  margin-bottom: 20px;
 }
 
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-}
-
-.login-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.login-button:hover {
-  background-color: #45a049;
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.options a {
-  color: #00BFFF;
+.forgot-password-link {
+  color: #06C; /* Assuming a blue link color */
   text-decoration: none;
 }
 
-.options a:hover {
-  text-decoration: underline;
+.login-button,
+.register-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #FFA500; /* Assuming an orange color */
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-@media (max-width: 768px) {
-  .login-form {
-    width: 100%;
-    border-radius: 0;
-  }
-  .login-container {
-    background-image: url('../../../assets/mobileres.webp'); /* Hide the background image on mobile */
-    background-size: cover;
-    background-position: center;
-  }
+.login-button:hover {
+  background-color: #E59400; /* A darker orange for hover effect */
+}
 
+.register-button {
+  background-color: #DDD; /* Assuming a light gray color */
+  color: black;
+}
+
+.demo-user-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.demo-user-link {
+  color: rgb(0, 0, 0); /* Assuming a blue link color */
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.demo-user-link span{
+  color: #E59400;
+}
+.input-group {
+  position: relative;
+  padding: 8px 0; /* Provides space for the label and the bottom border */
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000; /* Color of the label */
+  font-size: 16px; /* Size of the label text */
+}
+
+.input-field {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #000;
+  font-size: 44px; /* Only a bottom border */
+  outline: none; /* Removes the highlight around the input when selected */
+  padding: 8px 0; /* Padding to ensure text does not touch the borders */
+  font-size: 16px; /* Size of the input text */
+  background-color: transparent; /* Ensures the input has no background */
+}
+
+/* Style for the select arrow */
+.select-arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensures the arrow does not interfere with the input */
+  color: #000; /* Color of the arrow */
+}
+
+/* ... other styles ... */
+
+.forgot-password-link {
+  display: block; /* Makes the link a block element */
+  margin-top: 12px; /* Spacing above the link */
+  text-align: right; /* Aligns the link to the right */
+  color: #000; /* Color of the link */
+  text-decoration: none; /* Removes the underline from the link */
+  font-size: 16px; /* Size of the link text */
 }

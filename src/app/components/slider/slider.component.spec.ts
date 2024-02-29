@@ -11,7 +11,7 @@ describe('SliderComponent', () => {
       imports: [SliderComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(SliderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

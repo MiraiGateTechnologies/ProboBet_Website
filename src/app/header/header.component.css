@@ -167,6 +167,7 @@ a{
   padding: 10px;
   background-color: #FFB449;
 }
+
 .deposit-header{
   background: green;
   display: flex;
@@ -174,7 +175,8 @@ a{
   color: white;
   border-radius: 78px;
   font-family:'poppins',sans-serif;
-  height: 33px;
+  height: 40px;
+  border: 1px solid white;
 }
 .big-icon {
   color: wheat;
@@ -213,11 +215,13 @@ a{
 .sidebar-menu a{
   color: black;
 }
-
+.custom-x-icon{
+  font-size: 2.5rem; /* Adjust the size as needed */
+}
 
 .logout-button {
   width: 100%;
-  background-color: #FFA500; /* Adjust color to match the image */
+  background-color: #FFB449; /* Adjust color to match the image */
   color: white;
   border: none;
   padding: 15px;

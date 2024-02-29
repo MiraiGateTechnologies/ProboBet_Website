@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProbobetService } from '../../betting/probobet.service';
 import { InPlayComponent } from '../../in-play/in-play.component';
@@ -21,11 +20,8 @@ export class SportsComponent implements OnInit,OnDestroy {
   cricketData:any[]=[];
   footballData:any[]=[];
   upcomingCricketData:any[]=[];
-  loading = false;
-  private loadingSubscription!: Subscription;
-  private cricketBetSubscription!: Subscription;
-
-  constructor(private sportService:SportService,private BetService:ProbobetService,private router:Router){}
+    private cricketBetSubscription!: Subscription;
+  constructor(private sportService:SportService,private BetService:ProbobetService){}
 
   ngOnInit(): void {
    this.cricketBetSubscription = this.BetService.getCricketBet().subscribe({
@@ -59,13 +55,17 @@ export class SportsComponent implements OnInit,OnDestroy {
     });
 
   }
-  navigateToEvent(data:any){
-    console.log(data)
-    this.router.navigate([`/sportDetails/${data}`])
-  }
   ngOnDestroy(): void {
     if (this.cricketBetSubscription) {
       this.cricketBetSubscription.unsubscribe();
+    }
+  }
+
+  truncateTitle(title: string): string {
+    if (title.length > 25) {
+      return title.substring(0, 25) + '...';
+    } else {
+      return title;
     }
   }
 }

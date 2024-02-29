@@ -11,7 +11,7 @@ describe('MultiComponent', () => {
       imports: [MultiComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(MultiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -50,5 +50,12 @@ export class InPlayComponent implements OnInit{
   inPlayDetails(data:any){
     this.router.navigate([`/sportDetails/${data}`]);
   }
+  truncateTitle(title: string): string {
+    if (title.length > 25) {
+      return title.substring(0, 25) + '...';
+    } else {
+      return title;
+    }
+  }
 
 }

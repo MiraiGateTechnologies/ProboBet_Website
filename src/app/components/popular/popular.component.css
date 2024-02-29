@@ -1,19 +1,21 @@
 
-  
+
   /* .image-box div img {
     width: 105px;
     height: 80px;
   } */
   .img-thumbnail{
-  
+
    width:90px;
    height:80px;
    background-color: black;
    border: 1px solid black;
    margin-right: 10px;
-   
-  }
 
+  }
+h2{
+  font-family: 'poppins',sans-serif;
+}
 
   .popular {
     white-space: nowrap; /* Prevents images from wrapping to the next line */

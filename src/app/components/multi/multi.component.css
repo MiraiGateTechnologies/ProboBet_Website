@@ -5,6 +5,9 @@
     margin-bottom: 15px;
 }
 
+h2{
+  font-family:  'poppins',sans-serif !important;
+}
 .multi img {
     width: 101px;
     height: 68px;

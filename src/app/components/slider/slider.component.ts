@@ -11,6 +11,6 @@ import { SportsComponent } from '../sports/sports.component';
   styleUrl: './slider.component.css'
 })
 export class SliderComponent {
-  
+
 
 }
