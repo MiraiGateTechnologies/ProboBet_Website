@@ -8,12 +8,12 @@
                   </a>
                   <div class="d-flex ">
                     <div class="deposit-header">
-                      <img src="https://m.kheloyaar360.net/assets/images/cash1.svg"  class="d-flex justify-content-center" style="width: 25px;height: 25px;"  alt="Your Image">
-                      <span>Deposit</span>
+                      <img src="https://m.kheloyaar360.net/assets/images/cash1.svg"  class="d-flex justify-content-center header-deposit" alt="Your Image">
+                      <span (click)="navigateToDeposit()">Deposit</span>
                     </div>
                     <div class="d-block header-main-txt" >
-                      <p class="header-txt" >Libility:0</p>
-                      <p class="header-txt" >Balance:447</p>
+                      <p class="header-txt-lib" >Libility:0</p>
+                      <p class="header-txt" >Bal:1000</p>
                     </div>
 
                     <!-- <div class="d-flex align-items-center" style="font-size: 18px; color: rgb(255, 255, 255) !important;">1000</div> -->
@@ -111,7 +111,13 @@
       </ul>
     </li>
   </ul>
-  <button class="logout-button">Logout</button>
+  <button class="logout-button">Logout
+    <svg width="22" height="18" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14.499 4.42187L12.8409 6.07994C12.6811 6.2397 12.6811 6.50095 12.8409 6.66071L15.3531 9.17295H5.13277C4.90696 9.17295 4.72195 9.35772 4.72195 9.58377V11.9285C4.72195 12.1543 4.90672 12.3393 5.13277 12.3393H15.3531L12.8409 14.8515C12.6811 15.0113 12.6811 15.2725 12.8409 15.4323L14.499 17.0904C14.6587 17.2501 14.92 17.2501 15.0797 17.0904L21.1024 11.0675C21.1876 10.9823 21.226 10.8682 21.2201 10.756C21.226 10.6438 21.1876 10.5297 21.1024 10.4445L15.0797 4.42187C14.92 4.26211 14.6587 4.26211 14.499 4.42187ZM0.36274 0.00292981H9.84598C9.84598 0.00292981 9.97417 0.00220144 10.0793 0.114374C10.1609 0.201296 10.1609 0.324881 10.1609 0.324881V2.5074C10.1609 2.5074 10.1606 2.59966 10.0718 2.69824C9.97976 2.80021 9.86151 2.80021 9.86151 2.80021H2.79704V18.7118H9.84598C9.84598 18.7118 9.97417 18.7111 10.0793 18.8232C10.1609 18.9102 10.1609 19.0337 10.1609 19.0337V21.2163C10.1609 21.2163 10.1606 21.3085 10.0718 21.4071C9.97976 21.5091 9.86151 21.5091 9.86151 21.5091H0.356427C0.160488 21.5091 -4.3639e-07 21.3486 -4.3639e-07 21.1526V0.365914C-0.000243235 0.166333 0.163159 0.00292981 0.36274 0.00292981Z" fill="white"/>
+      </svg>
+
+
+  </button>
 </div>
 
 </div>

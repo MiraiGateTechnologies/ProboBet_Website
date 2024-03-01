@@ -18,7 +18,9 @@
   max-width: 600px; /* Or your desired max width */
   margin: auto;
 }
-
+.nav-tabs .nav-link.active {
+background-color: #FFB449;
+}
 
 .col-12 {
   padding: 0; /* Ensures no padding from grid system */
@@ -42,13 +44,46 @@
 .whatsapp-icon {
   margin-right: 8px;
 }
+.whatsapp-button-container{
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
 
+.whatsapp-img {
+  width: 24px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 10px; /* Adjust spacing as needed */
+}
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px; /* Adjust padding as needed */
+  border-radius: 6px;
+  font-size: 16px; /* Adjust font size as needed */
+  color: #ffffff; /* Adjust text color as needed */
+  background: linear-gradient(90deg, rgba(37,211,102,1) 0%, rgb(44, 230, 72) 100%);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.whatsapp-button:hover {
+  background: linear-gradient(90deg, rgba(33,189,92,1) 0%, rgb(72, 230, 36) 100%);
+}
 .instructions-text ul {
   padding-left: 20px;
 }
 
 .instructions-text li {
   margin-bottom: 5px; /* Space between list items */
+}
+.submit-btn{
+  background-color: #FFB449;
 }
 
 .quick-deposit-btn {
@@ -76,23 +111,30 @@
 
 .account-item {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 }
 
 .account-label {
+  position: relative;;
+  right: 0;
   font-weight: bold;
   font-size: 12px;
   font-family: 'poppins',sans-serif;
 }
 
 .account-value {
-  margin-left: 8px;
+  margin-left: 2px;
+  padding-right: 5px;
+  font-size: 11px;
+  text-align: right;
 }
 
-.icon-check {
+.bi  {
   width: 24px;
   height: 24px;
+  padding-left: 5px;
   /* -webkit-mask: url('path-to-check-icon.svg') no-repeat 50% 50%;
   mask: url('path-to-check-icon.svg') no-repeat 50% 50%; */
   mask-size: cover;

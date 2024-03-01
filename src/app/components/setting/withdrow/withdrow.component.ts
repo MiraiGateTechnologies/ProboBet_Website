@@ -12,10 +12,11 @@ import { ExistingAccount, Transaction } from './existing-account.intrface';
 })
 export class WithdrowComponent {
   paymentForm!: FormGroup;
+  isClicked: boolean = false;
   existingAccountForm!:FormGroup;
   activeCard: any = null;
   tickImage: string = 'https://dqqdyv927mezc.cloudfront.net/kheloyar/web/tick.svg';
-  yellowTickImage: string = 'https://dqqdyv927mezc.cloudfront.net/kheloyar/web/yellow-tick.svg';
+  yellowTickImage: string = '../../../../assets/yellow.png';
   existingAccount:ExistingAccount[]=[
     {accountName:'Rohan More',accountNumber:2134756384756457,bank:'State Bank Of India'},
     {accountName:'Ayus Khanth',accountNumber:2134756384756457,bank:'Bank of Broda'},
@@ -58,6 +59,7 @@ export class WithdrowComponent {
     });
   }
   setAmount(amount:any) {
+    this.isClicked = !this.isClicked;
     this.existingAccountForm.patchValue({
       amount:amount
     })

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SliderComponent } from '../components/slider/slider.component';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import {  Router, RouterLink, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class HeaderComponent {
   };
 
 
-  constructor(private eRef: ElementRef) {}
+  constructor(private eRef: ElementRef,private router:Router) {}
 
   openSidebar() {
     this.sidebarOpen = true;
@@ -37,8 +37,10 @@ export class HeaderComponent {
       this.dropdowns[dropdownKey] = true;
     }
   }
-
-
+  navigateToDeposit(){
+    this.router.navigate(['/reports/payment/upi'])
+    // reports/payment/upi
+  }
 
 
   closeSidebar() {

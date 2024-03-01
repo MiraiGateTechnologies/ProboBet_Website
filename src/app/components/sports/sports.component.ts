@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProbobetService } from '../../betting/probobet.service';
 import { InPlayComponent } from '../../in-play/in-play.component';
@@ -21,7 +22,7 @@ export class SportsComponent implements OnInit,OnDestroy {
   footballData:any[]=[];
   upcomingCricketData:any[]=[];
     private cricketBetSubscription!: Subscription;
-  constructor(private sportService:SportService,private BetService:ProbobetService){}
+  constructor(private sportService:SportService,private BetService:ProbobetService,private router:Router){}
 
   ngOnInit(): void {
    this.cricketBetSubscription = this.BetService.getCricketBet().subscribe({
@@ -67,5 +68,8 @@ export class SportsComponent implements OnInit,OnDestroy {
     } else {
       return title;
     }
+  }
+  inPlayDetails(data:any){
+    this.router.navigate([`/sportDetails/${data}`]);
   }
 }

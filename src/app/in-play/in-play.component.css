@@ -142,9 +142,8 @@ h6{
     border: none;
     border-top-left-radius: 17.5px;
     border-top-right-radius: 17.5px;
-    background: rgb(232,170,13);
-    background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rgba(14,13,13,1) 94%);
-
+    background: rgb(255,180,73);
+    background: linear-gradient(90deg, rgba(255,180,73,1) 41%, rgba(0,0,0,1) 41%);
 }
 .card-header-first{
     margin: 0;

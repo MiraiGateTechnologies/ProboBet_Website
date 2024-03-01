@@ -153,6 +153,9 @@ tr{
   border: 2px solid #FFB449; /* Highlight with yellow border */
 
 }
+p{
+  line-height: 1em;
+}
 .card-tick {
   position: absolute;
   top: 2px; /* Adjust as necessary */
@@ -165,3 +168,9 @@ tr{
   font-family: 'poppins',sans-serif;
   font-weight: 200 !important;
 }
+.amountbtn{
+  background-color: #ffb449;
+}
+
+
+

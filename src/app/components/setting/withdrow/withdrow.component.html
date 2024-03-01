@@ -135,7 +135,7 @@
             </div>
             <div class="mb-3">
               <label for="amount" class="form-label">Amount</label>
-              <input type="text" class="form-control" id="amount" formControlName="amount" placeholder="Amount">
+              <input type="text" class="form-control"  id="amount" formControlName="amount" placeholder="Amount">
               <div *ngIf="existingAccountForm.get('amount')?.invalid && existingAccountForm.get('amount')?.touched" class="alert alert-danger error-msg">
                 Amount is required
               </div>
@@ -144,24 +144,26 @@
           <div class="col-12">
             <div class="row">
                 <div class="col-4">
-                  <button type="button" class="btn btn-outline-withdrow amount-btn" (click)="setAmount('500')">500</button>
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500')">500</button>
                 </div>
                 <div class="col-4">
-                  <button type="button" class="btn btn-outline-withdrow amount-btn" (click)="setAmount('5000')">5000</button>
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('5000')">5000</button>
                 </div>
                 <div class="col-4">
-                  <button type="button" class="btn btn-outline-withdrow amount-btn" (click)="setAmount('10000')">10000</button>
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('10000')">10000</button>
                 </div>
               </div>
             <div class="row">
               <div class="col-4">
-                <button type="button" class="btn btn-outline-withdrow amount-btn" (click)="setAmount('200000')">200000</button>
+                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('200000')">200000</button>
               </div>
               <div class="col-4">
-                <button type="button" class="btn btn-outline-withdrow amount-btn" (click)="setAmount('500000')">500000</button>
+                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500000')">500000</button>
               </div>
               <div class="col-4">
-                <button type="button" class="btn btn-outline-withdrow amount-btn" (click)="setAmount('1000000')">1000000</button>
+                <button type="button" class="btn btn-outline-warning amount-btn"   [class.clicked]="isClicked"
+
+                (click)="setAmount('1000000')">1000000</button>
               </div>
           </div>
             <div class="d-grid" style="margin: 10px;">
@@ -191,4 +193,7 @@
         </div>
 
     </div>
+
+
+
 

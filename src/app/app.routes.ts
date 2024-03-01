@@ -4,12 +4,15 @@ import { AccountsComponent } from './components/setting/accounts/accounts.compon
 import { SliderComponent } from './components/slider/slider.component';
 import { CricketComponent } from './cricket/cricket.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { RegisterComponent } from './register/register.component';
+import { VerificationComponent } from './verification/verification.component';
 
 
 export const routes: Routes = [
   {path:'login',pathMatch:'full',component:LoginComponent},
     {path:'',component:SliderComponent},
-
+    {path:'verify',pathMatch:'full',component:RegisterComponent},
+    {path:'register',pathMatch:'full',component:VerificationComponent},
     { path: 'cricket', loadComponent:() => import('./cricket/cricket.component').then(m => m.CricketComponent)},
     { path: 'football', loadComponent:() => import('./cricket/cricket.component').then(m => m.CricketComponent)},
     { path: 'sportDetails/:matchcode', loadComponent:() => import('./sport-details/sport-details.component').then(m => m.SportDetailsComponent)},

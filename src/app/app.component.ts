@@ -15,17 +15,27 @@ export class AppComponent implements OnInit {
   title = 'probobet-app';
   showHeader:boolean= true
   constructor(private router: Router) {
-    // Subscribe to router events
-    this.router.events.pipe(
-      // Filter for the NavigationEnd event
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: any) => {
-      // Set showHeader based on the current URL
-      this.showHeader = !(event.urlAfterRedirects.includes('/login') || event.urlAfterRedirects.includes('/register')|| event.urlAfterRedirects.includes('/verify'));
-      // this.showHeader = !event.urlAfterRedirects.includes('/register');
-
-    });
+    //
   }
   ngOnInit(): void {
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe({
+        next: (event: NavigationEnd) => {
+          this.showHeader = !(
+            event.urlAfterRedirects.includes('/login') ||
+            event.urlAfterRedirects.includes('/register') ||
+            event.urlAfterRedirects.includes('/verify') ||
+            event.urlAfterRedirects.includes('/reports')
+          );
+        },
+        error: (error) => {
+          console.error('Router events error:', error);
+        },
+        complete: () => {
+          console.log('Router events subscription completed.');
+        }
+      });
   }
+
 }

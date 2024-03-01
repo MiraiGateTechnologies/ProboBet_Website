@@ -1,4 +1,4 @@
-<div class="container" *ngIf="currentRoute">
+<div class="container-fluid" *ngIf="currentRoute">
   <div class="col-12">
     <div class="row">
       <div class="col-12" [ngClass]="currentRoute">
@@ -35,11 +35,11 @@
           <div class="container">
             <div class="col-12">
               <div class="upi-text">
-                <p style="line-height: 1rem;">Easy & Fast deposit and withdraw from WhatsApp. We have a dedicated agent assigned for you.</p>
+                <p style="line-height: 1rem;padding-top: 10px;">Easy & Fast deposit and withdraw from WhatsApp. We have a dedicated agent assigned for you.</p>
               </div>
             </div>
           </div>
-          <div class="container">
+          <div class="container-fluid">
             <div class="col-12">
               <div class="deposit-instructions">
                 <h3 class="quick-deposit-header">
@@ -64,7 +64,7 @@
 
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="whatsapp" role="tabpanel" aria-labelledby="whatsapp-tab">
-              <div class="container my-3">
+              <div class="container-fluid my-3">
                 <div class="col-12">
                   <!-- Quick Deposit Box -->
                   <div class="quick-deposit-box p-3  rounded shadow-sm">
@@ -74,7 +74,7 @@
                     </div>
                     <!-- Download & Pay Button -->
                     <div class="text-center mb-3">
-                      <button class="btn btn-warning btn-lg">Download & Pay</button>
+                      <button class="btn submit-btn btn-lg">Download & Pay</button>
                     </div>
                     <!-- Account Details -->
 
@@ -85,26 +85,26 @@
                     <!-- Account Number -->
                     <div class="account-item mb-2">
                       <span class="account-label">Account Number:</span>
-                      <span class="account-value">IND.GAUSWAMI&#64;JIO</span>
-                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                      <span class="account-value">Faizan Khan<i class="bi bi-copy"></i></span>
+
                     </div>
                     <!-- Holder Name -->
                     <div class="account-item mb-2">
                       <span class="account-label">Holder Name:</span>
-                      <span class="account-value">LOVEPREET SINGH</span>
-                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                      <span class="account-value">Faizan&#64;80948<i class="bi bi-copy"></i></span>
+
                     </div>
                     <!-- Bank Name -->
                     <div class="account-item mb-2">
                       <span class="account-label">Bank Name:</span>
-                      <span class="account-value">INDUSIND BANK</span>
-                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                      <span class="account-value">Fizan Khan<i class="bi bi-copy"></i></span>
+
                     </div>
                     <!-- IFSC Code -->
                     <div class="account-item">
                       <span class="account-label">IFSC Code:</span>
-                      <span class="account-value">IND.GAUSWAMI&#64;JIO</span>
-                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                      <span class="account-value">453DHJ4554<i class="bi bi-copy"></i></span>
+
                     </div>
                   </div>
                 </div>
@@ -126,42 +126,43 @@
                   <!-- Amount -->
                   <div class="mb-3 input-group-sm">
                     <label for="amount" class="form-label">Amount</label>
-                    <input type="number" id="amount" class="form-control" placeholder="0">
+                    <input type="number" [value]="amount" id="amount" class="form-control" placeholder="0">
                   </div>
 
                   <!-- Preset Amount Buttons -->
                   <div class="col-12">
                   <div class="row">
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn">+500</button>
+
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(500)">+500</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn">+1000</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(1000)">+1000</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn">+2000</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(2000)">+2000</button>
                       </div>
                     </div>
                   <div class="row">
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn">+5000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(5000)">+5000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn">+10000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(10000)">+10000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn">+20000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(20000)">+20000</button>
                     </div>
                 </div>
                 <div class="row">
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn">+5000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(50000)">+50000</button>
                   </div>
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn">+25000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(250000)">+250000</button>
                   </div>
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn">+100000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn"  (click)="setAmount(100000)">+100000</button>
                   </div>
               </div>
 
@@ -175,7 +176,8 @@
 
                   <!-- Submit Button -->
                   <div class="d-grid">
-                    <button class="btn btn-warning" type="submit">Submit</button>
+
+                    <button class="btn submit-btn" type="submit">Submit</button>
                   </div>
                 </div>
               </div>
@@ -184,7 +186,7 @@
             </div>
             </div>
             <div class="tab-pane fade" id="upi" role="tabpanel" aria-labelledby="upi-tab">
-              <div class="container my-3">
+              <div class="container-fluid my-3">
                 <div class="col-12">
                   <!-- Quick Deposit Box -->
                   <!-- <div class="quick-deposit-box p-3  rounded shadow-sm"> -->
@@ -205,26 +207,22 @@
                     <!-- Account Number -->
                     <div class="account-item mb-2">
                       <span class="account-label">Account Number:</span>
-                      <span class="account-value">IND.GAUSWAMI&#64;JIO</span>
-                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                      <span class="account-value">LOVEPREET SINGH<i class="bi bi-copy"></i></span>
                     </div>
                     <!-- Holder Name -->
                     <div class="account-item mb-2">
                       <span class="account-label">Holder Name:</span>
-                      <span class="account-value">LOVEPREET SINGH</span>
-                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                      <span class="account-value">LOVEPREET SINGH<i class="bi bi-copy"></i></span>
                     </div>
                     <!-- Bank Name -->
                     <div class="account-item mb-2">
                       <span class="account-label">Bank Name:</span>
-                      <span class="account-value">INDUSIND BANK</span>
-                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                      <span class="account-value">LOVEPREET SINGH<i class="bi bi-copy"></i></span>
                     </div>
                     <!-- IFSC Code -->
                     <div class="account-item">
-                      <span class="account-label">IFSC Code:</span>
-                      <span class="account-value">IND.GAUSWAMI&#64;JIO</span>
-                      <span class="icon-check"><i class="bi bi-copy"></i></span>
+                      <p class="account-label">IFSC Code:</p>
+                      <span class="account-value">LOVEPREET SINGH<i class="bi bi-copy"></i></span>
                     </div>
                   </div>
                 </div>
@@ -238,11 +236,14 @@
                       <span class="input-group-text" >
                         <i class="bi bi-camera-fill"></i>
                       </span>
-                      <input type="file" class="form-control" id="fileUpload" hidden>
+                      <input type="file" class="form-control" id="fileUpload" hidden (change)="onFileSelected($event)">
                       <label for="fileUpload" class="form-control file-upload-label">Choose file</label>
                     </div>
                   </div>
-
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">Default file input example</label>
+                    <input class="form-control" type="file" id="formFile">
+                  </div>
                   <!-- Amount -->
                   <div class="mb-3 input-group-sm">
                     <label for="amount" class="form-label">Amount</label>
