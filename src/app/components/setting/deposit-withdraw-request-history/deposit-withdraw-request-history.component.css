@@ -5,10 +5,13 @@
 .tab-content{
   border: none;
 }
+.btn-warning{
+  background-color: #ffb449;
+}
 .nav-link {
+  font-size: small;
   border-radius: 0;
-
-  background-color: #01173b;
+  background-color: black;
   color: #ffffff; /* Set text color to white */
 }
 .nav-tabs{
@@ -17,5 +20,5 @@
 
 }
 .nav-link.active {
-  background-color: #2dc3e8;
+  background-color: #ffb449;
 }

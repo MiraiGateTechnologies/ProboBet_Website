@@ -12,7 +12,9 @@
             <label for="order-type">End  Date</label>
             <input type="date" class="form-control form-control-sm">
           </div>
-          <button class="btn btn-sm load-report">Load Report</button>
+          <div class="col-12 d-flex justify-content-center" style=" margin-top: 10px;">
+            <button type="submit" class="btn btn-warning btn-block" style="margin-top: 10px;">Load Report</button>
+        </div>
         </form>
       </div>
     </div>
@@ -39,8 +41,6 @@
             <td style="color: green">{{ transaction.credit }}</td>
             <td style="color: green">{{ transaction.runningBalance }}</td>
           </tr>
-
-
           </tbody>
       </table>
     </div>

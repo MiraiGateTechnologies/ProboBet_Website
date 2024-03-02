@@ -19,7 +19,11 @@
   margin: auto;
 }
 .nav-tabs .nav-link.active {
-background-color: #FFB449;
+  background-color: #FFB449;
+  font-weight: 600 !important;
+  }
+.nav-tabs{
+  border: none;
 }
 
 .col-12 {

@@ -8,32 +8,41 @@
   </div>
 
   <div class="login-container2">
-    <form class="login-form">
-      <div class="input-group">
+    <form class="login-form" [formGroup]="loginForm">
 
         <div class="input-group ">
-          <input type="text" class="form-control" placeholder="ID" aria-label="Text input with dropdown button">
+          <input type="text" class="form-control" placeholder="ID" formControlName="code" aria-label="Text input with dropdown button" required>
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">ID</button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="#">Phone</a></li>
             <li><a class="dropdown-item" href="#">ID</a></li>
           </ul>
         </div>
-      </div>
-
+        <div *ngIf="loginForm.get('code')?.errors && (loginForm.get('code')?.dirty || loginForm.get('code')?.touched)" class="alert alert-danger" >
+          Code is required
+        </div>
       <div class="input-group">
 
-        <input [type]="showPassword ? 'text' : 'password'" id="password" class="password-input" placeholder="Password">
-
+        <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" class="password-input" placeholder="Password">
         <i class="material-icons toggle-icon" (click)="togglePasswordVisibility()">{{showPassword ? 'visibility' : 'visibility_off'}}</i>
       </div>
+      <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+      style="color: red">
+      Password is required.
+ </div>
+      <div *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched" class="alert alert-danger">
+      Password must be at least 8 characters..</div>
       <div class="input-group">
 
-        <div class="input-group">
-          <input type="text" placeholder="Your Verification Code" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+          <!-- <div class="input-group">
+            <input type="text" placeholder="Your Verification Code" class="form-control" style="width: 100%; display: flex;position: absolute;" aria-label="Dollar amount (with dot and two decimal places)">
+            <span class="input-group-text" style="margin-bottom: 5px !important; background-color: black; color: white;">8080</span>
+          </div> -->
+        <div class="input-group" style="position: relative; width: 100%;">
+          <input type="text" placeholder="Your Verification Code" class="form-control verification-code" style="width: 100%; padding-right: 30px;" aria-label="Dollar amount (with dot and two decimal places)">
+          <span class="input-group-text" style="position: absolute; top: 0; right: 0; background-color: black; position:absolute; color: white; padding: 5px; border-radius: 10px;right: 10px;top:4px; text-align: center;">8080</span>
+      </div>
 
-          <span class="input-group-text" >8080</span>
-        </div>
       </div>
       <div class="forgot-password-container">
         <a href="#" class="forgot-password-link">Forgot Password?</a>

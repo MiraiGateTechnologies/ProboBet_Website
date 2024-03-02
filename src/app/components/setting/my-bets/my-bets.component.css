@@ -6,6 +6,9 @@
   color: white;
 
 }
+.btn-warning{
+  background-color: #ffb449;
+}
 .load-report{
   color: white;
   width: 100%;

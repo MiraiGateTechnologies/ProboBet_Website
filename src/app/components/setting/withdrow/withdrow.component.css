@@ -42,6 +42,10 @@ li{
   background-color: black !important;
   color: white;
 }
+.form-select option{
+  background-color: black !important;
+  color: white;
+}
 /* CSS to change placeholder color */
 input::placeholder {
   color: #909090; /* Your desired placeholder color */
@@ -172,5 +176,8 @@ p{
   background-color: #ffb449;
 }
 
-
+.nav-tabs .nav-link.active {
+  background-color: #FFB449;
+  font-weight: 600 !important;
+  }
 
