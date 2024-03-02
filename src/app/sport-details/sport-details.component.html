@@ -29,41 +29,7 @@
 
 <div class="col-12 p-0" >
     <div class="container-fluid">
-      <!-- <div class="card" >
-        <div class="card-header">
-          <div class="row">
-            <div class="col-5  header-first">
-              <h2 style="font-family: Protest Riot;margin-left:5px ">MATCH ODDS</h2>
-            </div>
-            <div class="col-7 header-second">
-              <div class="second">
-                <ul>
-                  <li>BACK</li>
-                  <li>LAY</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      <div class="row row-body" *ngFor="let data of MatchOdds"  >
-        <div class="col-5 first-body" >
-          <h5>{{data.team}}</h5>
-        </div>
-        <div class="col-7 second-body justify-content-end">
-            <div class="box-1">
-              <h5 style="line-height: 0.5;">{{data.krate}}</h5>
-              <h5 style="line-height: 0.5;">{{data.krate}}</h5>
-            </div>
-            <div class="box-1">
-              <h5 style="line-height: 0.5;">{{data.lrate}}</h5>
-              <h5 style="line-height: 0.5;">{{data.lrate}}</h5>
-            </div>
-        </div>
-        <hr>
-      </div>
-
-        </div> -->
-    </div>
+     </div>
   </div>
   <div class="col-12  p-0" >
     <div class="container-fluid">
@@ -74,7 +40,6 @@
               <div class="header-first">
                 <h2 style="font-family: poppins; font-size: 14px; font-weight: 700; line-height: 1.2rem; margin-left:5px">MATCH WINNER (BOOKMARKER)</h2>
               </div>
-              <!-- <p>header-first</p> -->
             </div>
             <div class="col-7 header-second">
               <div class="second">
@@ -88,7 +53,6 @@
           </div>
         </div>
       <div class="row row-body" *ngFor="let data of MatchOdds" >
-        <!-- <button class="btn btn-sm btn-danger rounded-pill live" type="button">Live</button> -->
         <div class="col-5 first-body">
           <h5>{{data.team}}</h5>
         </div>
@@ -156,7 +120,6 @@
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
       </div>
-
         </div>
     </div>
   </div>

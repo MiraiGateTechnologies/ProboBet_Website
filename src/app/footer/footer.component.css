@@ -161,7 +161,7 @@ cursor: pointer;
     margin-top: 10px;
     text-transform: capitalize;
     font-size: 0.9rem;
-    text-wrap: nowrap;
+    /* text-wrap: nowrap; */
 
   }
 
