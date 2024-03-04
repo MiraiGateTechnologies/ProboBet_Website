@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{Db as s,ba as a,kb as o,lb as r,xb as i}from"./chunk-2SKJCBRL.mjs";import"./chunk-VVCT4QZE.mjs";var c=(()=>{let e=class e{};e.\u0275fac=function(n){return new(n||e)},e.\u0275cmp=a({type:e,selectors:[["app-add-remove-bank-statement"]],standalone:!0,features:[s],decls:2,vars:0,template:function(n,d){n&1&&(o(0,"p"),i(1,"add-remove-bank-statement works!"),r())}});let t=e;return t})();export{c as AddRemoveBankStatementComponent};

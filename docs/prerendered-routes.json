@@ -1,0 +1,31 @@
+{
+  "routes": [
+    "/",
+    "/cricket",
+    "/football",
+    "/login",
+    "/register",
+    "/reports",
+    "/reports/account-statement",
+    "/reports/activity-logs",
+    "/reports/add-remove-bank-statement",
+    "/reports/casino-reports",
+    "/reports/changepassword",
+    "/reports/custom-stake",
+    "/reports/deposit-withdraw-request-history",
+    "/reports/fancy-reports",
+    "/reports/mybets",
+    "/reports/payment",
+    "/reports/payment/banktransfer",
+    "/reports/payment/gpay",
+    "/reports/payment/paytm",
+    "/reports/payment/phonepe",
+    "/reports/payment/qrcode",
+    "/reports/payment/upi",
+    "/reports/payment/whatsapp",
+    "/reports/profit-loss",
+    "/reports/result",
+    "/reports/withdraw",
+    "/verify"
+  ]
+}
