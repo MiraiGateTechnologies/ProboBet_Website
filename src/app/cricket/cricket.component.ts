@@ -15,7 +15,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 })
 export class CricketComponent {
   sport: string = 'cricket';
-  constructor(private router:Router,private route: ActivatedRoute,){
+  constructor(private router:Router,private route: ActivatedRoute){
 
 }
 ngOnInit() {

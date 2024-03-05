@@ -2,13 +2,14 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="bet-details">
-        <form>
+        <div class="col-12"><img src=".././../../../assets/arrow.png" class="img-fluid" alt="..."(click)="goBack()"></div>
+         <form>
           <div class="mb-3">
             <label for="order-type">Start Date</label>
             <input type="date" class="form-control form-control-sm">
           </div>
           <div class="mb-3">
-            <label for="order-type">End  Date</label>
+            <label for="order-type">End Date</label>
             <input type="date" class="form-control form-control-sm">
           </div>
           <div class="col-12 d-flex justify-content-center" style=" margin-top: 10px;">
@@ -16,21 +17,26 @@
         </div>
         </form>
         <div class="profit-loss">
-          <h3>Profit and Loss Statement</h3>
+          <h3 *ngIf="profitAndLossStatement">Profit and Loss Statement</h3>
+          <h3 *ngIf="profitAndLossSportWise"><img src=".././../../../assets/arrow.png" class="img-fluid" alt="..."(click)="profitAndLossStatementBack()">Profit and Loss Statement</h3>
+          <h3 *ngIf="profitAndLossMarket"><img src=".././../../../assets/arrow.png" class="img-fluid" alt="..."(click)="profitAndLossMarketBack()">Profit and Loss Market Wise</h3>
+
         </div>
         <div class="col-12">
-          <table class="table table-dark">
-
-
-            <tbody *ngFor="let item of profitLossData">
-              <tr >
+          <table class="table table-dark" *ngIf="profitAndLossStatement">
+            <thead>
+              <tr>
                 <th>Event Name</th>
-                <td >{{ item.Event }}</td>
-              </tr>
-              <tr >
                 <th>Profit Loss</th>
-                <td >{{ item.ProfitLoss }}</td>
               </tr>
+            </thead>
+            <tbody *ngFor="let item of profitLossData">
+              <tr>
+                <td><a (click)="profitLossEvent(item.event)">{{ item.event }}</a></td>
+                <td [style.color]="item.ProfitLoss >= 0 ? 'green' : 'red'">{{ item.ProfitLoss }}</td>
+
+              </tr>
+
             </tbody>
             <tfoot>
               <tr>
@@ -40,7 +46,70 @@
             </tfoot>
           </table>
 
+          <div class="table-responsive">
 
+          <table class="table table-dark" *ngIf="profitAndLossSportWise">
+            <thead>
+              <tr style="white-space: nowrap;">
+                <th>Settled Date</th>
+                <th>Market ID</th>
+                <th>Market Name</th>
+                <th>Profit/Loss</th>
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of gettingSportData">
+              <tr style="white-space: nowrap;">
+                <td>{{ item.settledDate }}</td>
+                <td>{{ item.MarketId }}</td>
+                <td><a (click)="marketWise(item.id)">{{ item.marketName }}</a></td>
+                <td [style.color]="item.profitAndLoss >= 0 ? 'green' : 'red'">{{ item.profitAndLoss }}</td>
+              </tr>
+
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Total:</td>
+                <td colspan="3" style="justify-content: end;">{{ calculateTotal() }}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="table-responsive">
+
+          <table class="table table-dark" *ngIf="profitAndLossMarket">
+            <thead>
+              <tr style="white-space: nowrap;">
+                <th>Place Date</th>
+                <th>Runner Name</th>
+                <th>Narration</th>
+                <th>Bet Types</th>
+                <th>Profit/Loss</th>
+                <th>Commission</th>
+                <th>Net</th>
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of gettingSportMarket">
+              <tr style="white-space: nowrap;">
+                <td>{{ item.settledDate }}</td>
+                <td>{{ item.runnerName }}</td>
+                <td>{{ item.narration }}</td>
+                <td>{{ item.betType }}</td>
+                <td [style.color]="item.profitAndLoss >= 0 ? 'green' : 'red'">{{ item.profitAndLoss }}</td>
+                <td>{{ item.commission }}</td>
+                <td>{{ item.net }}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Total:</td>
+                <td colspan="5" style="justify-content: end;">{{ calculateTotal() }}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
 
         </div>
       </div>
