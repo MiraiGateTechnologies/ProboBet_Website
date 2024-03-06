@@ -1,4 +1,3 @@
-
 .withdrawal-container {
   margin: auto;
   padding: 20px;
@@ -64,7 +63,7 @@ input::-ms-input-placeholder {
 
 .btn-warning {
   width: 100%;
-  background-color: #f1c40f;
+  background-color: #FFB449;
   border: none;
 }
 .error-msg{
@@ -100,6 +99,11 @@ tr{
   font-weight:400 !important;
 
 }
+.withdrow-back{
+  position: absolute;
+  left: 10px;
+  margin-top: 5px;
+}
 
 .withdraw-table .table tbody tr td{
   color: white !important;
@@ -123,7 +127,7 @@ tr{
   margin-right: 30px;
   margin-bottom: 10px;
   transform: scale(1.1);
-  background-color: #1f1d14!important;
+  background-color: #1C1C1E !important;
   color: white;
 
   position: relative; /* Add this to position the image absolutely relative to the card */
@@ -149,9 +153,9 @@ tr{
 }
 /* CSS */
 .active-card {
-  border: 2px solid #FFB449; /* Highlight with yellow border */
-  transform: scale(1.15); /* Slightly larger scale for zoom effect */
-  background-color: #292711 !important; /* Slightly different background to distinguish */
+  border: 2px solid #747474;
+  transform: scale(1.15);
+  background-color: #4e4e4e !important;
 }
 .btn-outline-withdrow{
   border: 2px solid #FFB449; /* Highlight with yellow border */
@@ -181,3 +185,84 @@ p{
   font-weight: 600 !important;
   }
 
+
+
+  .instructions-text ul {
+    padding-left: 20px;
+    text-align: justify;
+    padding-top: 10px;
+  }
+
+  .instructions-text li {
+    margin-bottom: 5px; /* Space between list items */
+  }
+
+.instructions-heading  {
+font-family: 'poppins', sans-serif;
+font-size: 18px;
+color: #FFB449;
+  }
+
+  .form-background {
+    background-color: black;
+    color: white; /* Text color for form elements */
+}
+
+/* Set dark gray background for the selected option */
+.form-select {
+    background-color: darkgray;
+    color: white; /* Text color for options */
+}
+
+/* Set black background for the form */
+.form-background {
+  background-color: black;
+  color: white; /* Text color for form elements */
+}
+
+/* Set dark gray background for the selected option */
+.form-select {
+  background-color: darkgray;
+  color: white; /* Text color for options */
+}
+
+/* Set gray color for input fields */
+.form-control {
+  background-color: grey;
+  color: white; /* Text color for inputs */
+}
+
+/* Style the submit button */
+.withdraw-submit-btn {
+  background-color: grey; /* Button background color */
+  color: black; /* Button text color */
+}
+
+/* Additional styling for error messages */
+.error-msg {
+  color: red;
+}
+
+input[type="text"]:focus,input[type="number"]:focus{
+  border-color: white !important;
+  box-shadow:none !important;
+  outline: 0 none !important;
+}
+option:nth-child(1):hover{
+  background: yellow !important;
+}
+option:nth-child(2):hover{
+  background: yellow !important;
+}
+select:focus{
+  border-color: white !important;
+  box-shadow:none !important;
+  outline: 0 none !important;
+}
+
+
+.clicked {
+  background-color: #FFB449; /* Change to the desired color */
+  color: white; /* Change to the desired color */
+  border: none;
+}

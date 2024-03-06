@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef,HostListener} from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 export function passwordStrengthValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
@@ -28,7 +28,28 @@ export class ChangepasswordComponent implements OnInit{
   showNewPassword = false;
   showConfirmPassword = false;
   changePasswordForm!: FormGroup;
-  constructor(private formBuilder:FormBuilder){}
+  private lastScrollTop = 0;
+
+  // @HostListener('window:scroll', [])
+
+
+  constructor(private formBuilder:FormBuilder,private elRef: ElementRef){}
+  onScroll(event: Event) {
+    const videoContainer = this.elRef.nativeElement.querySelector('#videoContainer');
+    const videoPlayer = this.elRef.nativeElement.querySelector('#myVideo');
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > this.lastScrollTop) {
+      // Scrolling down
+      videoPlayer.currentTime += 0.1; // Increase this value to adjust the scroll speed
+    } else {
+      // Scrolling up
+      videoPlayer.currentTime -= 0.1; // Increase this value to adjust the scroll speed
+    }
+
+    this.lastScrollTop = scrollTop;
+  }
+
   ngOnInit(): void {
     this.changePasswordForm = this.formBuilder.group({
       currentPassword: ['', Validators.required],
@@ -41,7 +62,18 @@ export class ChangepasswordComponent implements OnInit{
     return frm.controls['newPassword'].value === frm.controls['confirmPassword'].value ? null : { 'mismatch': true };
   }
 
+  onWindowScroll() {
+    const video = document.getElementById('myVideo') as HTMLVideoElement;
+    const videoTop = video.getBoundingClientRect().top;
+    const videoBottom = video.getBoundingClientRect().bottom;
 
+    // Check if the video is in the viewport
+    if (videoTop < window.innerHeight && videoBottom >= 0) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
   toggleCurrentPasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }
@@ -80,6 +112,9 @@ export class ChangepasswordComponent implements OnInit{
       }
     }
     return '';
+  }
+  goBack(){
+    window.history.back()
   }
 
 }

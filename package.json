@@ -29,6 +29,7 @@
     "express": "^4.18.2",
     "firebase-tools": "^13.0.3",
     "intl-tel-input": "^17.0.21",
+    "ngx-countries-dropdown": "^1.0.5",
     "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

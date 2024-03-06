@@ -14,16 +14,25 @@
 .btn-warning{
   background-color: #ffb449;
 }
+tr{
+  margin-top:40px;
+  border: 2px solid;
+}
+.link {
+  color: white; /* Set link color */
+  text-decoration: underline; /* Add underline to text */
+  cursor: pointer; /* Change cursor to pointer when hovering */
+}
 .select {
   color: white;
 }
 .form-control{
-  background-color: #222c3b;
+  background-color: black;
   color: white;
 }
 .profit-loss{
   margin-top: 10px;
-  background: #001e50;
+  background: #ffb449;
   background-color: linear-gradient(105deg,#001e50 10%,#040404d9 70%);
 }
 h3{
@@ -33,9 +42,11 @@ h3{
   font-size: 14px;
   padding-left: 5px;
 }
-tr{
-  border: 1px solid gray;
+
+.table tbody tr {
+  border-spacing: 10px; /* Adjust the second value to control the vertical gap */
 }
+
 th{
   font-family: 'poppins',sans-serif;
   color: gray;
@@ -46,4 +57,7 @@ label{
   color: white;
   font-family: 'poppins',sans-serif;
   font-weight: 400;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) !important;
 }

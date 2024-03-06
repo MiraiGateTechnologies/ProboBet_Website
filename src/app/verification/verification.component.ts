@@ -1,21 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { Component, NgModule } from '@angular/core';
-
-import { SearchCountryField, CountryISO } from 'ngx-intl-tel-input';
-
-
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxCountriesDropdownModule } from 'ngx-countries-dropdown';
 
 @Component({
   selector: 'app-verification',
   standalone: true,
-  imports: [
+  imports: [NgxCountriesDropdownModule
   ],
   templateUrl: './verification.component.html',
   styleUrl: './verification.component.css'
 })
 export class VerificationComponent {
+  selectedCountryConfig = {
+    hideCode: true,
+    hideName: true
+  };
+  countryListConfig = {
+    hideCode: true,
 
+  };
+  onCountryChange(country: any) {
+    console.log(country);
+  }
 
 }

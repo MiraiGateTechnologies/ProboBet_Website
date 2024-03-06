@@ -33,4 +33,7 @@ export class ResultsComponent {
     { transactionNo: 'CONCACAF Champions League	', amount: 300.00, status: 'Completed', dateTime: '2024-02-26 14:20:00' },
     { transactionNo: 'TRX005', amount: 150.80, status: 'Pending', dateTime: '2024-02-26 15:45:00' }
   ];
+  goBack(){
+    window.history.back()
+  }
 }

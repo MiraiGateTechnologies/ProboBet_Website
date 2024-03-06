@@ -53,6 +53,27 @@ export class ProfitLossComponent implements OnInit{
     });
     return total;
   }
+
+  calculateTotalMarket(){
+    let total = 0;
+    this.profitLossData.forEach(item => {
+      if (!isNaN(Number(item.ProfitLoss))) {
+        total += Number(item.ProfitLoss);
+      }
+    });
+    return total;
+  }
+
+  calculateTotalSportWise(){
+    let total = 0;
+    this.gettingSportData.forEach((item:any) => {
+      if (!isNaN(Number(item.profitAndLoss))) {
+        total += Number(item.profitAndLoss  );
+      }
+    });
+    return total;
+  }
+
   profitLossEvent(selectedGame:any){
     if(selectedGame != ''|| selectedGame ==undefined){
       this.profitAndLossSportWise= true;

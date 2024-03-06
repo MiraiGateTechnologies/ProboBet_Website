@@ -3,13 +3,22 @@
     <div class="row">
       <div class="col-12" [ngClass]="currentRoute">
         <div *ngIf="currentRoute === 'whatsapp'">
-         <ul class="whatsappp-text">
-           <li> Instant 24/7 Deposit & Withdrawal Guaranteed!! </li>
-           <li> All Pay Option Available Like Paytm, Gpay, Upi, Imps & Hawala. </li>
-           <li> No Tension Of Pending Transaction & Inactive Account. </li>
-           <li> Ask updated bank details on given Options. </li>
-           <li> All Clients are Requested To Shift On Below Given Options For Smooth Service. </li>
-         </ul>
+        <div class="container-fluid">
+          <div class="col-12">
+            <div class="deposit-instructions">
+                <div class="instructions-text">
+                  <ul>
+                    <li> Instant 24/7 Deposit & Withdrawal Guaranteed!! </li>
+                    <li> All Pay Option Available Like Paytm, Gpay, Upi, Imps & Hawala. </li>
+                    <li> No Tension Of Pending Transaction & Inactive Account. </li>
+                    <li> Ask updated bank details on given Options. </li>
+                    <li> All Clients are Requested To Shift On Below Given Options For Smooth Service. </li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+
+        </div>
          <div class="whatsapp-button-container col-12">
            <button type="button" class="btn btn-sm whatsapp-button">
             <img class="whatsapp-img" src="https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/wa.svg" alt="WhatsApp">
@@ -133,36 +142,35 @@
                   <div class="col-12">
                   <div class="row">
                       <div class="col-4">
-
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(500)">+500</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(500)" [class.clicked]="isClicked500">+500</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(1000)">+1000</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(1000)" [class.clicked]="isClicked1000">+1000</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(2000)">+2000</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(2000)" [class.clicked]="isClicked2000">+2000</button>
                       </div>
                     </div>
                   <div class="row">
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(5000)">+5000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(5000)" [class.clicked]="isClicked5000">+5000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(10000)">+10000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(10000)" [class.clicked]="isClicked10000">+10000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(20000)">+20000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(20000)" [class.clicked]="isClicked20000">+20000</button>
                     </div>
                 </div>
                 <div class="row">
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(50000)">+50000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(50000)" [class.clicked]="isClicked50000">+50000</button>
                   </div>
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(250000)">+250000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(250000)" [class.clicked]="isClicked250000">+25000</button>
                   </div>
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn"  (click)="setAmount(100000)">+100000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn"  (click)="setAmount(100000)" [class.clicked]="isClicked100000">+100000</button>
                   </div>
               </div>
 
@@ -207,7 +215,9 @@
                     <!-- Account Number -->
                     <div class="account-item mb-2">
                       <span class="account-label">Account Number:</span>
-                      <span class="account-value">LOVEPREET SINGH<i class="bi bi-copy"></i></span>
+                      <span class="account-value" #accountValue>LOVEPREET SINGH<i class="bi bi-copy"></i></span>
+
+                      <!-- <span class="account-value" #accountValue>LOVEPREET SINGH<i class="bi bi-copy" (click)="copyText(accountValue)"></i></span> -->
                     </div>
                     <!-- Holder Name -->
                     <div class="account-item mb-2">
@@ -251,35 +261,35 @@
                   <div class="col-12">
                   <div class="row">
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn">+500</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(500)" [class.clicked]="isClicked500">+500</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn">+1000</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(1000)" [class.clicked]="isClicked1000">+1000</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn">+2000</button>
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(2000)" [class.clicked]="isClicked2000">+2000</button>
                       </div>
                     </div>
                   <div class="row">
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn">+5000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(5000)" [class.clicked]="isClicked5000">+5000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn">+10000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(10000)" [class.clicked]="isClicked10000">+10000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn">+20000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(20000)" [class.clicked]="isClicked20000">+20000</button>
                     </div>
                 </div>
                 <div class="row">
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn">+5000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(25000)" [class.clicked]="isClicked25000">+25000</button>
                   </div>
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn">+25000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(50000)" [class.clicked]="isClicked50000">+50000</button>
                   </div>
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn">+100000</button>
+                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(100000)" [class.clicked]="isClicked100000">+100000</button>
                   </div>
               </div>
 
@@ -293,7 +303,7 @@
 
                   <!-- Submit Button -->
                   <div class="d-grid">
-                    <button class="btn btn-warning" type="submit">Submit</button>
+                    <button class="btn submit-btn" type="submit">Submit</button>
                   </div>
                 </div>
               </div>

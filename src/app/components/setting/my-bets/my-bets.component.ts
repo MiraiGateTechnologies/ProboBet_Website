@@ -24,5 +24,7 @@ export class MyBetsComponent {
     const selectedValue = (event.target as HTMLSelectElement).value;
     console.log('Selected Value:', selectedValue);
   }
-
+  goBack(){
+    window.history.back()
+  }
 }

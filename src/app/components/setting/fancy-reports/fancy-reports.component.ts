@@ -26,4 +26,7 @@ export class FancyReportsComponent {
     console.log('Selected Value:', selectedValue);
   }
 
+  goBack(){
+    window.history.back()
+  }
 }

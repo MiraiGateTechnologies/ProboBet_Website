@@ -15,15 +15,17 @@
 
   <div class="input-group">
 
+    <lib-country-list [selectedCountryConfig]="selectedCountryConfig" [countryListConfig]="countryListConfig"
+    (onCountryChange)="onCountryChange($event)"></lib-country-list>
 
   </div>
   <div class="checkbox-group">
     <input type="checkbox" id="age" name="age" value="age">
-    <label for="age">I confirm that I am 18 years old or above and agree to the Terms and Conditions</label>
+    <label for="age">I confirm thhat I am 18 years old or above and agree to the Terms and Conditions</label>
   </div>
   <button class="button" id="get-otp">Get OTP</button>
   <div class="divider">Or Register With</div>
-  
+
   <div class="whatsapp-button-container col-12">
       <button type="button" class="btn btn-sm whatsapp-button">
        <img class="whatsapp-img" src="https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/wa.svg" alt="WhatsApp">
@@ -46,13 +48,13 @@
                 daily deposit</span>
           </div>
 
-   
+
 
         </div>
       </div>
     </div>
-   
- 
+
+
     </div>
 </div>
 

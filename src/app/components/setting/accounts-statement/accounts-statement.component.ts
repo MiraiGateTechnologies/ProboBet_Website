@@ -18,4 +18,7 @@ export class AccountsStatementComponent implements OnInit{
   ngOnInit(): void {
     this.transactions = this.dataService.generateDummyData();
   }
+  goBack(){
+    window.history.back()
+  }
 }

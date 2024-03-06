@@ -24,5 +24,8 @@ export class DepositComponent {
     { id: 'qrcode', name: 'QR Code', image: 'https://m.kheloyaar360.net/assets/images/payment-deposit/qrcode-icon.png' },
     { id: 'banktransfer', name:'Bank Transfer', image: 'https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/bank-transfer.svg' }
   ];
+  goBack(){
+    window.history.back()
+  }
 
 }

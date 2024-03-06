@@ -25,5 +25,7 @@ export class CasinoReportsComponent {
     const selectedValue = (event.target as HTMLSelectElement).value;
     console.log('Selected Value:', selectedValue);
   }
-
+  goBack(){
+    window.history.back()
+  }
 }

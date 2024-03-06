@@ -5,8 +5,11 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="bet-details">
+      <img src=".././../../../assets/arrow.png" class="img-fluid backicon" (click)="goBack()" alt="...">
+
         <form>
           <div class="mb-3">
+
             <label for="order-type">Order Type</label>
             <select [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" class="form-select form-select-sm select" aria-label="small select example">
               <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
@@ -17,7 +20,7 @@
             <input type="date" class="form-control form-control-sm">
           </div>
           <div class="mb-3">
-            <label for="order-type">End  Date</label>
+            <label for="order-type">End Date</label>
             <input type="date" class="form-control form-control-sm">
           </div>
           <div class="col-12 d-flex justify-content-center" style=" margin-top: 15px;">

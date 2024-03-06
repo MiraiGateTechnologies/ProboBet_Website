@@ -1,7 +1,7 @@
 <div class="withdrawal-container">
-  <h2 class="withdrow">Withdrow</h2>
-  <div class="withdrawal-note">
-      <strong class="withdrow-note">Please Note:</strong>
+  <h2 class="withdrow"><img src=".././../../../assets/arrow.png" class="img-fluid withdrow-back" alt="..."(click)="goBack()">Withdrawal</h2>
+  <div class="instructions-text">
+      <strong class="instructions-heading">Please Note:</strong>
       <ul>
           <li>The bonus amount can be used to place bets across the platform and the winnings can be withdrawn.</li>
           <li>A player can use bonus amount to place bets and play games on Kheloyar.</li>
@@ -29,13 +29,17 @@
 <div class="tab-content" id="withdrawalTabContent">
     <div class="tab-pane fade show active" id="addAccount" role="tabpanel" aria-labelledby="add-account-tab">
 
-<form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
-<div class="mb-3">
-  <label for="paymentOptions" class="form-label">Payment Options</label>
-  <select class="form-select" id="paymentOptions">
-    <option>Bank</option>
-  </select>
-</div>
+      <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="form-background">
+        <!-- Your form content -->
+        <div class="mb-3">
+            <label for="paymentOptions" class="form-label">Payment Options</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
 
 <div class="mb-3">
   <label for="holderName" class="form-label">Holder Name</label>
@@ -59,9 +63,12 @@
   </div>
 </div>
 <div class="mb-3">
-  <label for="branckName" class="form-label">Account Number</label>
-  <input type="number" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Account Number">
-  <div *ngIf="paymentForm.get('accountNumber')?.invalid && paymentForm.get('accountNumber')?.touched" class="error-msg">
+  <label for="accountNumber" class="form-label">Account Number</label>
+  <input type="text" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Account Number">
+  <div *ngIf="paymentForm.get('accountNumber')?.errors?.maxlength && paymentForm.get('accountNumber')?.touched" class="error-msg">
+    Account Number cannot exceed 16 digits
+  </div>
+  <div *ngIf="paymentForm.get('accountNumber')?.errors?.required && paymentForm.get('accountNumber')?.touched" class="error-msg">
     Account Number is required
   </div>
 </div>
@@ -142,28 +149,27 @@
             </div>
           </form>
           <div class="col-12">
-            <div class="row">
-                <div class="col-4">
-                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500')">500</button>
-                </div>
-                <div class="col-4">
-                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('5000')">5000</button>
-                </div>
-                <div class="col-4">
-                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('10000')">10000</button>
-                </div>
-              </div>
-            <div class="row">
-              <div class="col-4">
-                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('200000')">200000</button>
-              </div>
-              <div class="col-4">
-                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500000')">500000</button>
-              </div>
-              <div class="col-4">
-                <button type="button" class="btn btn-outline-warning amount-btn"   [class.clicked]="isClicked"
 
-                (click)="setAmount('1000000')">1000000</button>
+            <div class="row">
+                <div class="col-4">
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500')" [class.clicked]="isClicked500">500</button>
+                </div>
+                <div class="col-4">
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('5000')"  [class.clicked]="isClicked5000">5000</button>
+                </div>
+                <div class="col-4">
+                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('10000')"  [class.clicked]="isClicked10000">10000</button>
+                </div>
+              </div>
+            <div class="row">
+              <div class="col-4">
+                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('200000')" [class.clicked]="isClicked200000">200000</button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500000')" [class.clicked]="isClicked500000">500000</button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="btn btn-outline-warning amount-btn"  (click)="setAmount('1000000')" [class.clicked]="isClicked1000000">1000000</button>
               </div>
           </div>
             <div class="d-grid" style="margin: 10px;">
@@ -193,7 +199,3 @@
         </div>
 
     </div>
-
-
-
-

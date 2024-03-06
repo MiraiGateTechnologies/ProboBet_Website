@@ -13,6 +13,12 @@ import { ExistingAccount, Transaction } from './existing-account.intrface';
 export class WithdrowComponent {
   paymentForm!: FormGroup;
   isClicked: boolean = false;
+  isClicked500=false;
+  isClicked5000= false;
+  isClicked10000= false
+  isClicked200000= false
+  isClicked500000 =false
+  isClicked1000000 =false
   existingAccountForm!:FormGroup;
   activeCard: any = null;
   tickImage: string = 'https://dqqdyv927mezc.cloudfront.net/kheloyar/web/tick.svg';
@@ -34,7 +40,7 @@ export class WithdrowComponent {
       'holderName': new FormControl(null, Validators.required),
       'bankName': new FormControl(null, Validators.required),
       'branchName': new FormControl(null, Validators.required),
-      'accountNumber': new FormControl(null, Validators.required),
+      'accountNumber': new FormControl(null, [Validators.required, Validators.maxLength(16)]),
       'ibanNumber': new FormControl(null, Validators.required)
     });
 
@@ -44,6 +50,13 @@ export class WithdrowComponent {
       'amount':new FormControl(null)
     });
 
+  }
+  paymentOptions = [
+    { label: 'Bank', value: 'bank', backgroundColor: 'red' }, // Example option
+    // Add more options as needed
+  ];
+  onChange(selectedValue: string) {
+    // Handle selection change if needed
   }
   onSubmit() {
     // Here you would usually send the form data to a server
@@ -60,10 +73,32 @@ export class WithdrowComponent {
   }
   setAmount(amount:any) {
     this.isClicked = !this.isClicked;
+    this.isClicked500=false;
+    this.isClicked5000= false;
+    this.isClicked10000= false
+    this.isClicked200000= false
+    this.isClicked500000 =false
+    this.isClicked1000000 =false
+    if (amount === '500') {
+      this.isClicked500 = true;
+  } else if (amount === '5000') {
+      this.isClicked5000 = true;
+  } else if (amount === '10000') {
+      this.isClicked10000 = true;
+  } else if (amount === '200000') {
+    this.isClicked200000 = true;
+} else if (amount === '500000') {
+    this.isClicked500000 = true;
+} else if (amount === '1000000') {
+  this.isClicked1000000 = true;
+}
+
     this.existingAccountForm.patchValue({
       amount:amount
     })
   }
-
+  goBack(){
+    window.history.back()
+  }
 
 }

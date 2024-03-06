@@ -18,7 +18,7 @@
   color: white;
 }
 .form-control{
-  background-color: #222c3b;
+  background-color: black;
   color: white;
 }
 tr{
@@ -30,4 +30,12 @@ label{
   color: white;
   font-family: 'poppins',sans-serif;
   font-weight: 400;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) !important;
+}
+input[type="text"]:focus,input[type="date"]:focus{
+  border-color: white !important;
+  box-shadow:none !important;
+  outline: 0 none !important;
 }

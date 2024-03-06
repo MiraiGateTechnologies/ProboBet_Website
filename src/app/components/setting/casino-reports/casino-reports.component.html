@@ -5,9 +5,10 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="bet-details">
+        <img src=".././../../../assets/arrow.png" class="img-fluid" alt="..."(click)="goBack()">
         <form>
           <div class="mb-3">
-            <label for="order-type">Filter Type</label>
+            <label for="order-type"> Filter Type</label>
             <select [(ngModel)]="selectedOption" [ngModelOptions]="{standalone: true}" class="form-select form-select-sm select" aria-label="small select example">
               <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
             </select>
