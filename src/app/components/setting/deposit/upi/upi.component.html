@@ -31,12 +31,12 @@
           <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link rounded-pill active" id="whatsapp-tab" data-bs-toggle="tab" data-bs-target="#whatsapp" type="button" role="tab" aria-controls="whatsapp" aria-selected="true">
-                WhatsApp
+                Option 1
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link rounded-pill" id="upi-tab" data-bs-toggle="tab" data-bs-target="#upi" type="button" role="tab" aria-controls="upi" aria-selected="false">
-                UPI
+                Option 2
               </button>
             </li>
             <!-- Add more tabs as necessary -->
@@ -53,7 +53,7 @@
               <div class="deposit-instructions">
                 <h3 class="quick-deposit-header">
                 <button class="quick-deposit-btn"><span class="whatsapp-icon">
-            <img class="whatsapp-img" src="https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/wa.svg" alt="WhatsApp">
+                    <img class="whatsapp-img" src="https://dqqdyv927mezc.cloudfront.net/kheloyar/newdeposit/wa.svg" alt="WhatsApp">
                 </span>Quick Deposit</button>
                 </h3>
                 <div class="instructions-text">
@@ -119,76 +119,89 @@
                 </div>
               </div>
               <div class="container">
-                <div class="upload-form bg-dark text-white p-4 rounded">
+                <form [formGroup]="paymentOption" (ngSubmit)="onSubmit()">
+                  <div class="upload-form bg-dark text-white p-4 rounded">
 
-                  <div class="mb-3">
-                    <label for="fileUpload" class="form-label">Upload File</label>
-                    <div class="input-group input-group-sm">
-                      <span class="input-group-text" >
-                        <i class="bi bi-camera-fill"></i>
-                      </span>
-                      <input type="file" class="form-control" id="fileUpload" hidden>
-                      <label for="fileUpload" class="form-control file-upload-label">Choose file</label>
+                    <div class="mb-3">
+                      <label for="fileUpload" class="form-label">Upload File</label>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text" >
+                          <i class="bi bi-camera-fill"></i>
+                        </span>
+                        <input type="file" class="form-control" id="fileUpload" formControlName="uploadDepositFile" (change)="onImagePicked($event)" hidden>
+                        <label for="fileUpload" class="form-control file-upload-label">Choose file</label>
+                      </div>
                     </div>
+
+                    <!-- Amount -->
+                    <div class="mb-3 input-group-sm">
+                      <label for="amount" class="form-label">Amount</label>
+                      <input type="number" [value]="amount" id="amount" class="form-control" formControlName="amountDeposit" placeholder="0">
+                      <div *ngIf="submitted && paymentOption.get('amountDeposit')?.errors?.required" class="error-msg">
+                        Amount is required
+                      </div>
+                    </div>
+
+                    <!-- Preset Amount Buttons -->
+                    <div class="col-12">
+                    <div class="row">
+                        <div class="col-4">
+                          <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(500)" [class.clicked]="isClicked500">+500</button>
+                        </div>
+                        <div class="col-4">
+                          <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(1000)" [class.clicked]="isClicked1000">+1000</button>
+                        </div>
+                        <div class="col-4">
+                          <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(2000)" [class.clicked]="isClicked2000">+2000</button>
+                        </div>
+                      </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(5000)" [class.clicked]="isClicked5000">+5000</button>
+                      </div>
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(10000)" [class.clicked]="isClicked10000">+10000</button>
+                      </div>
+                      <div class="col-4">
+                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(20000)" [class.clicked]="isClicked20000">+20000</button>
+                      </div>
                   </div>
-
-                  <!-- Amount -->
-                  <div class="mb-3 input-group-sm">
-                    <label for="amount" class="form-label">Amount</label>
-                    <input type="number" [value]="amount" id="amount" class="form-control" placeholder="0">
-                  </div>
-
-                  <!-- Preset Amount Buttons -->
-                  <div class="col-12">
-                  <div class="row">
-                      <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(500)" [class.clicked]="isClicked500">+500</button>
-                      </div>
-                      <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(1000)" [class.clicked]="isClicked1000">+1000</button>
-                      </div>
-                      <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(2000)" [class.clicked]="isClicked2000">+2000</button>
-                      </div>
-                    </div>
                   <div class="row">
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(5000)" [class.clicked]="isClicked5000">+5000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(50000)" [class.clicked]="isClicked50000">+50000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(10000)" [class.clicked]="isClicked10000">+10000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(250000)" [class.clicked]="isClicked250000">+25000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(20000)" [class.clicked]="isClicked20000">+20000</button>
+                      <button type="button" class="btn btn-outline-warning amount-btn"  (click)="setAmount(100000)" [class.clicked]="isClicked100000">+100000</button>
                     </div>
                 </div>
-                <div class="row">
-                  <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(50000)" [class.clicked]="isClicked50000">+50000</button>
-                  </div>
-                  <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(250000)" [class.clicked]="isClicked250000">+25000</button>
-                  </div>
-                  <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn"  (click)="setAmount(100000)" [class.clicked]="isClicked100000">+100000</button>
-                  </div>
-              </div>
 
 
 
-                  <!-- Unique Transaction Reference -->
-                  <div class="mb-3">
-                    <label for="transactionRef" class="form-label" style="padding-top: 10px;">Unique Transaction Reference</label>
-                    <input type="text" class="form-control" id="transactionRef" placeholder="6 to 12 Digits UTR Number">
-                  </div>
+                    <!-- Unique Transaction Reference -->
+                    <div class="mb-3">
+                      <label for="transactionRef" class="form-label" style="padding-top: 10px;" name="uniqueTransaction" >Unique Transaction Reference</label>
+                      <input type="number" class="form-control"   minlength="4"     id="transactionRef" placeholder="6 to 12 Digits UTR Number" formControlName="uniqueTransaction">
+                      <div *ngIf="submitted && paymentOption.get('uniqueTransaction')?.errors?.required" class="error-msg">
+                        Unique transaction is required
+                      </div>
+                      <div *ngIf="submitted && paymentOption.get('uniqueTransaction')?.hasError('minlength')" class="error-msg">
+                        Unique transaction must be at least 6 digits
+                      </div>
+                      <div *ngIf="submitted && paymentOption.get('uniqueTransaction')?.hasError('maxlength')" class="error-msg">
+                        Unique transaction cannot exceed 16 digits
+                      </div>
+                    </div>
 
-                  <!-- Submit Button -->
-                  <div class="d-grid">
+                    <div class="d-grid">
 
-                    <button class="btn submit-btn" type="submit">Submit</button>
+                      <button class="btn submit-btn" type="submit">Submit</button>
+                    </div>
                   </div>
                 </div>
-              </div>
+                </form>
 
 
             </div>
@@ -197,18 +210,21 @@
               <div class="container-fluid my-3">
                 <div class="col-12">
                   <!-- Quick Deposit Box -->
-                  <!-- <div class="quick-deposit-box p-3  rounded shadow-sm"> -->
-                    <!-- QR Code -->
-                    <!-- <div class="text-center mb-3 bg-white">
-                      <img src="../../../../../assets/download.jfif" alt="QR Code" class="img-fluid" style="width: 200px;height: 200px;">
-                    </div> -->
-                    <!-- Download & Pay Button -->
-                    <!-- <div class="text-center mb-3">
-                      <button class="btn btn-warning btn-lg">Download & Pay</button>
-                    </div> -->
-                    <!-- Account Details -->
+                  <div class="col-12">
+                    <!-- Quick Deposit Box -->
+                    <div class="quick-deposit-box p-3  rounded shadow-sm">
+                      <!-- QR Code -->
+                      <div class="text-center mb-3 bg-white">
+                        <img src="../../../../../assets/download.jfif" alt="QR Code" class="img-fluid" style="width: 200px;height: 200px;">
+                      </div>
+                      <!-- Download & Pay Button -->
+                      <div class="text-center mb-3">
+                        <button class="btn submit-btn btn-lg">Download & Pay</button>
+                      </div>
+                      <!-- Account Details -->
 
-                  <!-- </div> -->
+                    </div>
+                  </div>
                 </div>
                 <div class="col-12">
                   <div class="account-details bg-dark text-white p-3">
@@ -246,7 +262,7 @@
                       <span class="input-group-text" >
                         <i class="bi bi-camera-fill"></i>
                       </span>
-                      <input type="file" class="form-control" id="fileUpload" hidden (change)="onFileSelected($event)">
+                      <input type="file" class="form-control" id="fileUpload" >
                       <label for="fileUpload" class="form-control file-upload-label">Choose file</label>
                     </div>
                   </div>
@@ -255,6 +271,7 @@
                   <div class="mb-3 input-group-sm">
                     <label for="amount" class="form-label">Amount</label>
                     <input type="number" id="amount" class="form-control" placeholder="0">
+
                   </div>
 
                   <!-- Preset Amount Buttons -->
@@ -293,26 +310,18 @@
                   </div>
               </div>
 
-
-
                   <!-- Unique Transaction Reference -->
                   <div class="mb-3">
                     <label for="transactionRef" class="form-label" style="padding-top: 10px;">Unique Transaction Reference</label>
                     <input type="text" class="form-control" id="transactionRef" placeholder="6 to 12 Digits UTR Number">
                   </div>
-
-                  <!-- Submit Button -->
                   <div class="d-grid">
                     <button class="btn submit-btn" type="submit">Submit</button>
                   </div>
                 </div>
               </div>
-
-
             </div>
-              <!-- Content for UPI tab -->
             </div>
-            <!-- Add more tab content as necessary -->
           </div>
 
 

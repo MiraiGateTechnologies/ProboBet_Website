@@ -1,4 +1,4 @@
-.header {
+/* .header {
   background: linear-gradient(
                   180deg,
                   rgba(21, 20, 37, 0.7) 0%,
@@ -1135,37 +1135,6 @@ button.live-tv.popupBtn span {
   }
 }
 
-.live-tv.popupBtn {
-  background: #2560ad;
-  border-radius: 6px;
-  font-size: 13px;
-  border: none;
-  margin-right: 15px;
-  color: #ffffff;
-  padding: 6px 23px 6px 10px !important;
-}
-
-.stream {
-  background: gainsboro;
-  height: 240px;
-  width: 100%;
-  z-index: 99;
-  margin: 0 auto;
-  margin-bottom: 10px;
-
-
-  @media screen and (max-width: 500px) {
-    width: 100% !important;
-  }
-}
-
-.live-tv.popupBtn img {
-  width: 18px;
-  height: 15px;
-  margin-right: 10px;
-  filter: brightness(0) invert(1);
-}
-
 
 
 
@@ -1212,4 +1181,4 @@ button.live-tv.popupBtn span {
     font-weight: 900;
   }
 
-}}
+}} */

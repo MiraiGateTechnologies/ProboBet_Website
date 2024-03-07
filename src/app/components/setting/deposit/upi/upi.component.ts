@@ -1,17 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-upi',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './upi.component.html',
   styleUrl: './upi.component.css'
 })
 export class UpiComponent {
   @ViewChild('copyIcon') copyIcon!: ElementRef;
+  paymentOption!:FormGroup;
   isClicked500 =false;
   isClicked1000=false;
   isClicked2000=false;
@@ -21,15 +22,25 @@ export class UpiComponent {
   isClicked50000=false;
   isClicked250000 = false;
   isClicked25000=false;
+  submitted= false;
   isClicked100000=false;
   currentRoute: string = '';
   amount: any = 0;
-  constructor(private activatedRoute: ActivatedRoute,private renderer: Renderer2) {}
+  constructor(private activatedRoute: ActivatedRoute,private renderer: Renderer2,private fb:FormBuilder) {}
   ngOnInit() {
     this.activatedRoute.url.subscribe(urlSegments => {
       this.currentRoute = urlSegments.length > 0 ? urlSegments[0].path : 'no path';
       console.log(this.currentRoute)
     });
+    this.paymentOption = this.fb.group({
+      uploadDepositFile:[''],
+      amountDeposit:['',Validators.required],
+      uniqueTransaction:[null,[Validators.required,Validators.min(6),Validators.max(16)]]
+    })
+  }
+  onImagePicked(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.[0]; // Here we use only the first file (single file)
+    this.paymentOption.patchValue({ uploadDepositFile: file});
   }
   setAmount(amount:number){
     this.isClicked500 =false;
@@ -64,15 +75,15 @@ export class UpiComponent {
 
 
   }
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const label = input.nextElementSibling as HTMLLabelElement;
-    if (input.files && input.files[0]) {
-        label.textContent = input.files[0].name;
-    } else {
-        label.textContent = 'Choose file';
+  onSubmit(): void {
+    this.submitted = true;
+    if(!this.paymentOption.valid) {
+      return;
+    }else{
+      console.log(this.paymentOption.value)
     }
-}
+
+  }
 copyText(text: string) {
   // Create a temporary textarea element
   const textarea = this.renderer.createElement('textarea');
