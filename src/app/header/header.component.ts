@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SliderComponent } from '../components/slider/slider.component';
 import {  Router, RouterLink, RouterModule } from '@angular/router';
+import { SidebarService } from '../service/sidebar.service';
 
 
 @Component({
@@ -10,9 +11,10 @@ import {  Router, RouterLink, RouterModule } from '@angular/router';
   standalone: true,
   imports: [SliderComponent,CommonModule,RouterModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
+  providers:[SidebarService]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   sidebarOpen = false;
   dropdowns: { [key: string]: boolean } = {
@@ -21,11 +23,20 @@ export class HeaderComponent {
   };
 
 
-  constructor(private eRef: ElementRef,private router:Router) {}
+  constructor(private eRef: ElementRef,private router:Router,private sidebarService:SidebarService) {}
 
   openSidebar() {
     this.sidebarOpen = true;
+    console.log(this.sidebarService.toggleSidebar())
+    this.sidebarService.toggleSidebar();
   }
+
+  ngOnInit(): void {
+  //   this.sidebarService.sidebarOpen$.subscribe(open => {
+  //     this.sidebarOpen = open;
+  //   });
+  }
+
   toggleDropdown(event: Event, dropdownKey: string): void {
     event.stopPropagation();
     if (this.dropdowns[dropdownKey]) {

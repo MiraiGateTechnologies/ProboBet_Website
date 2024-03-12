@@ -23,7 +23,12 @@
   color: white;
   font-family: 'poppins',sans-serif;
 }
-
+.submit-btn{
+  background-color: #FFB449;
+}
+.back{
+  margin-bottom: 10px;
+}
 
 label{
   margin: 2px;

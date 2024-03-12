@@ -48,10 +48,28 @@ input[type="text"]:focus,input[type="number"]:focus{
   font-family: 'poppins',sans-serif;
   font-weight: 700;
 }
+input::-webkit-inner-spin-button{
+  appearance: none;
+}
 .col-12 {
   padding: 0; /* Ensures no padding from grid system */
 }
+input[type="number"]{
+  background-color: black;
+  color :white;
+  border: none;
+}
+.amount-btn{
+  border: 2px solid #FFB449;
+}
+input[type="file"]{
+  background-color: black;
+}
 
+input[type="number"]::placeholder{
+  background-color: black;
+  color :white
+}
 .deposit-instructions {
   color: #fff; /* White text color */
   padding: 15px;
@@ -131,14 +149,11 @@ input[type="text"]:focus,input[type="number"]:focus{
   cursor: pointer;
   border-radius: 5px; /* Rounded corners for the button */
 }
-.quick-deposit-box {
-  border-radius: 0.25rem; /* Rounded corners */
-  border: 1px solid #ddd; /* Border color */
-}
 
 .account-details {
   background-color: #000; /* Black background */
   border-radius: 0.25rem;
+  margin: 0;
 }
 
 .account-item {

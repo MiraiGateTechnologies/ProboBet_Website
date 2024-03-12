@@ -3,17 +3,18 @@ import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { filter } from 'rxjs/operators';
-
+import {BottomFooterComponent} from './footer/bottom-footer/bottom-footer.component'
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,HeaderComponent],
+  imports: [CommonModule, RouterOutlet,HeaderComponent,BottomFooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
   title = 'probobet-app';
-  showHeader:boolean= true
+  showHeader:boolean= true;
+  showFooter:boolean = true;
   constructor(private router: Router) {
     //
   }
@@ -27,6 +28,11 @@ export class AppComponent implements OnInit {
             event.urlAfterRedirects.includes('/register') ||
             event.urlAfterRedirects.includes('/verify') ||
             event.urlAfterRedirects.includes('/reports')
+          );
+          this.showFooter =!(
+            event.urlAfterRedirects.includes('/login') ||
+            event.urlAfterRedirects.includes('/register') ||
+            event.urlAfterRedirects.includes('/verify')
           );
         },
         error: (error) => {

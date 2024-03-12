@@ -15,7 +15,7 @@
   background-color: #ffb449;
 }
 tr{
-  margin-top:40px;
+  margin-top:20px;
   border: 2px solid;
 }
 .link {
@@ -31,32 +31,77 @@ tr{
   color: white;
 }
 .profit-loss{
-  margin-top: 10px;
-  background: #ffb449;
-  background-color: linear-gradient(105deg,#001e50 10%,#040404d9 70%);
-}
-h3{
+  color: #ffb449;
   font-family: 'poppins',sans-serif;
-  color: white;
-  font-weight: 400;
-  font-size: 14px;
-  padding-left: 5px;
+  /* background-color: linear-gradient(105deg,#001e50 10%,#040404d9 70%); */
+}
+.note{
+  color: #FFB449;
+  padding-top: 20px;
+  font-family: 'poppins',sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+.img-fluid{
+  margin-right: 10px;
+}
+.back{
+  margin-bottom: 10px;
 }
 
-.table tbody tr {
-  border-spacing: 10px; /* Adjust the second value to control the vertical gap */
+tr{
+  background-color: #020c1b;
+}
+.withdraw-table .table{
+  border: 2px solid gray;
+}
+.withdraw-table .table thead tr{
+  border: 2px solid gray;
 }
 
-th{
+.withdraw-table .table thead tr th{
+  color: white !important;
+  border: 2px solid gray;
   font-family: 'poppins',sans-serif;
-  color: gray;
-  font-weight: 400;
+  font-weight:400 !important;
+}
+.withdraw-table th,
+.withdraw-table td {
+  width: 50%; /* Adjust the width as needed */
+}
+
+.withdrow-back{
+  position: absolute;
+  left: 10px;
+  margin-top: 5px;
+}
+.link{
+color: blue;
+}
+.withdraw-table .table tbody tr td,.withdraw-table .table tfoot tr td{
+  color: white !important;
+  border: 2px solid gray;
+  background-color: black;
+  font-family: 'poppins',sans-serif;
+  font-weight:400 !important;
+}
+.table th{
+  width: 50%;
+  border-right: 1px solid white;
+}
+.submit-btn{
+  background-color: #FFB449;
 }
 label{
   margin: 2px;
   color: white;
   font-family: 'poppins',sans-serif;
   font-weight: 400;
+}
+input[type="text"]:focus,input[type="date"]:focus{
+  border-color: white !important;
+  box-shadow:none !important;
+  outline: 0 none !important;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1) !important;

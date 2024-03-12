@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ExistingAccount, Transaction } from './existing-account.intrface';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+import { nonNegativeAmountValidator, numericLengthValidator } from '../../../interface/numberLengthValidation';
+import { ExistingAccount, Transaction, TransactionBank } from './existing-account.intrface';
 
 @Component({
   selector: 'app-withdrow',
@@ -16,9 +17,10 @@ export class WithdrowComponent {
   isClicked500=false;
   isClicked5000= false;
   isClicked10000= false
-  isClicked200000= false
-  isClicked500000 =false
-  isClicked1000000 =false
+  isClicked200000= false;
+  submitted= false;
+  isClicked500000 =false;
+  isClicked1000000 =false;
   existingAccountForm!:FormGroup;
   activeCard: any = null;
   tickImage: string = 'https://dqqdyv927mezc.cloudfront.net/kheloyar/web/tick.svg';
@@ -35,19 +37,66 @@ export class WithdrowComponent {
     { transactionNo: 'TRX004', amount: 300.00, status: 'Completed', dateTime: '2024-02-26 14:20:00' },
     { transactionNo: 'TRX005', amount: 150.80, status: 'Pending', dateTime: '2024-02-26 15:45:00' }
   ];
+  accountDetails:TransactionBank[] = [
+{ accountNumber: 'TRX001',
+    hodlerNumber:'4085009',
+    ifscCode: 'Completed',
+    bankName:'Bank of india',
+    branchName:'Katiah',
+    paymentOptions:'UPI',
+    dateTime: '2024-02-26 10:30:00' },
+{
+    accountNumber: 'TRX002',
+    hodlerNumber: '4085010',
+    ifscCode: 'IFSC002',
+    bankName: 'State Bank of India',
+    branchName: 'Delhi',
+    paymentOptions: 'NEFT',
+    dateTime: '2024-02-27 11:45:00'
+},
+{
+    accountNumber: 'TRX003',
+    hodlerNumber: '4085011',
+    ifscCode: 'IFSC003',
+    bankName: 'HDFC Bank',
+    branchName: 'Mumbai',
+    paymentOptions: 'Credit Card',
+    dateTime: '2024-02-28 13:15:00'
+},
+{
+    accountNumber: 'TRX004',
+    hodlerNumber: '4085012',
+    ifscCode: 'IFSC004',
+    bankName: 'ICICI Bank',
+    branchName: 'Chennai',
+    paymentOptions: 'Net Banking',
+    dateTime: '2024-02-29 14:20:00'
+},
+{
+    accountNumber: 'TRX005',
+    hodlerNumber: '4085013',
+    ifscCode: 'IFSC005',
+    bankName: 'Axis Bank',
+    branchName: 'Kolkata',
+    paymentOptions: 'Wallet',
+    dateTime: '2024-03-01 15:45:00'
+}];
+
   ngOnInit() {
     this.paymentForm = new FormGroup({
-      'holderName': new FormControl(null, Validators.required),
-      'bankName': new FormControl(null, Validators.required),
-      'branchName': new FormControl(null, Validators.required),
-      'accountNumber': new FormControl(null, [Validators.required, Validators.maxLength(16)]),
-      'ibanNumber': new FormControl(null, Validators.required)
+      'paymentOptions': new FormControl('Bank'), // Default value 'Bank' selected
+      'holderName': new FormControl(null, [Validators.required, Validators.pattern('[A-Za-z ]*')]),
+      'bankName': new FormControl(null, [Validators.required, Validators.pattern('[A-Za-z ]*')]),
+      'branchName': new FormControl(null, [Validators.required, Validators.pattern('[A-Za-z ]*')]),
+      'accountNumber': new FormControl(null, [Validators.required,numericLengthValidator(0,16)]),
+      'ifsc': new FormControl(null, Validators.required),
+      'UPI': new FormControl(null, Validators.required),
     });
 
     this.existingAccountForm = new FormGroup({
-      'accountNumber': new FormControl(null),
-      'accountName':new FormControl(null),
-      'amount':new FormControl(null)
+      'accountNumber': new FormControl(null,[Validators.required,numericLengthValidator(0,16)]),
+      'accountName':new FormControl(null,[Validators.required, Validators.pattern('[A-Za-z ]*')]),
+      'amount':new FormControl(null,[Validators.required,nonNegativeAmountValidator()])
     });
 
   }
@@ -59,9 +108,19 @@ export class WithdrowComponent {
     // Handle selection change if needed
   }
   onSubmit() {
-    // Here you would usually send the form data to a server
-    console.log(this.paymentForm.value);
+
+    if (this.paymentForm.get('paymentOptions')?.value === 'UPI') {
+        console.log(this.paymentForm.value);
+  this.submitted= true;
+
+    }
+    if(this.paymentForm.get('paymentOptions')?.value === 'Bank'){
+      console.log(this.paymentForm.value);
+  this.submitted= true;
+
+    }
   }
+
   setActive(card: any) {
     console.log(card);
     this.activeCard = card;
@@ -100,5 +159,6 @@ export class WithdrowComponent {
   goBack(){
     window.history.back()
   }
+
 
 }

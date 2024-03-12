@@ -2,7 +2,7 @@
   font-family: 'poppins';
 }
 .form-select{
-  background-color: #222c3b;
+  background-color: black;
   color: white;
 }
 
@@ -17,12 +17,50 @@
 .select {
   color: white;
 }
+tr{
+  background-color: #020c1b;
+}
+.withdraw-table .table{
+  border: 2px solid gray;
+}
+.withdraw-table .table thead tr{
+  border: 2px solid gray;
+}
+
+.withdraw-table .table thead tr th{
+  color: white !important;
+  border: 2px solid gray;
+  font-family: 'poppins',sans-serif;
+  font-weight:400 !important;
+}
+.withdraw-table th,
+.withdraw-table td {
+  width: 50%; /* Adjust the width as needed */
+}
+
+.withdrow-back{
+  position: absolute;
+  left: 10px;
+  margin-top: 5px;
+}
+
+.withdraw-table .table tbody tr td{
+  color: white !important;
+  border: 2px solid gray;
+  background-color: black;
+  font-family: 'poppins',sans-serif;
+  font-weight:400 !important;
+}
+.submit-btn{
+  background-color: #FFB449;
+}
+.table th{
+  width: 50%;
+  border-right: 1px solid white;
+}
 .form-control{
   background-color: black;
   color: white;
-}
-tr{
-white-space: nowrap;
 }
 
 label{

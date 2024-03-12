@@ -33,50 +33,60 @@
         <!-- Your form content -->
         <div class="mb-3">
             <label for="paymentOptions" class="form-label">Payment Options</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="form-select" aria-label="Default select example" formControlName="paymentOptions">
+                <option value="Bank" selected>Bank</option>
+                <option value="UPI">UPI</option>
             </select>
         </div>
 
-<div class="mb-3">
+<div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
   <label for="holderName" class="form-label">Holder Name</label>
-  <input type="text" class="form-control" id="holderName" formControlName="holderName" placeholder="Holder Name">
-  <div *ngIf="paymentForm.get('holderName')?.invalid && paymentForm.get('holderName')?.touched" class="error-msg">
-    Account holder name is required
+  <input type="text" class="form-control" id="holderName" formControlName="holderName" placeholder="Holder Name" pattern="[A-Za-z ]*"
+  [ngClass]="paymentForm.get('holderName')?.touched && paymentForm.get('holderName')?.hasError('required') ? 'is-invalid' : ''" required>
+
+    <div *ngIf="submitted && paymentForm.get('holderName')?.errors?.required" class="error-msg">Holder name is required</div>
+    <div *ngIf="paymentForm.get('holderName')?.errors?.pattern" class="error-msg">Holder name should contain only alphabets</div>
   </div>
-</div>
-<div class="mb-3">
+<div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
   <label for="BankName" class="form-label">Bank Name</label>
-  <input type="text" class="form-control" id="bankName" formControlName="bankName" placeholder="Bank Name">
-  <div *ngIf="paymentForm.get('bankName')?.invalid && paymentForm.get('bankName')?.touched" class="error-msg">
-    Bank name is required
-  </div>
+  <input type="text" class="form-control" id="bankName" formControlName="bankName" placeholder="Bank Name"
+  [ngClass]="paymentForm.get('bankName')?.touched && paymentForm.get('bankName')?.hasError('required') ? 'is-invalid' : ''">
+    <div *ngIf=" submitted && paymentForm.get('bankName')?.errors?.required" class="error-msg">Bank name is required</div>
+    <div *ngIf="paymentForm.get('bankName')?.errors?.pattern" class="error-msg">Holder name should contain only alphabets</div>
 </div>
-<div class="mb-3">
+<div class="mb-3"  *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
   <label for="branckName" class="form-label">Branch Name</label>
-  <input type="text" class="form-control" id="branchName" formControlName="branchName" placeholder="Branch Name">
-  <div *ngIf="paymentForm.get('branchName')?.invalid && paymentForm.get('branchName')?.touched" class="error-msg">
-    Branch name is required
-  </div>
+  <input type="text" class="form-control" id="branchName" formControlName="branchName" placeholder="Branch Name"
+  [ngClass]="paymentForm.get('branchName')?.touched && paymentForm.get('branchName')?.hasError('required') ? 'is-invalid' : ''">
+    <div *ngIf="submitted && paymentForm.get('branchName')?.errors?.required" class="error-msg">Branch name is required</div>
+    <div *ngIf="paymentForm.get('branchName')?.errors?.pattern" class="error-msg">Holder name should contain only alphabets</div>
 </div>
-<div class="mb-3">
+<div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
   <label for="accountNumber" class="form-label">Account Number</label>
-  <input type="text" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Account Number">
-  <div *ngIf="paymentForm.get('accountNumber')?.errors?.maxlength && paymentForm.get('accountNumber')?.touched" class="error-msg">
-    Account Number cannot exceed 16 digits
-  </div>
-  <div *ngIf="paymentForm.get('accountNumber')?.errors?.required && paymentForm.get('accountNumber')?.touched" class="error-msg">
+  <input type="number" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Account Number"
+  [ngClass]="paymentForm.get('accountNumber')?.touched && paymentForm.get('accountNumber')?.hasError('required') ? 'is-invalid' : ''">
+
+  <div *ngIf="submitted && paymentForm.get('accountNumber')?.errors?.required" class="error-msg">
     Account Number is required
   </div>
+  <div *ngIf="paymentForm.get('accountNumber')?.errors?.numericLength" style="color:red">
+    Account Number max 16 digits..
 </div>
-<div class="mb-3">
-  <label for="ibanNumber" class="form-label">IBAN Number</label>
-  <input type="number" class="form-control" id="ibanNumber" formControlName="ibanNumber" placeholder="IBAN Number">
-  <div *ngIf="paymentForm.get('ibanNumber')?.invalid && paymentForm.get('ibanNumber')?.touched" class="error-msg">
-    IBAN Number is required
+
+</div>
+<div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
+  <label for="ibanNumber" class="form-label">IFSC Code</label>
+  <input type="text" class="form-control" id="ibanNumber" formControlName="ifsc"  placeholder="IFSC Code">
+  <div *ngIf="submitted && paymentForm.get('ifsc')?.invalid" class="error-msg">
+    IFSC Number is required
+  </div>
+</div>
+
+<div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'UPI'">
+  <label for="ibanNumber" class="form-label">UPI ID</label>
+  <input type="number" class="form-control" id="UPI" formControlName="UPI" placeholder="UPI ID">
+  <div *ngIf="paymentForm.get('UPI')?.invalid && paymentForm.get('UPI')?.touched" class="error-msg">
+    UPI is required
   </div>
 </div>
 <!-- Repeat for other form fields -->
@@ -84,8 +94,9 @@
 <div class="col-12 col-md-12">
   <button type="submit" class="btn withdrow-submit-btn">Submit</button>
 </div>
-</form>
-<div class="table-responsive withdraw-table">
+      </form>
+
+<!-- <div class="table-responsive withdraw-table">
   <table class="table table-dark">
     <thead>
       <tr style="white-space: nowrap;">
@@ -111,10 +122,23 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
+
+<div class="table-responsive withdraw-table">
+  <table class="table table-dark" *ngFor="let transaction of accountDetails">
+    <tbody>
+      <tr style="white-space: nowrap;"><th>Account Number</th><td>{{ transaction.accountNumber }}</td></tr>
+      <tr style="white-space: nowrap;"><th>Holder Number</th><td>{{ transaction.hodlerNumber }}</td></tr>
+      <tr style="white-space: nowrap;"><th>IBAN/IFSC Number</th><td>{{ transaction.ifscCode }}</td></tr>
+      <tr style="white-space: nowrap;"><th>BANK Number</th><td>{{ transaction.bankName }}</td></tr>
+      <tr style="white-space: nowrap;"><th>Branch Name</th><td>{{ transaction.branchName }}</td></tr>
+      <tr style="white-space: nowrap;"><th>paymentOptions</th><td>{{ transaction.paymentOptions }}</td></tr>
+      <tr style="white-space: nowrap;"><th>Delete</th><td><button class="btn btn-sm withdrow-submit-btn" style="border-radius: 5px;">Delete</button></td></tr>
+    </tbody>
+    </table>
+    </div>
 </div>
 
-    </div>
     <div class="tab-pane fade" id="existingAccount" role="tabpanel" aria-labelledby="existing-account-tab">
         <div class="scroll p-2">
           <div class="existing-card" *ngFor="let item of existingAccount" [class.active-card]="activeCard === item" (click)="setActive(item)">
@@ -129,73 +153,69 @@
             <div class="mb-3">
               <label for="accountNumber" class="form-label">Account Number</label>
               <input type="number" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Account Number">
-              <div *ngIf="existingAccountForm.get('accountNumber')?.invalid && existingAccountForm.get('accountNumber')?.touched" class="alert alert-danger error-msg">
+              <div *ngIf="existingAccountForm.get('accountNumber')?.invalid && existingAccountForm.get('accountNumber')?.touched" class=" error-msg">
                 Account Number is required
               </div>
             </div>
             <div class="mb-3">
               <label for="accountName" class="form-label">Holder Name</label>
               <input type="text" class="form-control" id="accountName" formControlName="accountName" placeholder="Account Name">
-              <div *ngIf="existingAccountForm.get('accountName')?.invalid && existingAccountForm.get('accountName')?.touched" class="alert alert-danger error-msg">
+              <div *ngIf="existingAccountForm.get('accountName')?.invalid && existingAccountForm.get('accountName')?.touched" class="error-msg">
                 Account name is required
               </div>
             </div>
             <div class="mb-3">
               <label for="amount" class="form-label">Amount</label>
-              <input type="text" class="form-control"  id="amount" formControlName="amount" placeholder="Amount">
-              <div *ngIf="existingAccountForm.get('amount')?.invalid && existingAccountForm.get('amount')?.touched" class="alert alert-danger error-msg">
-                Amount is required
+              <input type="number" class="form-control" id="amount" formControlName="amount" placeholder="Amount">
+              <div *ngIf="existingAccountForm.get('amount')?.invalid && existingAccountForm.get('amount')?.touched" class="error-msg">
+                <div *ngIf="existingAccountForm.get('amount')?.errors?.required">
+                  Amount is required
+                </div>
+                <div *ngIf="existingAccountForm.get('amount')?.errors?.negativeAmount">
+                  Amount cannot be negative
+                </div>
               </div>
             </div>
-          </form>
+
           <div class="col-12">
 
             <div class="row">
                 <div class="col-4">
-                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500')" [class.clicked]="isClicked500">500</button>
+                  <button type="button" class="btn  amount-btn" (click)="setAmount('500')" [class.clicked]="isClicked500">500</button>
                 </div>
                 <div class="col-4">
-                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('5000')"  [class.clicked]="isClicked5000">5000</button>
+                  <button type="button" class="btn  amount-btn" (click)="setAmount('5000')"  [class.clicked]="isClicked5000">5000</button>
                 </div>
                 <div class="col-4">
-                  <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('10000')"  [class.clicked]="isClicked10000">10000</button>
+                  <button type="button" class="btn  amount-btn" (click)="setAmount('10000')"  [class.clicked]="isClicked10000">10000</button>
                 </div>
               </div>
             <div class="row">
               <div class="col-4">
-                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('200000')" [class.clicked]="isClicked200000">200000</button>
+                <button type="button" class="btn  amount-btn" (click)="setAmount('200000')" [class.clicked]="isClicked200000">200000</button>
               </div>
               <div class="col-4">
-                <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount('500000')" [class.clicked]="isClicked500000">500000</button>
+                <button type="button" class="btn  amount-btn" (click)="setAmount('500000')" [class.clicked]="isClicked500000">500000</button>
               </div>
               <div class="col-4">
-                <button type="button" class="btn btn-outline-warning amount-btn"  (click)="setAmount('1000000')" [class.clicked]="isClicked1000000">1000000</button>
+                <button type="button" class="btn  amount-btn"  (click)="setAmount('1000000')" [class.clicked]="isClicked1000000">1000000</button>
               </div>
           </div>
             <div class="d-grid" style="margin: 10px;">
-              <button class="btn  withdrow-submit-btn" type="submit">Submit</button>
+              <button class="btn withdrow-submit-btn" type="submit">Submit</button>
             </div>
-            <div class="table-responsive withdraw-table">
-              <table class="table table-dark">
-                <thead>
-                  <tr style="white-space: nowrap;">
-                    <th>Transaction No</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                    <th>Date & Time</th>
-                  </tr>
-                </thead>
-                <tbody>
-                 <tr *ngFor="let transaction of transactions">
-        <td>{{ transaction.transactionNo }}</td>
-        <td>{{ transaction.amount }}</td>
-        <td>{{ transaction.status }}</td>
-        <td>{{ transaction.dateTime }}</td>
-      </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
 
-    </div>
+          </div>
+        </form>
+
+          <div class="table-responsive withdraw-table">
+          <table class="table table-dark" *ngFor="let transaction of transactions">
+            <tbody>
+              <tr style="white-space: nowrap;"><th>Transaction No</th><td>{{ transaction.transactionNo }}</td></tr>
+              <tr style="white-space: nowrap;"><th>Amount</th><td>{{ transaction.amount }}</td></tr>
+              <tr style="white-space: nowrap;"><th>Status</th><td>{{ transaction.status }}</td></tr>
+              <tr style="white-space: nowrap;"><th>Date & Time</th><td>{{ transaction.dateTime }}</td></tr>
+            </tbody>
+            </table>
+            </div>
+      </div>

@@ -27,7 +27,7 @@
 
          </div>
         </div>
-        <div *ngIf="currentRoute === 'upi'||currentRoute === 'gpay' || currentRoute =='paytm'||currentRoute =='phonepe'||currentRoute =='qrcode'||currentRoute =='banktransfer'">
+        <div *ngIf="currentRoute === 'upi'||currentRoute === 'gpay' || currentRoute =='paytm'||currentRoute =='phonepe'||currentRoute =='banktransfer'">
           <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link rounded-pill active" id="whatsapp-tab" data-bs-toggle="tab" data-bs-target="#whatsapp" type="button" role="tab" aria-controls="whatsapp" aria-selected="true">
@@ -82,44 +82,44 @@
                       <img src="../../../../../assets/download.jfif" alt="QR Code" class="img-fluid" style="width: 200px;height: 200px;">
                     </div>
                     <!-- Download & Pay Button -->
-                    <div class="text-center mb-3">
-                      <button class="btn submit-btn btn-lg">Download & Pay</button>
+                    <div class="d-grid text-white">
+                      <button class="btn submit-btn ">Download & Pay</button>
                     </div>
                     <!-- Account Details -->
 
                   </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 ">
                   <div class="account-details bg-dark text-white p-3">
                     <!-- Account Number -->
                     <div class="account-item mb-2">
-                      <span class="account-label">Account Number:</span>
-                      <span class="account-value">Faizan Khan<i class="bi bi-copy"></i></span>
+                      <span class="account-label">Account Name:</span>
+                      <span class="account-value" #holderNameContent>Faizan Khan<i class="bi bi-copy" (click)="copyText(holderNameContent)"></i></span>
 
                     </div>
                     <!-- Holder Name -->
                     <div class="account-item mb-2">
                       <span class="account-label">Holder Name:</span>
-                      <span class="account-value">Faizan&#64;80948<i class="bi bi-copy"></i></span>
+                      <span class="account-value" #holderNameContent>Faizan&#64;80948<i class="bi bi-copy" (click)="copyText(holderNameContent)"></i></span>
 
                     </div>
                     <!-- Bank Name -->
                     <div class="account-item mb-2">
                       <span class="account-label">Bank Name:</span>
-                      <span class="account-value">Fizan Khan<i class="bi bi-copy"></i></span>
+                      <span class="account-value" #bankNameContent>State Bank Of India<i class="bi bi-copy" (click)="copyText(bankNameContent)"></i></span>
 
                     </div>
                     <!-- IFSC Code -->
                     <div class="account-item">
                       <span class="account-label">IFSC Code:</span>
-                      <span class="account-value">453DHJ4554<i class="bi bi-copy"></i></span>
+                      <span class="account-value" #ifscCodeContent>453DHJ4554<i class="bi bi-copy" (click)="copyText(ifscCodeContent)"></i></span>
 
                     </div>
                   </div>
                 </div>
               </div>
               <div class="container">
-                <form [formGroup]="paymentOption" (ngSubmit)="onSubmit()">
+                <form [formGroup]="option1">
                   <div class="upload-form bg-dark text-white p-4 rounded">
 
                     <div class="mb-3">
@@ -128,7 +128,7 @@
                         <span class="input-group-text" >
                           <i class="bi bi-camera-fill"></i>
                         </span>
-                        <input type="file" class="form-control" id="fileUpload" formControlName="uploadDepositFile" (change)="onImagePicked($event)" hidden>
+                        <input type="file" class="form-control" id="fileUpload"  (change)="onImagePickedOption1($event)" hidden>
                         <label for="fileUpload" class="form-control file-upload-label">Choose file</label>
                       </div>
                     </div>
@@ -136,45 +136,49 @@
                     <!-- Amount -->
                     <div class="mb-3 input-group-sm">
                       <label for="amount" class="form-label">Amount</label>
-                      <input type="number" [value]="amount" id="amount" class="form-control" formControlName="amountDeposit" placeholder="0">
-                      <div *ngIf="submitted && paymentOption.get('amountDeposit')?.errors?.required" class="error-msg">
+                      <input type="number" [value]="amountDepositOption1" id="amount" class="form-control" formControlName="amountDepositOption1" placeholder="0">
+                      <div *ngIf="submitted1 && option1.get('amountDepositOption1')?.errors?.required" class="error-msg">
                         Amount is required
+                      </div>
+                      <div *ngIf="option1.get('amountDepositOption1')?.errors?.negativeAmount" class="error-msg">
+                        Amount cannot be negative
                       </div>
                     </div>
 
                     <!-- Preset Amount Buttons -->
                     <div class="col-12">
                     <div class="row">
+
                         <div class="col-4">
-                          <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(500)" [class.clicked]="isClicked500">+500</button>
+                          <button type="button" class="btn amount-btn" (click)="setAmount(500,1)" [class.clicked]="isClicked500">+500</button>
                         </div>
                         <div class="col-4">
-                          <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(1000)" [class.clicked]="isClicked1000">+1000</button>
+                          <button type="button" class="btn amount-btn" (click)="setAmount(1000,1)" [class.clicked]="isClicked1000">+1000</button>
                         </div>
                         <div class="col-4">
-                          <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(2000)" [class.clicked]="isClicked2000">+2000</button>
+                          <button type="button" class="btn amount-btn" (click)="setAmount(2000,1)" [class.clicked]="isClicked2000">+2000</button>
                         </div>
                       </div>
                     <div class="row">
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(5000)" [class.clicked]="isClicked5000">+5000</button>
+                        <button type="button" class="btn amount-btn" (click)="setAmount(5000,1)" [class.clicked]="isClicked5000">+5000</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(10000)" [class.clicked]="isClicked10000">+10000</button>
+                        <button type="button" class="btn amount-btn" (click)="setAmount(10000,1)" [class.clicked]="isClicked10000">+10000</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(20000)" [class.clicked]="isClicked20000">+20000</button>
+                        <button type="button" class="btn amount-btn" (click)="setAmount(20000,1)" [class.clicked]="isClicked20000">+20000</button>
                       </div>
                   </div>
                   <div class="row">
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(50000)" [class.clicked]="isClicked50000">+50000</button>
+                      <button type="button" class="btn amount-btn" (click)="setAmount(25000,1)" [class.clicked]="isClicked25000">+25000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(250000)" [class.clicked]="isClicked250000">+25000</button>
+                      <button type="button" class="btn amount-btn" (click)="setAmount(50000,1)" [class.clicked]="isClicked50000">+50000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn"  (click)="setAmount(100000)" [class.clicked]="isClicked100000">+100000</button>
+                      <button type="button" class="btn amount-btn"  (click)="setAmount(100000,1)" [class.clicked]="isClicked100000">+100000</button>
                     </div>
                 </div>
 
@@ -182,22 +186,25 @@
 
                     <!-- Unique Transaction Reference -->
                     <div class="mb-3">
-                      <label for="transactionRef" class="form-label" style="padding-top: 10px;" name="uniqueTransaction" >Unique Transaction Reference</label>
-                      <input type="number" class="form-control"   minlength="4"     id="transactionRef" placeholder="6 to 12 Digits UTR Number" formControlName="uniqueTransaction">
-                      <div *ngIf="submitted && paymentOption.get('uniqueTransaction')?.errors?.required" class="error-msg">
-                        Unique transaction is required
+                      <label for="uniqueTransaction" class="form-label" style="padding-top: 10px;">Unique Transaction Reference</label>
+                      <input type="number" class="form-control" id="uniqueTransactionOption1" placeholder="6 to 12 Digits UTR Number"
+                              [ngClass]="option1.get('uniqueTransactionOption1')?.touched && option1.get('uniqueTransaction')?.hasError('required') ? 'is-invalid' : ''" formControlName="uniqueTransactionOption1" required>
+                      <div *ngIf="submitted1 && option1.get('uniqueTransactionOption1')?.errors?.required" class="error-msg">
+                          Unique transaction is required
                       </div>
-                      <div *ngIf="submitted && paymentOption.get('uniqueTransaction')?.hasError('minlength')" class="error-msg">
-                        Unique transaction must be at least 6 digits
-                      </div>
-                      <div *ngIf="submitted && paymentOption.get('uniqueTransaction')?.hasError('maxlength')" class="error-msg">
-                        Unique transaction cannot exceed 16 digits
-                      </div>
+                      <div *ngIf="option1.get('uniqueTransactionOption1')?.errors?.numericLength" style="color:red">
+                        Unique transaction must be between 6 and 16 digits.
                     </div>
 
-                    <div class="d-grid">
+                      <!-- <div *ngIf="option1.get('uniqueTransaction')?.errors?.maxlength" style="color:red">
+                          Unique transaction cannot exceed 16 digits.
+                      </div> -->
+                  </div>
 
-                      <button class="btn submit-btn" type="submit">Submit</button>
+
+
+                    <div class="d-grid">
+                      <button class="btn submit-btn" type="submit" (click)="onSubmit(1)">Submit Option 1 </button>
                     </div>
                   </div>
                 </div>
@@ -218,7 +225,7 @@
                         <img src="../../../../../assets/download.jfif" alt="QR Code" class="img-fluid" style="width: 200px;height: 200px;">
                       </div>
                       <!-- Download & Pay Button -->
-                      <div class="text-center mb-3">
+                      <div class="text-center mb-3 text-white">
                         <button class="btn submit-btn btn-lg">Download & Pay</button>
                       </div>
                       <!-- Account Details -->
@@ -247,13 +254,15 @@
                     </div>
                     <!-- IFSC Code -->
                     <div class="account-item">
-                      <p class="account-label">IFSC Code:</p>
+                      <span class="account-label">IFSC Code:</span>
                       <span class="account-value">LOVEPREET SINGH<i class="bi bi-copy"></i></span>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="container">
+                <form [formGroup]="option2">
+
                 <div class="upload-form bg-dark text-white p-4 rounded">
 
                   <div class="mb-3">
@@ -262,7 +271,7 @@
                       <span class="input-group-text" >
                         <i class="bi bi-camera-fill"></i>
                       </span>
-                      <input type="file" class="form-control" id="fileUpload" >
+                      <input type="file" class="form-control" id="fileUpload"  (change)="onImagePickedOption2($event)" hidden>
                       <label for="fileUpload" class="form-control file-upload-label">Choose file</label>
                     </div>
                   </div>
@@ -270,56 +279,70 @@
                   <!-- Amount -->
                   <div class="mb-3 input-group-sm">
                     <label for="amount" class="form-label">Amount</label>
-                    <input type="number" id="amount" class="form-control" placeholder="0">
-
+                    <input type="number" [value]="amountDepositOption1" id="amount" class="form-control" formControlName="amountDepositOption2" placeholder="0">
+                    <div *ngIf="submitted2 && option2.get('amountDepositOption2')?.errors?.required" class="error-msg">
+                      Amount is required
+                    </div>
                   </div>
 
                   <!-- Preset Amount Buttons -->
                   <div class="col-12">
                   <div class="row">
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(500)" [class.clicked]="isClicked500">+500</button>
+                        <button type="button" class="btn amount-btn" (click)="setAmount(500,2)" [class.clicked]="isClicked500">+500</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(1000)" [class.clicked]="isClicked1000">+1000</button>
+                        <button type="button" class="btn amount-btn" (click)="setAmount(1000,2)" [class.clicked]="isClicked1000">+1000</button>
                       </div>
                       <div class="col-4">
-                        <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(2000)" [class.clicked]="isClicked2000">+2000</button>
+                        <button type="button" class="btn amount-btn" (click)="setAmount(2000,2)" [class.clicked]="isClicked2000">+2000</button>
                       </div>
                     </div>
                   <div class="row">
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(5000)" [class.clicked]="isClicked5000">+5000</button>
+                      <button type="button" class="btn amount-btn" (click)="setAmount(5000,2)" [class.clicked]="isClicked5000">+5000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(10000)" [class.clicked]="isClicked10000">+10000</button>
+                      <button type="button" class="btn amount-btn" (click)="setAmount(10000,2)" [class.clicked]="isClicked10000">+10000</button>
                     </div>
                     <div class="col-4">
-                      <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(20000)" [class.clicked]="isClicked20000">+20000</button>
+                      <button type="button" class="btn amount-btn" (click)="setAmount(20000,2)" [class.clicked]="isClicked20000">+20000</button>
                     </div>
                 </div>
                 <div class="row">
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(25000)" [class.clicked]="isClicked25000">+25000</button>
+                    <button type="button" class="btn amount-btn" (click)="setAmount(25000,2)" [class.clicked]="isClicked25000">+25000</button>
                   </div>
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(50000)" [class.clicked]="isClicked50000">+50000</button>
+                    <button type="button" class="btn amount-btn" (click)="setAmount(50000,2)" [class.clicked]="isClicked50000">+50000</button>
                   </div>
                   <div class="col-4">
-                    <button type="button" class="btn btn-outline-warning amount-btn" (click)="setAmount(100000)" [class.clicked]="isClicked100000">+100000</button>
+                    <button type="button" class="btn amount-btn" (click)="setAmount(100000,2)" [class.clicked]="isClicked100000">+100000</button>
                   </div>
               </div>
 
                   <!-- Unique Transaction Reference -->
                   <div class="mb-3">
-                    <label for="transactionRef" class="form-label" style="padding-top: 10px;">Unique Transaction Reference</label>
-                    <input type="text" class="form-control" id="transactionRef" placeholder="6 to 12 Digits UTR Number">
+                    <label for="uniqueTransaction" class="form-label" style="padding-top: 10px;">Unique Transaction Reference</label>
+                    <input type="number" class="form-control" id="uniqueTransaction" placeholder="6 to 12 Digits UTR Number"
+                            [ngClass]="option2.get('uniqueTransactionOption2')?.touched && option2.get('uniqueTransactionOption2')?.hasError('required') ? 'is-invalid' : ''" formControlName="uniqueTransactionOption2" required>
+                    <div *ngIf="submitted2 && option2.get('uniqueTransactionOption2')?.errors?.required" class="error-msg">
+                        Unique transaction is required
+                    </div>
+                    <div *ngIf="option2.get('uniqueTransactionOption2')?.errors?.numericLength" style="color:red">
+                      Unique transaction must be between 6 and 16 digits.
                   </div>
+
+                    <!-- <div *ngIf="option1.get('uniqueTransaction')?.errors?.maxlength" style="color:red">
+                        Unique transaction cannot exceed 16 digits.
+                    </div> -->
+                </div>
                   <div class="d-grid">
-                    <button class="btn submit-btn" type="submit">Submit</button>
+                    <button class="btn submit-btn" type="submit" (click)="onSubmit(2)">Submit Option 2</button>
                   </div>
                 </div>
               </div>
+              </form>
             </div>
             </div>
           </div>
@@ -327,16 +350,45 @@
 
 
         </div>
-          <div class="notes-section">
-            <h2 class="notes-list-head">Notes</h2>
-            <ul class="notes-list">
-              <li>Send your deposit amount on given Bank account.</li>
-              <li>Copy and Enter the 12 digits UTR Number.</li>
-              <li><img src="https://dqqdyv927mezc.cloudfront.net/kheloyar/utr.svg"></li>
-              <li>Copy and Enter the 12 digits UTR Number.</li>
-            </ul>
+        <div *ngIf="currentRoute === 'qrcode'">
+          <!-- QR code section -->
+          <div class="container-fluid my-3">
+            <div class="col-12">
+              <!-- Quick Deposit Box -->
+              <div class="quick-deposit-box p-3  rounded shadow-sm">
+                <!-- QR Code -->
+                <div class="text-center mb-3 bg-white">
+                  <img src="../../../../../assets/download.jfif" alt="QR Code" class="img-fluid" style="width: 200px;height: 200px;">
+                </div>
+                <!-- Download & Pay Button -->
+                <div class="d-grid">
+                  <button class="btn submit-btn" type="submit" (click)="onSubmit(2)">Submit Option 2</button>
+                </div>
+                <div class="text-center mb-3">
+                </div>
+                <!-- Account Details -->
+              </div>
+            </div>
           </div>
+        </div>
+
+      <div class="container-fluid">
+        <div class="col-12">
+          <div class="deposit-instructions">
+            <p class="note">Please Note:</p>
+            <div class="instructions-text">
+              <ul>
+                  <li>Send your deposit amount on given Bank account.</li>
+                  <li>Copy and Enter the 12 digits UTR Number.</li>
+                  <li><img src="https://dqqdyv927mezc.cloudfront.net/kheloyar/utr.svg"></li>
+                  <li>Copy and Enter the 12 digits UTR Number.</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+
       </div>
     </div>
+  </div>
   </div>
 </div>

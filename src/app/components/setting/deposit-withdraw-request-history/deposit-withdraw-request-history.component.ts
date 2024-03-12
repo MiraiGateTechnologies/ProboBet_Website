@@ -18,4 +18,7 @@ export class DepositWithdrawRequestHistoryComponent {
     { requestedAmount: 2000, amount: 300.00, status: 'Completed', dateTime: '2024-02-26 14:20:00' },
     { requestedAmount: 788, amount: 150.80, status: 'Pending', dateTime: '2024-02-26 15:45:00' }
   ];
+  goBack(){
+    window.history.back()
+  }
 }

@@ -32,7 +32,19 @@ li{
   color: white;
   font-weight: 400 !important;
 }
+.withdrow-box{
+  border: 2px solid white;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 
+}
+
+.box-1-withdrow{
+  margin-right: 5px;
+  background-color: #212529;
+  border-right: 2px solid white;
+}
 .form-control{
   background-color: black!important;
   color: white;
@@ -66,6 +78,10 @@ input::-ms-input-placeholder {
   background-color: #FFB449;
   border: none;
 }
+.amount-btn{
+  border: 2px solid #FFB449;
+}
+
 .error-msg{
   /* margin-top: 5px;
   height: 20px; */
@@ -77,6 +93,7 @@ input::-ms-input-placeholder {
 .withdrow-submit-btn{
 background-color: #FFB449;
 width: 100%;
+color:black
 font-family: 'poppins';
 font-weight: bold ;
 
@@ -97,8 +114,13 @@ tr{
   border: 2px solid gray;
   font-family: 'poppins',sans-serif;
   font-weight:400 !important;
-
 }
+.withdraw-table th,
+.withdraw-table td {
+  width: 50%; /* Adjust the width as needed */
+  white-space: nowrap;
+}
+
 .withdrow-back{
   position: absolute;
   left: 10px;
@@ -114,7 +136,7 @@ tr{
   white-space: nowrap;
 }
 .scroll {
-  margin-left: 20px;
+  margin-left: 0;
   display: flex;
   overflow-x: scroll;
   max-width: 100%;

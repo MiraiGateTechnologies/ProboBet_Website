@@ -13,37 +13,27 @@
             <label for="order-type">End  Date</label>
             <input type="date" class="form-control form-control-sm">
           </div>
-          <div class="col-12 d-flex justify-content-center" style=" margin-top: 10px;">
-            <button type="submit" class="btn btn-warning btn-block" style="margin-top: 10px;">Load Report</button>
+          <div class="col-12 d-flex justify-content-center text-white" style=" margin-top: 10px;">
+            <button type="submit" class="btn submit-btn" style="margin-top: 10px;">Load Report</button>
         </div>
         </form>
       </div>
     </div>
-    <div class="table-responsive">
-      <table class="table table-dark ">
-        <thead>
-          <tr style="white-space: nowrap;" class="table-account">
-            <th >Voucher ID</th>
-            <th >Market ID</th>
-            <th >Settled Date</th>
-            <th >Narration</th>
-            <th >Debit</th>
-            <th >Credit</th>
-            <th >Running Balance</th>
-          </tr>
-        </thead>
-        <tbody class="table-group-divider">
-          <tr *ngFor="let transaction of transactions">
-            <td>{{ transaction.voucherID }}</td>
-            <td>{{ transaction.marketID }}</td>
-            <td>{{ transaction.settledDate }}</td>
-            <td style="color: blue">{{ transaction.narration }}</td>
-            <td style="color: red">{{ transaction.debit }}</td>
-            <td style="color: green">{{ transaction.credit }}</td>
-            <td style="color: green">{{ transaction.runningBalance }}</td>
-          </tr>
-          </tbody>
-      </table>
-    </div>
+
+    <div class="table-responsive withdraw-table" >
+      <table class="table table-dark" *ngFor="let transaction of transactions">
+        <tbody>
+          <tr style="white-space: nowrap;"><th>Voucher ID</th><td>{{ transaction.voucherID }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Market ID</th><td>{{ transaction.marketID }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Settled Date</th><td>{{ transaction.settledDate }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Narration</th><td style="color: blue">{{ transaction.narration }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Debit</th><td style="color: red">{{ transaction.debit }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Credit</th><td style="color: green">{{ transaction.credit }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Running Balance</th><td style="color: green">{{ transaction.runningBalance }}</td></tr>
+
+
+        </tbody>
+        </table>
+        </div>
   </div>
 </div>

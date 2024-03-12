@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="bet-details">
-        <img src=".././../../../assets/arrow.png" class="img-fluid" alt="..."(click)="goBack()">
+        <img src=".././../../../assets/arrow.png" class="img-fluid back" alt="..."(click)="goBack()">
 
         <form>
           <div class="mb-3">
@@ -22,10 +22,27 @@
             <label for="order-type">End  Date</label>
             <input type="date" class="form-control form-control-sm">
           </div>
-          <button class="btn btn-sm load-report">Load Report</button>
+          <div class="col-12 d-flex justify-content-center text-white" style=" margin-top: 15px;">
+            <button class="btn btn-sm load-report">Load Report</button>
+            </div>
         </form>
       </div>
     </div>
+
+    <div class="table-responsive withdraw-table">
+      <table class="table table-dark" *ngFor="let item of fancyReports">
+        <tbody>
+          <tr style="white-space: nowrap;"><th>Market ID</th><td>{{item.marketId}}</td></tr>
+          <tr style="white-space: nowrap;"><th>Market Name</th><td>{{item.marketName}}</td></tr>
+          <tr style="white-space: nowrap;"><th>Runner Name</th><td>{{item.runnerName}}</td></tr>
+          <tr style="white-space: nowrap;"><th>Side</th><td>{{item.side}}</td></tr>
+          <tr style="white-space: nowrap;"><th>Price</th><td>{{item.price}}</td></tr>
+          <tr style="white-space: nowrap;"><th>Size</th><td>{{item.size}}</td></tr>
+          <tr style="white-space: nowrap;"><th>Place Date</th><td>{{item.placeDate}}</td></tr>
+
+        </tbody>
+        </table>
+        </div>
   </div>
 </div>
 

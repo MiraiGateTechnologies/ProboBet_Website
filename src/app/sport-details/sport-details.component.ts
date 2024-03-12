@@ -69,7 +69,7 @@ export class SportDetailsComponent implements OnDestroy {
 
   ngOnInit(): void {
     this.filteredSessionBets = setInterval(() => {
-    this.SportDetails();
+    // this.SportDetails();
     }, 700);
 
     // Update every second

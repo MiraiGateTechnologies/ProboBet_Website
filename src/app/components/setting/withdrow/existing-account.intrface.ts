@@ -9,3 +9,12 @@ export interface Transaction {
   status: string;
   dateTime: string;
 }
+export interface TransactionBank {
+  accountNumber: string;
+  hodlerNumber: string;
+  ifscCode: string;
+  bankName: string;
+  branchName: string;
+  paymentOptions: string;
+  dateTime: string;
+}

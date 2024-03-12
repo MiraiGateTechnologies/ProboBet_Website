@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-results',
   standalone: true,
@@ -11,14 +10,45 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class ResultsComponent {
   selectedOption: string='';
-
+  resultData: any[] = [
+    {
+      competitionName: 'Football League',
+      eventName: 'Match 1',
+      marketName: 'Full Time Result',
+      result: 'Home Win',
+    },
+    {
+      competitionName: 'Basketball Championship',
+      eventName: 'Game 1',
+      marketName: 'Point Spread',
+      result: 'Team A +5',
+    },
+    {
+      competitionName: 'Tennis Tournament',
+      eventName: 'Final Match',
+      marketName: 'Set Winner',
+      result: 'Player 1',
+    },
+    {
+      competitionName: 'Cricket Series',
+      eventName: 'ODI 3',
+      marketName: 'Total Runs',
+      result: 'Team B: 250',
+    },
+    {
+      competitionName: 'Golf Cup',
+      eventName: 'Round 1',
+      marketName: 'Winner',
+      result: 'Player C',
+    },
+  ];
   options: { value: string, label: string }[] = [
-    { value: 'SETTLED', label: 'SETTLED' },
-    { value: 'MATCHED', label: 'MATCHED' },
-    { value: 'CANCEL', label: 'CANCEL' },
-    { value: 'VOIDED', label: 'VOIDED' },
-    { value: 'LAPSED', label: 'LAPSED' },
-    { value: 'UN-MATCHED', label: 'UN-MATCHED' }
+    { value: 'Fancy', label: 'Fancy' },
+    { value: 'Soccer', label: 'Soccer' },
+    { value: 'Tennis', label: 'Tennis' },
+    { value: 'Golf', label: 'Golf' },
+    { value: 'Cricket', label: 'Cricket' },
+    { value: 'Boxing', label: 'Boxing' }
   ];
 
   onSelectChange(event: Event) {
@@ -26,13 +56,8 @@ export class ResultsComponent {
     console.log('Selected Value:', selectedValue);
   }
 
-  transactions:any[] = [
-    { transactionNo: 'Colombian Primera A	', amount: 100.50, status: 'Completed', dateTime: '2024-02-26 10:30:00' },
-    { transactionNo: 'CONMEBOL Copa Libertadores	', amount: 200.75, status: 'Pending', dateTime: '2024-02-26 11:45:00' },
-    { transactionNo: 'Bolivian Liga de Futbol Profesional	', amount: 50.20, status: 'Failed', dateTime: '2024-02-26 13:15:00' },
-    { transactionNo: 'CONCACAF Champions League	', amount: 300.00, status: 'Completed', dateTime: '2024-02-26 14:20:00' },
-    { transactionNo: 'TRX005', amount: 150.80, status: 'Pending', dateTime: '2024-02-26 15:45:00' }
-  ];
+
+
   goBack(){
     window.history.back()
   }
