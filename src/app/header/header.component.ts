@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit,EventEmitter,Output } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SliderComponent } from '../components/slider/slider.component';
 import {  Router, RouterLink, RouterModule } from '@angular/router';
 import { SidebarService } from '../service/sidebar.service';
-
 
 @Component({
   selector: 'app-header',
@@ -17,6 +16,7 @@ import { SidebarService } from '../service/sidebar.service';
 export class HeaderComponent implements OnInit{
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   sidebarOpen = false;
+
   dropdowns: { [key: string]: boolean } = {
     reports: false,
     accounts: false
@@ -26,15 +26,13 @@ export class HeaderComponent implements OnInit{
   constructor(private eRef: ElementRef,private router:Router,private sidebarService:SidebarService) {}
 
   openSidebar() {
-    this.sidebarOpen = true;
-    console.log(this.sidebarService.toggleSidebar())
-    this.sidebarService.toggleSidebar();
+    this.sidebarOpen = !this.sidebarOpen;
   }
 
   ngOnInit(): void {
-  //   this.sidebarService.sidebarOpen$.subscribe(open => {
-  //     this.sidebarOpen = open;
-  //   });
+    // this.sidebarService.sidebarOpen$.subscribe(open => {
+    //   this.sidebarOpen = open;
+    //    });
   }
 
   toggleDropdown(event: Event, dropdownKey: string): void {
@@ -61,6 +59,9 @@ export class HeaderComponent implements OnInit{
   @HostListener('document:click', ['$event'])
   clickout(event:any) {
     if (!this.eRef.nativeElement.contains(event.target)) {
+      this.closeSidebar();
+    }
+    if (!event.target.classList.contains('bottom-footer')) {
       this.closeSidebar();
     }
   }

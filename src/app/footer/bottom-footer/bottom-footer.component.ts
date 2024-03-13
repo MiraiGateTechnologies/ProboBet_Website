@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { SidebarService } from '../../service/sidebar.service';
 
 @Component({
@@ -9,12 +9,14 @@ import { SidebarService } from '../../service/sidebar.service';
   styleUrl: './bottom-footer.component.css'
 })
 export class BottomFooterComponent implements OnInit{
+
 constructor(private sidebarSerive:SidebarService){}
 ngOnInit(): void {
 
 }
-openSide(){
-  console.log(this.sidebarSerive.toggleSidebar())
+toggleButton() {
+  console.log(  this.sidebarSerive.toggleSidebar())
   this.sidebarSerive.toggleSidebar();
 }
+
 }

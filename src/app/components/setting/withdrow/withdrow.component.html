@@ -42,30 +42,32 @@
 <div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
   <label for="holderName" class="form-label">Holder Name</label>
   <input type="text" class="form-control" id="holderName" formControlName="holderName" placeholder="Holder Name" pattern="[A-Za-z ]*"
-  [ngClass]="paymentForm.get('holderName')?.touched && paymentForm.get('holderName')?.hasError('required') ? 'is-invalid' : ''" required>
-
+  >
+  <!-- [ngClass]="paymentForm.get('holderName')?.touched && paymentForm.get('holderName')?.hasError('required') ? 'is-invalid' : ''" required -->
     <div *ngIf="submitted && paymentForm.get('holderName')?.errors?.required" class="error-msg">Holder name is required</div>
     <div *ngIf="paymentForm.get('holderName')?.errors?.pattern" class="error-msg">Holder name should contain only alphabets</div>
   </div>
 <div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
   <label for="BankName" class="form-label">Bank Name</label>
   <input type="text" class="form-control" id="bankName" formControlName="bankName" placeholder="Bank Name"
-  [ngClass]="paymentForm.get('bankName')?.touched && paymentForm.get('bankName')?.hasError('required') ? 'is-invalid' : ''">
+  >
+  <!-- [ngClass]="paymentForm.get('bankName')?.touched && paymentForm.get('bankName')?.hasError('required') ? 'is-invalid' : ''" -->
     <div *ngIf=" submitted && paymentForm.get('bankName')?.errors?.required" class="error-msg">Bank name is required</div>
     <div *ngIf="paymentForm.get('bankName')?.errors?.pattern" class="error-msg">Holder name should contain only alphabets</div>
 </div>
 <div class="mb-3"  *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
   <label for="branckName" class="form-label">Branch Name</label>
   <input type="text" class="form-control" id="branchName" formControlName="branchName" placeholder="Branch Name"
-  [ngClass]="paymentForm.get('branchName')?.touched && paymentForm.get('branchName')?.hasError('required') ? 'is-invalid' : ''">
+  >
+  <!-- [ngClass]="paymentForm.get('branchName')?.touched && paymentForm.get('branchName')?.hasError('required') ? 'is-invalid' : ''" -->
     <div *ngIf="submitted && paymentForm.get('branchName')?.errors?.required" class="error-msg">Branch name is required</div>
     <div *ngIf="paymentForm.get('branchName')?.errors?.pattern" class="error-msg">Holder name should contain only alphabets</div>
 </div>
 <div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'Bank'">
   <label for="accountNumber" class="form-label">Account Number</label>
   <input type="number" class="form-control" id="accountNumber" formControlName="accountNumber" placeholder="Account Number"
-  [ngClass]="paymentForm.get('accountNumber')?.touched && paymentForm.get('accountNumber')?.hasError('required') ? 'is-invalid' : ''">
-
+  >
+  <!-- [ngClass]="paymentForm.get('accountNumber')?.touched && paymentForm.get('accountNumber')?.hasError('required') ? 'is-invalid' : ''" -->
   <div *ngIf="submitted && paymentForm.get('accountNumber')?.errors?.required" class="error-msg">
     Account Number is required
   </div>
@@ -85,7 +87,7 @@
 <div class="mb-3" *ngIf="paymentForm.get('paymentOptions')?.value === 'UPI'">
   <label for="ibanNumber" class="form-label">UPI ID</label>
   <input type="number" class="form-control" id="UPI" formControlName="UPI" placeholder="UPI ID">
-  <div *ngIf="paymentForm.get('UPI')?.invalid && paymentForm.get('UPI')?.touched" class="error-msg">
+  <div *ngIf="submitted && paymentForm.get('UPI')?.invalid" class="error-msg">
     UPI is required
   </div>
 </div>
