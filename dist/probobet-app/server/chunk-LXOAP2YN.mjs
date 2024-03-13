@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{b as s}from"./chunk-5KIRHXLW.mjs";import{U as o,_ as n}from"./chunk-INNBRVLS.mjs";var p=(()=>{let t=class t{constructor(e){this.http=e,this.url="https://api.1exch.net/game/inPlay"}getSportDetails(e){let r=`https://odds.betguru.net/api/v2/get/${e}`;return this.http.get(r)}};t.\u0275fac=function(r){return new(r||t)(n(s))},t.\u0275prov=o({token:t,factory:t.\u0275fac,providedIn:"root"});let i=t;return i})();export{p as a};
