@@ -1,5 +1,5 @@
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
-import { SidebarService } from '../../service/sidebar.service';
+import { SidebarToggleService } from '../../service/sidebar.service';
 
 @Component({
   selector: 'app-bottom-footer',
@@ -10,13 +10,11 @@ import { SidebarService } from '../../service/sidebar.service';
 })
 export class BottomFooterComponent implements OnInit{
 
-constructor(private sidebarSerive:SidebarService){}
+  constructor(private sidebarToggleService: SidebarToggleService){}
+  openSidebar() {
+    this.sidebarToggleService.toggleSidebar();
+  }
 ngOnInit(): void {
 
 }
-toggleButton() {
-  console.log(  this.sidebarSerive.toggleSidebar())
-  this.sidebarSerive.toggleSidebar();
-}
-
 }

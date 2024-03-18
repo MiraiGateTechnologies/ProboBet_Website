@@ -3,10 +3,14 @@
   gap: 15px;
 
 }
-
+.container-fluid{
+  margin-left: 0 !important;
+}
 
 h2{
 font-family:  'poppins',sans-serif !important;
+margin-bottom: 2px !important;
+margin-top: 10px
 }
 
 .actors img {
@@ -14,6 +18,7 @@ font-family:  'poppins',sans-serif !important;
   height: 88.5px;
   transition: transform 0.2s ease-in-out;
   border-radius: 6%;
+  margin-left: 0;
 
 }
 
@@ -21,13 +26,3 @@ font-family:  'poppins',sans-serif !important;
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 376px){
-
-  .actors img {
-  width: 78.5px;
-  height: 78.5px;
-  transition: transform 0.2s ease-in-out;
-  border-radius: 6%;
-
-}
-}

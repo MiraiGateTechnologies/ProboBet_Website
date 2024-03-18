@@ -9,8 +9,9 @@ import { TokenInterceptor } from './interceptors/auth.interceptor';
 import { tokenInterceptor } from './interceptors/token.interceptor';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { errorIntercepter } from './interceptors/error.interceptor';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideHttpClient(withFetch()), provideClientHydration(), provideAnimations(),
+  providers: [provideRouter(routes),provideHttpClient(withFetch()), provideToastr(), provideClientHydration(), provideAnimations(),
   provideHttpClient(withInterceptors([tokenInterceptor,errorIntercepter]))]
 };

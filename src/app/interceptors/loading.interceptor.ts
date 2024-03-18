@@ -3,16 +3,16 @@ import { tap } from 'rxjs';
 import { LoadingService } from '../service/loading.service';
 
 export const LoadingInterceptor: HttpInterceptorFn = (req, next) => {
-  LoadingService.show();
+  // LoadingService.show();
  return next(req).pipe(
       tap(
         (event: HttpEvent<any>) => {
           if (event instanceof HttpResponse) {
-            LoadingService.hide();
+            // LoadingService.hide();
           }
         },
         (error) => {
-          LoadingService.hide();
+          // LoadingService.hide();
         }
       ))
 

@@ -1,38 +1,54 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, OnInit,EventEmitter,Output } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit,EventEmitter,Output, ChangeDetectorRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SliderComponent } from '../components/slider/slider.component';
 import {  Router, RouterLink, RouterModule } from '@angular/router';
-import { SidebarService } from '../service/sidebar.service';
+import { HeaderService } from '../service/header.service';
+import { SidebarToggleService } from '../service/sidebar.service';
+import { SidebarComponent } from '../components/setting/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [SliderComponent,CommonModule,RouterModule],
+  imports: [SliderComponent,CommonModule,RouterModule,SliderComponent,SidebarComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  providers:[SidebarService]
 })
 export class HeaderComponent implements OnInit{
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   sidebarOpen = false;
-
+  userName!:string;
+  coin!:number;
+  userCode!:string;
   dropdowns: { [key: string]: boolean } = {
     reports: false,
     accounts: false
   };
 
 
-  constructor(private eRef: ElementRef,private router:Router,private sidebarService:SidebarService) {}
+  constructor(private eRef: ElementRef,private router:Router,private userService:HeaderService, private sidebarToggleService: SidebarToggleService, private cdr: ChangeDetectorRef) {}
 
   openSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }
 
   ngOnInit(): void {
-    // this.sidebarService.sidebarOpen$.subscribe(open => {
-    //   this.sidebarOpen = open;
-    //    });
+    this.sidebarToggleService.sidebarStatus$.subscribe((status: boolean) => {
+      this.sidebarOpen = status;
+      this.cdr.detectChanges();
+    });
+    this.userService.getDataOfUser().subscribe({
+      next:(res)=>{
+        this.userName = res.name;
+        this.coin =  res.coin;
+        this.userCode = res.code;
+        console.log(res);
+      },
+      error:(e)=>{
+        console.log(e);
+      }
+    })
+
   }
 
   toggleDropdown(event: Event, dropdownKey: string): void {

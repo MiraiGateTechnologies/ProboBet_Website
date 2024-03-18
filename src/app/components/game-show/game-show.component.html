@@ -2,25 +2,13 @@
   <h2> Game Shows</h2>
 
 
-      <div class="col-md-6 col-sm-12">
-          <div class="game-shows">
-  <img src="assets/game-show/game1.png" alt="Football">
-  <img src="assets/game-show/game2.png" alt="Football">
-  <img src="assets/game-show/game3.png" alt="Football">
-  <img src="assets/game-show/game4.png" alt="Football">
-  <img src="assets/game-show/game5.png" alt="Football">
-  <img src="assets/game-show/game6.png" alt="Football">
-  <img src="assets/game-show/game7.png" alt="Football">
-  <img src="assets/game-show/game8.png" alt="Football">
-  <img src="assets/game-show/game9.png" alt="Football">
-  <img src="assets/game-show/game10.png" alt="Football">
-  <img src="assets/game-show/game11.png" alt="Football">
-  <img src="assets/game-show/game12.png" alt="Football">
-  </div>
+      <div class="col-md-12 col-sm-12">
+        <div class="game-shows">
+          <div class="images-of-game" *ngFor="let img of gameShowImage">
+            <img [src]="img" alt="Football">
+          </div>
+        </div>
       </div>
+    </div>
 
-
-
-</div>
-
-  <app-multi></app-multi>
+    <app-multi></app-multi>

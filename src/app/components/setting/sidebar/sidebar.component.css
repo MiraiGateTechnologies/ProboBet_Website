@@ -1,0 +1,14 @@
+/* sidebar.component.scss */
+.sidebar {
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+/* Assuming the sidebar is on the left and hidden initially */
+:not(.open) {
+  transform: translateX(-100%);
+}

@@ -19,8 +19,8 @@ export interface SessionOdds {
 export interface MatchOdds {
   id: number;
   team: string;
-  krate: string;
-  lrate: string;
+  krate: number;
+  lrate: number;
 
 }
 
@@ -35,6 +35,17 @@ export interface Score {
   player2: string;
   recentBall: string;
 }
+// Define this in a file like bet-data.model.ts
+export interface BetData {
+  mode: string;
+  rate: number;
+  type: number;
+  team: string;
+  sid: number;
+  run: number;
+  match_code: string;
+}
+
 
 export const liveCricketMatch =[
   {_id:'123dsk',team1:'Afghanistan U19',team2:' USA U19 ',back:1.99,totalBetPlayerBack:'1cr+',lay:45,totalBetPlayerLay:'2cr+'},

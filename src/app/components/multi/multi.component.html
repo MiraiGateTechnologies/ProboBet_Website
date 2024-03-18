@@ -1,27 +1,14 @@
 <div class="container-fluid">
-
-<h2>Multiplayer</h2>
-
-<div class="row">
-    <div class="col-md-6 col-sm-12">
-        <div class="multi">
-<img src="assets/multi/multi1.png" alt="Football">
-<img src="assets/multi/multi2.png" alt="Football">
-
-<img src="assets/multi/multi4.png" alt="Football">
-<img src="assets/multi/multi5.png" alt="Football">
-<img src="assets/multi/multi6.png" alt="Football">
-<img src="assets/multi/multi7.png" alt="Football">
-<img src="assets/multi/multi8.png" alt="Football">
-<img src="assets/multi/multi9.png" alt="Football">
-<img src="assets/multi/multi10.png" alt="Football">
-<img src="assets/multi/multi11.png" alt="Football">
-
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <h2>Multiplayer</h2>
+      <div class="multi">
+        <div class="multi-images" *ngFor="let img of multiImages">
+          <img [src]="img" alt="Football">
+        </div>
+      </div>
+  </div>
 </div>
-    </div>
-
-
- </div>   </div>
-
+</div>
     <app-actors></app-actors>
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->

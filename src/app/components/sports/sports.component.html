@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="row-body"  >
-      <div class="row" *ngFor="let data of upcomingCricketData">
+      <div class="row" *ngFor="let data of upcomingCricketData" (click)="inPlayDetails(data.matchcode)">
         <div class="col-5">
           <h5 >{{truncateTitle(data.title)}}</h5>
         </div>

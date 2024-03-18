@@ -1,11 +1,18 @@
 .game-shows {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  margin-bottom: 15px;
+  display :flex;
+  flex-direction: row;
+  gap:10px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.game-shows::-webkit-scrollbar{
+  display: none;
 }
 h2{
 font-family:  'poppins',sans-serif !important;
+margin-bottom: 2px !important;
+  margin-top: 10px
 }
 .game-shows img {
   width: 90px;

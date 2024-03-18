@@ -40,7 +40,23 @@ header{
   display: flex;
   flex-direction: row;
   gap: 10px;
+  overflow-y: scroll; /* Enable vertical scrolling */
 }
+
+.navbar-nav.ml-auto::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+/* Firefox */
+.navbar-nav.ml-auto {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* For IE and Edge */
+.navbar-nav.ml-auto {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
 
 .nav-link img{
   width: 30px;
@@ -231,6 +247,16 @@ font-size: 14px; /* Adjust as per your design */
 .sidebar-menu a{
 color: black;
 }
+.sidebar-open {
+  width: 300px; /* Adjust based on your design */
+  /* Other styles to show the sidebar */
+}
+
+.sidebar-closed {
+  width: 0;
+  /* Other styles to hide the sidebar, could be display: none; */
+}
+
 .custom-x-icon{
   color: white !important;
 font-size: 2.5rem; /* Adjust the size as needed */

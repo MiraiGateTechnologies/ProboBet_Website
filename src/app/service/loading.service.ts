@@ -5,20 +5,15 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class LoadingService {
-  static hide() {
-    throw new Error('Method not implemented.');
-  }
-  static show() {
-    throw new Error('Method not implemented.');
-  }
-  private loadingSubject = new BehaviorSubject<boolean>(false);
-  loading$ = this.loadingSubject.asObservable();
+  private isLoading = new BehaviorSubject<boolean>(false);
+  isLoading$ = this.isLoading.asObservable();
+
   constructor() { }
+  hide() {
+    this.isLoading.next(false);
+  }
   show() {
-    this.loadingSubject.next(true);
+    this.isLoading.next(true);
   }
 
-  hide() {
-    this.loadingSubject.next(false);
-  }
 }

@@ -12,15 +12,29 @@ import { SportsComponent } from '../sports/sports.component';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent {
+  gameData:any[]=[
+        { navigateToSport:'cricket', image:'assets/group-b/f.png', imageName:'Cricket' },
+        { navigateToSport:'football', image:'assets/group-b/b.png', imageName:'Football'},
+        { navigateToSport:'tennis', image:'assets/group-b/j.png', imageName:'Tennis'},
+        { navigateToSport:'basketball', image:'assets/group-b/h.png', imageName:'Basketball'},
+        { navigateToSport:'boxing', image:'assets/group-b/d.png', imageName:'Boxing'},
+        { navigateToSport:'wrestling', image:'assets/group-b/e.png', imageName:'Wrestling'},
+        { navigateToSport:'riding', image:'assets/group-b/g.png', imageName:'Riding'},
+        { navigateToSport:'table', image:'assets/group-b/c.png', imageName:'Table'},
+      ];
+  activeSport: string = '';
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   navigateToSport(sport: string) {
+    this.activeSport = sport;
+    // console.log(typeof sport)
     this.router.navigate(['/' + sport]);
   }
 
   isActive(sport: string): boolean {
-    return this.router.url.includes(sport);
+    return this.activeSport == sport
   }
 
   getCurrentRouteParams() {
@@ -32,4 +46,5 @@ export class GamesComponent {
     const queryParams = currentRoute.queryParams;
     console.log('Query Parameters:', queryParams);
   }
+
 }

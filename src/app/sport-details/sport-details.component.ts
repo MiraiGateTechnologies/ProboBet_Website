@@ -3,17 +3,19 @@ import { Component } from '@angular/core';
 import { HostListener, OnDestroy, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // import {ToastrService} from 'ngx-toastr';
 import {of, Subscription, timer} from 'rxjs';
 import {catchError, filter, switchMap} from 'rxjs/operators';
+import { LoadingService } from '../service/loading.service';
 import { SportService } from '../service/sport.service';
 import {liveCricketMatch, MatchOdds, OddsModel, SessionOdds} from './OddsModel';
+import { PlaceBetsComponent } from './place-bets/place-bets.component';
 
 @Component({
   selector: 'app-sport-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,PlaceBetsComponent,NgbModule],
   templateUrl: './sport-details.component.html',
   styleUrl: './sport-details.component.css'
 })
@@ -26,6 +28,8 @@ export class SportDetailsComponent implements OnDestroy {
   checkOdds = true;
   cricketMatch = liveCricketMatch;
   mainSession: SessionOdds[]=[];
+  team1:string = ''||'Team 1';
+  team2:string=''||'Team 2';
   ballOnlySession: SessionOdds[] = [];
   ballByBall: SessionOdds[] = [];
   MatchOdds:MatchOdds[]=[]
@@ -34,7 +38,9 @@ export class SportDetailsComponent implements OnDestroy {
   liveStatus: any;
   sessionPM: any;
   matchBets: any = [];
+  sessionBet: any = [{name:'abc',nrun:23,nrate:43,yrun:23,yrate:54}];
   sessionBets: any = [];
+
   Matchods: any;
   subscription: Subscription;
   active = 1;
@@ -59,7 +65,7 @@ export class SportDetailsComponent implements OnDestroy {
       // public matchDetail: MatchDetailService,
       // private toastr: ToastrService,
       // private dashsvc: DashboardService,
-      public sanitizer: DomSanitizer
+      public sanitizer: DomSanitizer,
   ) {
       // this.innerWidth = window.innerWidth;
       this.subscription = new Subscription();
@@ -68,27 +74,33 @@ export class SportDetailsComponent implements OnDestroy {
   }
 
   ngOnInit(): void {
-    this.filteredSessionBets = setInterval(() => {
-    // this.SportDetails();
-    }, 700);
+    this.SportDetails();
 
-    // Update every second
-    // setInterval(this.SportDetails,1000)
+  }
+  goBack(){
+    window.history.back()
   }
 
   SportDetails(){
+    this.filteredSessionBets = setInterval(() => {
     if(this.matchcode != undefined ||this.matchcode != ''){
       this.sportServive.getSportDetails(this.matchcode).subscribe({
         next:(res)=>{
           this.MatchOdds = res.matchOdds.slice(0,2);
           this.sessionBets = res.sessionOdds;
+          this.team1 = res.score.team1;
+          this.team2 = res.score.team2;
           this.sessionBets.filter((item:any,index:any)=> index %2 ==0)
         },error:(error) =>{
           this.errorMessage = error;
         }
       })
     }
+  }, 900);
   }
+
+
+
 
   open(mode: string, data: any) {
       let rate;
@@ -114,79 +126,32 @@ export class SportDetailsComponent implements OnDestroy {
               type = 1;
               break;
       }
-      // if (rate > 0) {
-      //     const modalRef = this.modalService.open(PlacebetsComponent, {
-      //         centered: true,
-      //     });
-      //     (<PlacebetsComponent> modalRef.componentInstance).data = {
-      //         mode,
-      //         rate: rate,
-      //         type: type,
-      //         team: data.team ?? data.name,
-      //         sid: data.id,
-      //         run: run,
-      //         match_code: this.id,
-      //     };
-      //     modalRef.result.then((result: any) => {
-      //         if (result == 1) {
-      //             this.position();
-      //         }
-      //     });
-      // } else {
-      //     this.toastr.error('Rate must be grater than zero');
-      // }
+      // console.log(rate)
+      if (rate > 0) {
+          const modalRef = this.modalService.open(PlaceBetsComponent, {
+              centered: true,
+              windowClass: 'custom-modal-content'
+          });
+          (<PlaceBetsComponent> modalRef.componentInstance).data = {
+              mode,
+              rate: rate,
+              type: type,
+              team: data.team ?? data.name,
+              sid: data.id,
+              run: run,
+              match_code: this.id,
+          };
+          modalRef.result.then((result: any) => {
+              if (result == 1) {
+                  // this.position();
+              }
+          });
+      } else {
+          // this.toastr.error('Rate must be grater than zero');
+      }
   }
 
-  // matchDetailodds() {
-  //     this.subscription = timer(0, 1000)
-  //         .pipe(
-  //             switchMap(() => {
-  //                 return this.matchDetail.inPlaybyId(this.oddsLink, this.id).pipe<OddsModel>(
-  //                     catchError((err) => {
-  //                         console.error(err);
-  //                         return of(undefined);
-  //                     })
-  //                 );
-  //             }),
-  //             filter((data) => data !== undefined)
-  //         )
-  //         .subscribe((data) => {
-  //             if (data != null) {
-  //                 this.oddsModel = data;
-  //                 this.filterData(data.sessionOdds);
-  //                 // this.getStatus(data.score[0].url);
-  //             }
 
-  //         });
-  // }
-
-
-  // position() {
-  //     this.matchDetail.inplayposition(this.id).subscribe((response: any) => {
-  //         this.matchTitle = response.matchcode;
-  //         this.matchBets = response.matchBet;
-  //         this.sessionBets = response.sessionBet;
-  //         this.headerService.headerTitle.next(response.matchcode);
-  //         this.bitsposition = Object.values(response.bits);
-  //         this.dashsvc.wallet$.next(response.coin);
-  //         this.sessionPM = response.sessionPM;
-  //         this.headerService.setCoin(response.coin);
-  //         this.oddsLink = response.oddsLink;
-  //         this.maxMatch = response.matchMax;
-  //         this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl(
-  //             response.streamLink
-  //         );
-  //         // this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl(
-  //         //   "https://tvlive.s3.ap-south-1.amazonaws.com/CH3.html"
-  //         // );
-
-  //         if (this.checkOdds) {
-  //             this.matchDetailodds();
-  //             this.checkOdds = false;
-  //         }
-
-  //     });
-  // }
 
   ngOnDestroy() {
     clearInterval(this.filteredSessionBets); // Corrected: Pass the interval ID directly

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarToggleService } from '../service/sidebar.service';
 import { BottomFooterComponent } from './bottom-footer/bottom-footer.component';
 
 @Component({

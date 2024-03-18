@@ -2,8 +2,8 @@
   <div class="col-12">
   <div class="sport-details-header shadow">
       <span class="sport-details-text">
-      <i class="bi bi-chevron-compact-left" style="color: #F55F13; font-weight: bold;"></i>
-      Australia vs South Africa</span>
+      <i class="bi bi-chevron-compact-left" style="color: #F55F13; font-weight: bold;" (click)="goBack()" ></i>
+      {{team1}} vs {{team2}}</span>
   </div>
   </div>
   <div class="sport-details-market">
@@ -27,10 +27,51 @@
 </div>
 
 
-<div class="col-12 p-0" >
-    <div class="container-fluid">
-     </div>
+<div class="col-12  p-0" >
+  <div class="container-fluid">
+    <div class="card" >
+      <div class="card-header">
+        <div class="row">
+          <div class="col-5">
+            <div class="header-first">
+              <h2 style="font-family: poppins; font-size: 14px; font-weight: 700; line-height: 1.2rem; margin-left:5px">MATCH ODD</h2>
+            </div>
+          </div>
+          <div class="col-7 header-second">
+            <div class="second">
+              <ul>
+                <li>BACK</li>
+                <li>LAY</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="row row-body" *ngFor="let data of MatchOdds" >
+      <div class="col-5 first-body">
+        <h5 class="team">{{data.team}}</h5>
+      </div>
+      <div class="col-7 second-body justify-content-end">
+          <div class="box-1" *ngIf="(data.krate !=0 && data.lrate !=0)">
+            <h5>{{data.krate}}</h5>
+          </div>
+          <div class="box-2" *ngIf="(data.krate !=0 && data.lrate !=0)">
+            <h5>{{data.lrate}}</h5>
+          </div>
+          <div class="box-suspended" *ngIf="(data.krate==0 && data.lrate==0)">
+            <div class="suppended-text">
+              <p >SUSPENDED</p>
+            </div>
+          </div>
+      </div>
+
+      <hr>
+    </div>
+      </div>
   </div>
+</div>
+
+
   <div class="col-12  p-0" >
     <div class="container-fluid">
       <div class="card" >
@@ -46,34 +87,39 @@
                 <ul>
                   <li>BACK</li>
                   <li>LAY</li>
-
                 </ul>
               </div>
             </div>
           </div>
         </div>
-      <div class="row row-body" *ngFor="let data of MatchOdds" >
-        <div class="col-5 first-body">
-          <h5>{{data.team}}</h5>
-        </div>
-        <div class="col-7 second-body justify-content-end">
-            <div class="box-1">
-              <h5>{{data.krate}}</h5>
-            </div>
-            <div class="box-2">
-              <h5>{{data.lrate}}</h5>
-            </div>
-        </div>
-        <hr>
-      </div>
+        <div class="row row-body" *ngFor="let data of MatchOdds" >
+          <div class="col-5 first-body">
+            <h5 class="team">{{data.team}}</h5>
+          </div>
+          <div class="col-7 second-body justify-content-end">
+              <div class="box-1" *ngIf="(data.krate !=0 && data.lrate !=0)">
+                <h5>{{data.krate}}</h5>
+              </div>
+              <div class="box-2" *ngIf="(data.krate !=0 && data.lrate !=0)">
+                <h5>{{data.lrate}}</h5>
+              </div>
+              <div class="box-suspended" *ngIf="(data.krate==0 && data.lrate==0)">
+                <div class="suppended-text">
+                  <p >SUSPENDED</p>
+                </div>
+              </div>
+          </div>
 
+          <hr>
+        </div>
         </div>
     </div>
   </div>
+
   <div class="container-fluid" style="margin-top: 8px;margin-bottom: 8px;">
     <div class="col-12">
       <div class="sport-details-button-right" style="display: flex;">
-        <button class="btn btn-sm rounded-pill" style="background-color: #F55F13;margin-right: 5px; font-family: 'poppins';" >FANCY
+        <button class="btn btn-sm rounded-pill" style="background-color: #F55F13;margin-right: 5px; font-family: 'poppins';font-weight: 400;" >FANCY
         </button>
         <button class="btn btn-sm rounded-pill" style="background-color: #6DAF46; font-family: 'poppins'">
           PREMIUM CRICKET
@@ -81,6 +127,7 @@
       </div>
     </div>
    </div>
+
   <div class="col-12" >
     <div class="container-fluid">
       <div class="card" >
@@ -91,10 +138,9 @@
             </div>
             <div class="col-7 header-second">
               <div class="second">
-                <ul>
+                <ul class="second-for-yes-no">
                   <li>Yes</li>
                   <li>No</li>
-
                 </ul>
               </div>
             </div>
@@ -105,13 +151,19 @@
           <h5 style="line-height: 1rem;">{{data.name}}</h5>
         </div>
         <div class="col-7 second-body justify-content-end">
-            <div class="box-1">
-              <h5 style="line-height: 0.5;padding-top: 0;">{{data.nrun}}</h5>
+            <div class="box-1" (click)="open('YES',data)" *ngIf="(data.nrun !=0 || data.nrate != 0)">
+              <h5 style="line-height: 0.5;padding-top: 0;" >{{data.nrun}}</h5>
               <h5 style="line-height: 0.5;">{{data.nrate}}</h5>
+
             </div>
-            <div class="box-2">
-              <h5 style="line-height: 0.5;padding-top: 0;">{{data.yrun}}</h5>
-              <h5 style="line-height: 0.5;">{{data.yrate}}</h5>
+            <div class="box-2" (click)="open('NO',data)" *ngIf="(data.yrun !=0 || data.yrate != 0)">
+              <h5 style="line-height: 0.5;padding-top: 0;" >{{data.yrun}}</h5>
+              <h5 style="line-height: 0.5;" >{{data.yrate}}</h5>
+            </div>
+            <div class="box-suspended" *ngIf="(data.nrun==0 && data.nrate==0) && (data.yrun==0 && data.yrate==0)">
+              <div class="suppended-text">
+                <p >SUSPENDED</p>
+              </div>
             </div>
         </div>
         <hr>
@@ -123,6 +175,5 @@
         </div>
     </div>
   </div>
-
 
 

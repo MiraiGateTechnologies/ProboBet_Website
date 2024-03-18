@@ -18,12 +18,20 @@ h2{
 padding-left: 12px;
 }
 
+
   .popular {
-    white-space: nowrap; /* Prevents images from wrapping to the next line */
-    overflow-x: auto;
-    margin-bottom: 15px;
-    ; /* Enables horizontal scrolling if the images exceed the container width */
+    display :flex;
+    flex-direction: row;
+    gap:10px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
+  .popular::-webkit-scrollbar{
+    display: none;
+  }
+
+
 
   .img-thumbnail {
     display: inline-block; /* Display images in a line */
