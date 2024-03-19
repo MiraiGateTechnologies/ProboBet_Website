@@ -48,10 +48,10 @@
         </div>
       </div>
     <div class="row row-body" *ngFor="let data of MatchOdds" >
-      <div class="col-5 first-body">
-        <h5 class="team">{{data.team}}</h5>
+      <div class="col-6 first-body">
+        <h5 class="team"> {{truncateTitle(data.team)}}</h5>
       </div>
-      <div class="col-7 second-body justify-content-end">
+      <div class="col-6 second-body justify-content-end">
           <div class="box-1" *ngIf="(data.krate !=0 && data.lrate !=0)">
             <h5>{{data.krate}}</h5>
           </div>
@@ -93,10 +93,10 @@
           </div>
         </div>
         <div class="row row-body" *ngFor="let data of MatchOdds" >
-          <div class="col-5 first-body">
-            <h5 class="team">{{data.team}}</h5>
+          <div class="col-6 first-body">
+            <h5 class="team"> {{truncateTitle(data.team)}}</h5>
           </div>
-          <div class="col-7 second-body justify-content-end">
+          <div class="col-6 second-body justify-content-end">
               <div class="box-1" *ngIf="(data.krate !=0 && data.lrate !=0)">
                 <h5>{{data.krate}}</h5>
               </div>

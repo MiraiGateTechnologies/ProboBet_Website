@@ -1,12 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgxCountriesDropdownModule } from 'ngx-countries-dropdown';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-verification',
   standalone: true,
-  imports: [NgxCountriesDropdownModule
-  ],
+  imports: [CommonModule],
   templateUrl: './verification.component.html',
   styleUrl: './verification.component.css'
 })

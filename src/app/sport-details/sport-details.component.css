@@ -365,6 +365,9 @@ span.Switch-to {
     font-size: 13.92;
     font-family: 'Poppins',sans-serif;font-weight: 900;
   }
+  .sport-details-text{
+    line-height: 0.9em !important;
+  }
 .team{
   margin-left: 0;
   line-height: 1rem!important;

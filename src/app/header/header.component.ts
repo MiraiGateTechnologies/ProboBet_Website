@@ -26,17 +26,13 @@ export class HeaderComponent implements OnInit{
   };
 
 
-  constructor(private eRef: ElementRef,private router:Router,private userService:HeaderService, private sidebarToggleService: SidebarToggleService, private cdr: ChangeDetectorRef) {}
+  constructor(private eRef: ElementRef,private router:Router,private userService:HeaderService, private sidebarService: SidebarToggleService, private cdr: ChangeDetectorRef) {}
 
   openSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }
 
   ngOnInit(): void {
-    this.sidebarToggleService.sidebarStatus$.subscribe((status: boolean) => {
-      this.sidebarOpen = status;
-      this.cdr.detectChanges();
-    });
     this.userService.getDataOfUser().subscribe({
       next:(res)=>{
         this.userName = res.name;
@@ -49,6 +45,9 @@ export class HeaderComponent implements OnInit{
       }
     })
 
+  }
+  toggleSidebar(): void {
+    this.sidebarService.toggleSidebar();
   }
 
   toggleDropdown(event: Event, dropdownKey: string): void {
@@ -64,21 +63,10 @@ export class HeaderComponent implements OnInit{
   }
   navigateToDeposit(){
     this.router.navigate(['/reports/payment/upi'])
-    // reports/payment/upi
   }
 
 
   closeSidebar() {
     this.sidebarOpen = false;
-  }
-
-  @HostListener('document:click', ['$event'])
-  clickout(event:any) {
-    if (!this.eRef.nativeElement.contains(event.target)) {
-      this.closeSidebar();
-    }
-    if (!event.target.classList.contains('bottom-footer')) {
-      this.closeSidebar();
-    }
   }
 }

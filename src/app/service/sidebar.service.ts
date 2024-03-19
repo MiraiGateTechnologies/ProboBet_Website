@@ -5,12 +5,21 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SidebarToggleService {
-  private _sidebarStatus = new BehaviorSubject<boolean>(false);
-  public sidebarStatus$ = this._sidebarStatus.asObservable();
+  private sidebarVisible = new BehaviorSubject<boolean>(false);
+  public sidebarVisible$ = this.sidebarVisible.asObservable();
 
   constructor() { }
 
   toggleSidebar() {
-    this._sidebarStatus.next(!this._sidebarStatus.value);
+    this.sidebarVisible.next(!this.sidebarVisible.value);
+  }
+  closeSidebar(): void {
+    this.sidebarVisible.next(false);
+  }
+  openSidebar(): void {
+    this.sidebarVisible.next(true);
+  }
+  hide() {
+    this.sidebarVisible.next(false); // Assuming sidebarVisible is the BehaviorSubject managing visibility
   }
 }

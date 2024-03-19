@@ -10,10 +10,10 @@ import { VerificationComponent } from './verification/verification.component';
 
 
 export const routes: Routes = [
-  {path:'login',pathMatch:'full',component:LoginComponent},
-    {path:'',component:HeaderComponent},
-    {path:'verify',pathMatch:'full',component:RegisterComponent},
-    {path:'register',pathMatch:'full',component:VerificationComponent},
+  {path:'',component:HeaderComponent},
+    {path:'login',pathMatch:'full',component:LoginComponent},
+    {path:'register',pathMatch:'full',component:RegisterComponent},
+    {path:'verify',pathMatch:'full',component:VerificationComponent},
     { path: 'cricket', loadComponent:() => import('./cricket/cricket.component').then(m => m.CricketComponent)},
     { path: 'football', loadComponent:() => import('./cricket/cricket.component').then(m => m.CricketComponent)},
     { path: 'sportDetails/:matchcode', loadComponent:() => import('./sport-details/sport-details.component').then(m => m.SportDetailsComponent)},

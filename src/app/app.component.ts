@@ -4,10 +4,11 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { filter } from 'rxjs/operators';
 import {BottomFooterComponent} from './footer/bottom-footer/bottom-footer.component'
+import { SidebarComponent } from './components/setting/sidebar/sidebar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,HeaderComponent,BottomFooterComponent],
+  imports: [CommonModule, RouterOutlet,HeaderComponent,BottomFooterComponent,SidebarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

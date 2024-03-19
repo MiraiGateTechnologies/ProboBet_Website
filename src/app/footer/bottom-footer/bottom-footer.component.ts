@@ -10,9 +10,10 @@ import { SidebarToggleService } from '../../service/sidebar.service';
 })
 export class BottomFooterComponent implements OnInit{
 
-  constructor(private sidebarToggleService: SidebarToggleService){}
-  openSidebar() {
-    this.sidebarToggleService.toggleSidebar();
+  constructor(private sidebarService: SidebarToggleService) {}
+
+  toggleSidebar(): void {
+    this.sidebarService.toggleSidebar();
   }
 ngOnInit(): void {
 

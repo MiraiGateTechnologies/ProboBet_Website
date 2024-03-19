@@ -1,4 +1,4 @@
-<div class="container-fluid" (click)="closeSidebar()">
+<div class="container-fluid">
   <div class="col-md-12 col-sm-12">
       <div class="row">
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -15,7 +15,7 @@
                       <p class="header-txt" >Libility:0</p>
                       <p class="header-txt" >Bal:{{coin}}</p>
                     </div>
-                    <i class="bi bi-gear big-icon" id="openSidebar" (click)="openSidebar(); $event.stopPropagation()"></i>
+                    <i class="bi bi-gear big-icon" id="openSidebar" (click)="toggleSidebar()"></i>
                   </div>
               </div>
           </nav>
@@ -39,7 +39,7 @@
 <app-slider></app-slider>
 <app-sidebar></app-sidebar>
 <!-- The Sidebar -->
-<div id="mySidebar" class="sidebar" [ngClass]="{'sidebar-open': sidebarOpen, 'sidebar-closed': !sidebarOpen}">
+<!-- <div id="mySidebar" class="sidebar" [ngClass]="{'sidebar-open': sidebarOpen, 'sidebar-closed': !sidebarOpen}">
   <div class="sidebar-header shadow-lg">
     <div class="sidebar-icon">
       <i class="bi bi-x custom-x-icon" (click)="closeSidebar()"></i>
@@ -88,4 +88,4 @@
       </svg>
   </button>
 </div>
-</div>
+</div> -->

@@ -29,12 +29,18 @@ export class GamesComponent {
 
   navigateToSport(sport: string) {
     this.activeSport = sport;
-    // console.log(typeof sport)
     this.router.navigate(['/' + sport]);
   }
 
   isActive(sport: string): boolean {
     return this.activeSport == sport
+  }
+
+  isCurrentRouteCricket(): boolean {
+    return this.router.url.endsWith('/cricket');
+  }
+  back(){
+    window.history.back()
   }
 
   getCurrentRouteParams() {

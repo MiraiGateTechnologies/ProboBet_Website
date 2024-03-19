@@ -82,12 +82,14 @@ export class PlaceBetsComponent implements OnInit, OnDestroy {
         next:(res)=>{
           this.toastr.success('update successfully')
           console.log(res)
+          this.modal.dismiss('Cross click');
         },
         error:(e)=>{
           console.log(e)
           this.toastr.error('Error',e.message, {
             timeOut: 3000,
           });
+          this.modal.dismiss('Cross click');
         }
       })
     }
