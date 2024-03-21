@@ -9,6 +9,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DataFetchingInteceptor } from '../../interceptors/Datafetching.interceptor';
 import { RegisterComponent } from '../../register/register.component';
 import { strongPasswordValidator } from '../../interface/validation';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +32,7 @@ export class LoginComponent {
     code: '',
     password: ''
   };
-  constructor(private authservice:AuthService,private formBuilder:FormBuilder){
+  constructor(private authservice:AuthService,private formBuilder:FormBuilder,private toastr:ToastrService,private router:Router){
   }
 
   ngOnInit(): void {
@@ -46,10 +48,28 @@ export class LoginComponent {
 }
 
   onSubmit() {
-    if (this.model.code && this.model.password) {
-      this.authservice.login(this.model.code,this.model.password).subscribe({
-        next:(res)=>{},
-        error:(e)=>{}
+
+    if (this.loginForm.valid) {
+       let data = this.loginForm.value
+      this.authservice.login(data).subscribe({
+        next:(res)=>{
+          if(res.isSuccess == false){
+            this.toastr.error(res.message,'Username Not exists',{
+              timeOut:3000
+            });
+          }
+          if(res.isSuccess == true){
+            this.toastr.success(`Login ${res.message}`);
+            this.router.navigate(['/'])
+          }
+
+        },
+        error:(e)=>{
+          console.log(e)
+          this.toastr.error('Issue in Loin',e.message,{
+            timeOut:300
+          });
+        }
       })
       // You can add your validation logic here
       console.log('Form submitted with code:', this.model.code);

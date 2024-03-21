@@ -368,6 +368,38 @@ span.Switch-to {
   .sport-details-text{
     line-height: 0.9em !important;
   }
+
+
+  tr{
+    background-color: #020c1b;
+  }
+  .bet-table{
+    margin-top: 10px;
+    border: 2px solid gray;
+  }
+  .bet-table .table thead tr{
+    border: 2px solid gray;
+  }
+h4{
+  color :#FFB449;
+  font-family: 'poppins',sans-serif;
+  margin-bottom: 0 !important;
+  margin-top: 10px !important;
+}
+  .bet-table .table thead tr th{
+    color: white !important;
+    border: 2px solid gray;
+    font-family: 'poppins',sans-serif;
+    font-weight:400 !important;
+  }
+
+  .bet-table td {
+    width: 50%; /* Adjust the width as needed */
+    white-space: nowrap;
+    background-color: black;
+  }
+
+
 .team{
   margin-left: 0;
   line-height: 1rem!important;

@@ -52,13 +52,13 @@
         <h5 class="team"> {{truncateTitle(data.team)}}</h5>
       </div>
       <div class="col-6 second-body justify-content-end">
-          <div class="box-1" *ngIf="(data.krate !=0 && data.lrate !=0)">
+          <div class="box-1" *ngIf="data.krate !=0 && data.lrate !=0" (click)="open('K',data)">
             <h5>{{data.krate}}</h5>
           </div>
-          <div class="box-2" *ngIf="(data.krate !=0 && data.lrate !=0)">
+          <div class="box-2" *ngIf="data.krate !=0 && data.lrate !=0" (click)="open('L',data)">
             <h5>{{data.lrate}}</h5>
           </div>
-          <div class="box-suspended" *ngIf="(data.krate==0 && data.lrate==0)">
+          <div class="box-suspended" *ngIf="data.krate==0 && data.lrate==0">
             <div class="suppended-text">
               <p >SUSPENDED</p>
             </div>
@@ -175,5 +175,19 @@
         </div>
     </div>
   </div>
+  <div class="container-fluid" *ngIf="bettDetails.length>0">
+    <h4>Session Bets</h4>
+    <table class="table table-dark bet-table" *ngFor="let bet of bettDetails">
+      <tbody>
+        <tr style="white-space: nowrap;"><th>Amount</th><td>{{ bet.bitamount }}</td></tr>
+        <tr style="white-space: nowrap;"><th>Rate</th><td>{{ bet.bitrate }}</td></tr>
+        <tr style="white-space: nowrap;"><th>Run</th><td>{{ bet.run }}</td></tr>
+        <tr style="white-space: nowrap;"><th>Mode</th><td>{{ bet.bitmode }}</td></tr>
+        <tr style="white-space: nowrap;"><th>Session Name</th><td>{{ bet.sessionname }}</td></tr>
+
+      </tbody>
+      </table>
+  </div>
 
 
+<app-loading *ngIf="loading"></app-loading>

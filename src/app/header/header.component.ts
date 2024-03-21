@@ -6,6 +6,7 @@ import {  Router, RouterLink, RouterModule } from '@angular/router';
 import { HeaderService } from '../service/header.service';
 import { SidebarToggleService } from '../service/sidebar.service';
 import { SidebarComponent } from '../components/setting/sidebar/sidebar.component';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,7 @@ export class HeaderComponent implements OnInit{
   };
 
 
-  constructor(private eRef: ElementRef,private router:Router,private userService:HeaderService, private sidebarService: SidebarToggleService, private cdr: ChangeDetectorRef) {}
+  constructor(private eRef: ElementRef,private router:Router,private userService:HeaderService, private sidebarService: SidebarToggleService, private cdr: ChangeDetectorRef,private autService:AuthService) {}
 
   openSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
@@ -64,6 +65,7 @@ export class HeaderComponent implements OnInit{
   navigateToDeposit(){
     this.router.navigate(['/reports/payment/upi'])
   }
+
 
 
   closeSidebar() {

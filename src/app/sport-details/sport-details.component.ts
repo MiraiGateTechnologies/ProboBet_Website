@@ -7,6 +7,8 @@ import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // import {ToastrService} from 'ngx-toastr';
 import {of, Subscription, timer} from 'rxjs';
 import {catchError, filter, switchMap} from 'rxjs/operators';
+import { LoadingComponent } from '../components/loading/loading.component';
+import { MatchData, SessionBet } from '../interface/sportdetails.interface';
 import { LoadingService } from '../service/loading.service';
 import { SportService } from '../service/sport.service';
 import {liveCricketMatch, MatchOdds, OddsModel, SessionOdds} from './OddsModel';
@@ -15,7 +17,7 @@ import { PlaceBetsComponent } from './place-bets/place-bets.component';
 @Component({
   selector: 'app-sport-details',
   standalone: true,
-  imports: [CommonModule,PlaceBetsComponent,NgbModule],
+  imports: [CommonModule,PlaceBetsComponent,NgbModule,LoadingComponent],
   templateUrl: './sport-details.component.html',
   styleUrl: './sport-details.component.css'
 })
@@ -38,7 +40,6 @@ export class SportDetailsComponent implements OnDestroy {
   liveStatus: any;
   sessionPM: any;
   matchBets: any = [];
-  sessionBet: any = [{name:'abc',nrun:23,nrate:43,yrun:23,yrate:54}];
   sessionBets: any = [];
 
   Matchods: any;
@@ -50,7 +51,9 @@ export class SportDetailsComponent implements OnDestroy {
   matchTitle = '';
   streamTv: boolean = false;
   filteredSessionBets: any = [];
+  bettDetails:SessionBet[] =[];
   errorMessage: string = '';
+  loading:boolean =false;
   // @HostListener('window:resize', ['$event'])
   // onResize(event) {
   //     this.innerWidth = event.target.innerWidth;
@@ -62,6 +65,7 @@ export class SportDetailsComponent implements OnDestroy {
       // private headerService: HeaderService,
       private modalService: NgbModal,
       private sportServive:SportService,
+
       // public matchDetail: MatchDetailService,
       // private toastr: ToastrService,
       // private dashsvc: DashboardService,
@@ -75,7 +79,12 @@ export class SportDetailsComponent implements OnDestroy {
 
   ngOnInit(): void {
     this.SportDetails();
-
+    this.sportServive.getPlaceCricketDetails(this.matchcode).subscribe({
+      next:(res)=>{
+        this.bettDetails = res.sessionBet
+        console.log(res)
+      }
+    })
   }
   goBack(){
     window.history.back()
@@ -88,16 +97,19 @@ export class SportDetailsComponent implements OnDestroy {
     }
   }
   SportDetails(){
+    this.loading =true;
     this.filteredSessionBets = setInterval(() => {
     if(this.matchcode != undefined ||this.matchcode != ''){
       this.sportServive.getSportDetails(this.matchcode).subscribe({
         next:(res)=>{
+          this.loading=false;
           this.MatchOdds = res.matchOdds.slice(0,2);
           this.sessionBets = res.sessionOdds;
           this.team1 = res.score.team1;
           this.team2 = res.score.team2;
           this.sessionBets.filter((item:any,index:any)=> index %2 ==0)
         },error:(error) =>{
+          this.loading =false;
           this.errorMessage = error;
         }
       })
@@ -135,7 +147,7 @@ export class SportDetailsComponent implements OnDestroy {
       // console.log(rate)
       if (rate > 0) {
           const modalRef = this.modalService.open(PlaceBetsComponent, {
-              centered: true,
+
               windowClass: 'custom-modal-content'
           });
           (<PlaceBetsComponent> modalRef.componentInstance).data = {
@@ -145,7 +157,7 @@ export class SportDetailsComponent implements OnDestroy {
               team: data.team ?? data.name,
               sid: data.id,
               run: run,
-              match_code: this.id,
+              match_code: this.matchcode,
           };
           modalRef.result.then((result: any) => {
               if (result == 1) {

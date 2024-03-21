@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../../service/auth.service';
+import { HeaderService } from '../../../service/header.service';
 import { SidebarToggleService } from '../../../service/sidebar.service';
 
 @Component({
@@ -13,7 +15,7 @@ import { SidebarToggleService } from '../../../service/sidebar.service';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   isVisible = false;
-  userName = "Shafi";
+  userName!:string;
   private  allowClose = true;
   private subscription = new Subscription();
   dropdowns: { [key: string]: boolean } = {
@@ -21,9 +23,13 @@ export class SidebarComponent implements OnInit, OnDestroy {
     accounts: false
   };
 
-  constructor(private sidebarService: SidebarToggleService, private router: Router, private eRef: ElementRef) {}
+  constructor(private sidebarService: SidebarToggleService, private router: Router, private eRef: ElementRef,private userService:HeaderService,private authService:AuthService) {}
 
   ngOnInit(): void {
+    this.userService.getDataOfUser().subscribe({
+      next:(res)=>{
+        this.userName = res.name;
+      }});
     this.subscription.add(
       this.sidebarService.sidebarVisible$.subscribe(isVisible => {
         this.isVisible = isVisible;
@@ -61,6 +67,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   navigateToDeposit(): void {
     this.router.navigate(['/reports/payment/upi']);
+  }
+  logOut(){
+    this.authService.logOut();
   }
 
 }

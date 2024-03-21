@@ -8,7 +8,7 @@
   </div>
 
   <div class="login-container2">
-    <form class="login-form" [formGroup]="loginForm">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="input-group ">
           <input type="text" class="form-control" placeholder="ID" formControlName="code" aria-label="Text input with dropdown button" required>
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">ID</button>

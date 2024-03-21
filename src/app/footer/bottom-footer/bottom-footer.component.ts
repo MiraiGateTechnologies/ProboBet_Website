@@ -1,10 +1,11 @@
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { SidebarToggleService } from '../../service/sidebar.service';
 
 @Component({
   selector: 'app-bottom-footer',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './bottom-footer.component.html',
   styleUrl: './bottom-footer.component.css'
 })

@@ -2,38 +2,41 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { response } from 'express';
-import { map, Observable } from 'rxjs';
-import { User } from '../interface/login.interface';
+import { catchError, map, Observable, throwError } from 'rxjs';
+import { LoginResponse, User } from '../interface/login.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
 
-
-  private  TOKEN_KEY:any;
+  TOKEN_KEY:any;
   private url ='https://api.1exch.net/login';
   constructor(private http:HttpClient,private router:Router) { }
 
-  login(code:string,password:string):Observable<User>{
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Origin': 'https://1exch.net' // Replace with your actual origin
-    // });
+  login(data: any): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.url, data).pipe(
+      map((response) => {
+        let token = response.data.jwt.accessToken;
+        sessionStorage.setItem('token', token);
+        return response;
+      }),
+      catchError((error) => {
+        console.error('Error during login:', error);
+        return throwError(error);
+      })
+    );
+}
 
-    // const headers = { 'Authorization': 'Bearer my-tokeneyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJDMTk0NDAiLCJhdWQiOiIyIiwic2NvcGVzIjpbeyJhdXRob3JpdHkiOiIyIn1dLCJpc3MiOiJJU1NVRVIiLCJpYXQiOjE3MDcyMjIyNjEsImV4cCI6MTcwODA4NjI2MX0.w_7K27FDVnNqUt5K5i7iemeBmDEcsw9GYbQ4DDASFrs' }
-
-    return this.http.post<User>(this.url,{code,password}).pipe(map(response=>{
-     this.TOKEN_KEY = localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJDMTk0NDAiLCJhdWQiOiIyIiwic2NvcGVzIjpbeyJhdXRob3JpdHkiOiIyIn1dLCJpc3MiOiJJU1NVRVIiLCJpYXQiOjE3MDgwNjAyMTksImV4cCI6MTcwODkyNDIxOX0.Wtu4cBYPZN6Mqnl1qwxvMagE9WRgojCO2XplqV9iOlU');
-      return response;
-    }))
-  }
   getToken(): string | null {
-    return this.TOKEN_KEY;
+    if (typeof sessionStorage !== 'undefined') {
+      return sessionStorage.getItem('token');
+    }
+    return null;
   }
+
    logOut() {
-     debugger
-     console.log('working well')
+     sessionStorage.removeItem('token')
     this.router.navigate(['/login']);
     throw new Error('Method not implemented.');
   }

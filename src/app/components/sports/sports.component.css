@@ -21,7 +21,14 @@
   align-items: center;
   justify-content: center;
 }
-
+.live-section{
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: 'poppins';
+  width: 40px;
+  height: 20px;
+}
 .second-body h5 {
   line-height: 0.6em;
 }
@@ -62,7 +69,7 @@ h5{
   line-height: 1.2em;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
 }
 .cricketdate{
   font-family: 'Poppins';font-size: small; padding-left: 20px; justify-content: center;margin-top: 5px;
@@ -90,6 +97,27 @@ span{
   color :white;
   font-size: 24px;
 }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.small-bracket{
+  color:#FFB449 ;
+}
+
+.blinking-bullet {
+  display: inline-block; /* This makes the span respect width and height */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* This creates the circle shape */
+  background-color: red; /* Set the circle's color */
+  animation: blink 1s linear infinite;
+}
+
+
+.live-section{
+  margin-left: -10px !important;
+}
 .text-header-first{
   align-items: center;
   justify-content: center;
@@ -97,7 +125,7 @@ span{
 ul{
   max-width: 300px;
   margin-top: 7px;
-  gap:57px;
+  gap:60px;
   display: flex;
   list-style-type: none;
   color :white;

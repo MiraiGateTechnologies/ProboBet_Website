@@ -12,6 +12,6 @@ export class PlaceBetPositionService {
 
   placeBetPosition(data:any):Observable<BetPlace>{
     let url='https://api.betguru.net/game/sessionBetPost';
-    return this.http.post<BetPlace>(url,{data});
+    return this.http.post<BetPlace>(url,data);
   }
 }

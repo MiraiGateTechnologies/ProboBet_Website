@@ -11,20 +11,20 @@
 
 <div  class="container">
     <ul class="sidebar-menu">
-      <a [routerLink]="['/reports/payment/whatsapp']" (click)="closeSidebar()"><li>Deposit</li></a>
-      <a [routerLink]="['/reports/withdraw']" (click)="closeSidebar()"><li>Withdrawal</li></a>
-      <a [routerLink]="['/reports/changepassword']" (click)="closeSidebar()"><li>Change Password</li></a>
+      <li [routerLink]="['/reports/payment/whatsapp']" (click)="closeSidebar()">Deposit</li>
+      <li [routerLink]="['/reports/withdraw']" (click)="closeSidebar()">Withdrawal</li>
+      <li [routerLink]="['/reports/changepassword']" (click)="closeSidebar()">Change Password</li>
     <li class="dropdown">
       <div (click)="toggleDropdown($event, 'reports')">
         Reports
         <i class="bi bi-chevron-down" style="position: absolute; right: 4px;"></i>
       </div>
       <ul *ngIf="dropdowns['reports']">
-        <a [routerLink]="['/reports/mybets']" (click)="closeSidebar()"><li>My Bets</li></a>
-        <a [routerLink]="['/reports/profit-loss']" (click)="closeSidebar()"><li>Profit & Loss</li></a>
-        <a [routerLink]="['/reports/casino-reports']" (click)="closeSidebar()"><li>Casino Reports</li></a>
-        <a [routerLink]="['/reports/fancy-reports']" (click)="closeSidebar()"><li>Fancy Reports</li></a>
-        <a [routerLink]="['/reports/result']" (click)="closeSidebar()"><li>Results</li></a>
+        <li [routerLink]="['/reports/mybets']" (click)="closeSidebar()">My Bets</li>
+        <li [routerLink]="['/reports/profit-loss']" (click)="closeSidebar()">Profit & Loss</li>
+        <li [routerLink]="['/reports/casino-reports']" (click)="closeSidebar()">Casino Reports</li>
+        <li [routerLink]="['/reports/fancy-reports']" (click)="closeSidebar()">Fancy Reports</li>
+        <li [routerLink]="['/reports/result']" (click)="closeSidebar()">Results</li>
       </ul>
     </li>
     <li class="dropdown">

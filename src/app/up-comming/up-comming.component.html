@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="row-body" >
-    <div class="row" *ngFor="let data of cricketUpcommingData" >
+    <div class="row" *ngFor="let data of cricketUpcommingData" (click)="inPlayDetails(data.matchcode)">
       <div class="col-5">
 
         <h5 class="first-body" >{{truncateTitle(data.title)}}</h5>
@@ -26,12 +26,12 @@
       </div>
       <div class="col-7 second-body justify-content-end">
           <div class="box-1">
-            <p style="line-height: 0.2rem;margin-top: 7px;">1.34</p>
-            <p style="line-height: 0.2rem;margin-top: 7px;">1c+</p>
+            <p style="line-height: 0.2rem;margin-top: 10px;">{{data.mbet}}</p>
+            <!-- <p style="line-height: 0.2rem;margin-top: 7px;">1c+</p> -->
           </div>
-          <div class="box-1"><p style="line-height: 0.2rem; margin-top: 5px;">1.54</p><p style="line-height: 0.2rem">1cr+</p>
+          <div class="box-1"><p style="line-height: 0.2rem; margin-top: 10px;">-</p>
           </div>
-          <div class="box-1"><p style="line-height: 0.2rem;margin-top: 5px;">1.54</p><p style="line-height: 0.2rem;">1cr+</p>
+          <div class="box-1"><p style="line-height: 0.2rem;margin-top: 10px;">{{data.sbet}}</p>
           </div>
         </div>
       </div>
@@ -87,3 +87,4 @@
 </div>
   </div>
 </div>
+<app-loading *ngIf="isLoading"></app-loading>

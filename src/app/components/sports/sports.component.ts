@@ -6,12 +6,13 @@ import { ProbobetService } from '../../betting/probobet.service';
 import { InPlayComponent } from '../../in-play/in-play.component';
 import { SportService } from '../../service/sport.service';
 import { GameShowComponent } from '../game-show/game-show.component';
+import { LoadingComponent } from '../loading/loading.component';
 import { liveCricketMatch, TeamBet } from './sports.interface';
 
 @Component({
   selector: 'app-sports',
   standalone: true,
-  imports: [GameShowComponent,CommonModule,InPlayComponent,],
+  imports: [GameShowComponent,CommonModule,InPlayComponent,LoadingComponent],
   templateUrl: './sports.component.html',
   styleUrl: './sports.component.css',
   providers: [SportService]
@@ -19,20 +20,36 @@ import { liveCricketMatch, TeamBet } from './sports.interface';
 export class SportsComponent implements OnInit,OnDestroy {
   cricketMatch:TeamBet[] = [];
   cricketData:any[]=[];
+  cricketDatas:any[]=[{matchcode:123,title:'Chenni super King Vs Australia playing X11',mbet:1,sbet:1},{matchcode:123,title:'South Africa Vs Srilanka',mbet:1,sbet:1}];
+  isLoading:boolean =false;
   footballData:any[]=[];
   upcomingCricketData:any[]=[];
     private cricketBetSubscription!: Subscription;
   constructor(private sportService:SportService,private BetService:ProbobetService,private router:Router){}
 
   ngOnInit(): void {
+    this.isLoading =true;
    this.cricketBetSubscription = this.BetService.getCricketBet().subscribe({
       next: (res: any) => { // Specify the type of 'res' as 'any'
         console.log(res)
+
         if (res.gameList.length > 0) {
+          this.isLoading =false;
+          // const matchcode = res.gameList.match_code;
+          // this.sportService.getSportDetails(matchcode).subscribe({
+          //  next:(res)=>{
+          //     console.log(res)
+          //   }
+          // })
           const currentTime: Date = new Date(); // Specify the type of 'currentTime' as 'Date'
-          const liveCricketMatches: any[] = res.gameList.filter((data: any) => data.type === 'CRICKET' && new Date(data.time) <= currentTime);
+          const fiveMinutesLater = new Date(currentTime.getTime() + 5 * 60000);
+
+          const liveCricketMatches: any[] = res.gameList.filter((data: any) => {
+
+            const matchTime = new Date(data.time);
+            return data.type === 'CRICKET' && matchTime <= currentTime && matchTime <= fiveMinutesLater;
+          });
           const upcommingCricketMatches: any[] = res.gameList.filter((data: any) => data.type === 'CRICKET' && new Date(data.time) >= currentTime);
-          console.log(liveCricketMatches)
           const liveFootBallMatches: any[] = res.gameList.filter((data: any) => data.type === 'FOOTBALL' && new Date(data.time) <= currentTime);
           if (liveCricketMatches.length > 0) {
             this.cricketData.push(...liveCricketMatches.slice(0, 2));
@@ -52,6 +69,7 @@ export class SportsComponent implements OnInit,OnDestroy {
       },
       error: (err: any) => { // Specify the type of 'err' as 'any'
         console.error('Error fetching cricket bet:', err);
+        this.isLoading =false
       }
     });
 

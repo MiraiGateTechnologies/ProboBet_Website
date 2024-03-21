@@ -23,17 +23,16 @@
     <div class="table-responsive withdraw-table" >
       <table class="table table-dark" *ngFor="let transaction of transactions">
         <tbody>
-          <tr style="white-space: nowrap;"><th>Voucher ID</th><td>{{ transaction.voucherID }}</td></tr>
-          <tr style="white-space: nowrap;"><th>Market ID</th><td>{{ transaction.marketID }}</td></tr>
-          <tr style="white-space: nowrap;"><th>Settled Date</th><td>{{ transaction.settledDate }}</td></tr>
-          <tr style="white-space: nowrap;"><th>Narration</th><td style="color: blue">{{ transaction.narration }}</td></tr>
-          <tr style="white-space: nowrap;"><th>Debit</th><td style="color: red">{{ transaction.debit }}</td></tr>
-          <tr style="white-space: nowrap;"><th>Credit</th><td style="color: green">{{ transaction.credit }}</td></tr>
-          <tr style="white-space: nowrap;"><th>Running Balance</th><td style="color: green">{{ transaction.runningBalance }}</td></tr>
-
-
+          <tr style="white-space: nowrap;"><th>Voucher ID</th><td>{{ transaction.pay.matchcode }}</td></tr>
+          <!-- <tr style="white-space: nowrap;"><th>Market ID</th><td>{{ transaction.marketID }}</td></tr> -->
+          <tr style="white-space: nowrap;"><th>Settled Date</th><td>{{ transaction.pay.datetime }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Payment Type</th><td style="color: blue">{{ transaction.pay.paymenttype }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Debit</th><td style="color: red">{{ transaction.pay.debit }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Credit</th><td style="color: green">{{ transaction.pay.credit }}</td></tr>
+          <tr style="white-space: nowrap;"><th>Running Balance</th><td style="color: green">{{ transaction.bal }}</td></tr>
         </tbody>
         </table>
+        <ngb-pagination	[collectionSize]="totalElements" 	[(page)]="page"	[maxSize]="5"	[rotate]="true"	[ellipses]="false" [boundaryLinks]="true"/>
         </div>
   </div>
 </div>

@@ -82,7 +82,7 @@ tr{
 }
 
 .withdraw-table .table tbody tr td{
-  color: white !important;
+  color: white;
   border: 2px solid gray;
   background-color: black;
   font-family: 'poppins',sans-serif;

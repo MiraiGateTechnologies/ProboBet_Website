@@ -207,21 +207,28 @@ font-size: 2em; /* Or any other size you want */
 padding: 2px;
 }
 .header-txt{
+  margin: 0;
+  padding: 0;
 font-size: 12px;
 color: white;
-line-height: 0.2rem;
+line-height: 0.9rem;
+font-family: 'poppins';
+font-weight: 400 !important;
 font-weight: 500 !important;
 }
-/* .header-txt-lib{
+.header-txt-1{
+  line-height: 1rem !important;
+  word-wrap: break-word;
   font-size: 12px;
   color: white;
-  line-height: 0.2rem;
-  font-weight: 500 !important;
+  font-family: 'poppins';
+  font-weight: 400 !important;
+  margin: 0;
+  padding: 0;
+}
 
-} */
 .header-main-txt{
-padding-top: 10px;
-max-width: 60px;
+max-width: 70px;
 }
 
 .profile-name {

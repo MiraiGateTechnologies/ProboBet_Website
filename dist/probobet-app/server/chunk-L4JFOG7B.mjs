@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-import{Db as s,Jb as r,ca as o,mb as a,nb as i}from"./chunk-INNBRVLS.mjs";import"./chunk-VVCT4QZE.mjs";var u=(()=>{let t=class t{};t.\u0275fac=function(n){return new(n||t)},t.\u0275cmp=o({type:t,selectors:[["app-custom-stake-button"]],standalone:!0,features:[r],decls:2,vars:0,template:function(n,m){n&1&&(a(0,"p"),s(1,"custom-stake-button works!"),i())}});let e=t;return e})();export{u as CustomStakeButtonComponent};
