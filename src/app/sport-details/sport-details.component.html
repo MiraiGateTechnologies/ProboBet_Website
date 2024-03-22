@@ -147,10 +147,10 @@
           </div>
         </div>
       <div class="row row-body" *ngFor="let data of sessionBets">
-        <div class="col-5 first-body">
-          <h5 style="line-height: 1rem;">{{data.name}}</h5>
+        <div class="col-6 first-body">
+          <h5 style="line-height: 1rem;">{{truncateTitle(data.name)}}</h5>
         </div>
-        <div class="col-7 second-body justify-content-end">
+        <div class="col-6 second-body justify-content-end">
             <div class="box-1" (click)="open('YES',data)" *ngIf="(data.nrun !=0 || data.nrate != 0)">
               <h5 style="line-height: 0.5;padding-top: 0;" >{{data.nrun}}</h5>
               <h5 style="line-height: 0.5;">{{data.nrate}}</h5>

@@ -34,7 +34,6 @@ export class UpCommingComponent  implements OnInit{
         const currentTime: Date = new Date(); // Specify the type of 'currentTime' as 'Date'
         const upcommingCricketMatches: any[] = res.gameList.filter((data: any) => data.type === 'CRICKET' && new Date(data.time) >= currentTime);
         const upcommingFootBallMatches: any[] = res.gameList.filter((data: any) => data.type === 'FOOTBALL' && new Date(data.time) >= currentTime);
-        // If there are live cricket matches, add them to the cricketData array
         if (upcommingCricketMatches.length > 0) {
           this.isLoading =false;
           this.cricketUpcommingData.push(...upcommingCricketMatches);

@@ -3,28 +3,23 @@
   <div class="stake-buttons">
 
 
-  <div class="button-flex">
+    <div class="button-flex">
       <span>Button 1</span>
-    <input type="number" value="200" />
-    <span>Button 1</span>
-    <input type="number" value="500" />
-    <span>Button 1</span>
-    <input type="number" value="1000" />
-    <span>Button 1</span>
-    <input type="number" value="5000" />
+      <input type="number" [value]="buttonAmounts['Button 1']" (input)="handleInputChange('Button 1', $event)" />
+      <span>Button 2</span>
+      <input type="number" [value]="buttonAmounts['Button 2']" (input)="handleInputChange('Button 2', $event)" />
+      <span>Button 3</span>
+      <input type="number" [value]="buttonAmounts['Button 3']" (input)="handleInputChange('Button 3', $event)" />
+      <span>Button 4</span>
+      <input type="number" [value]="buttonAmounts['Button 4']" (input)="handleInputChange('Button 4', $event)" />
+    </div>
 
-  </div>
-
-  <div class="button-flex">
-      <span>Button 1</span>
-      <input type="number" value="10000" />
-      <span>Button 1</span>
-      <input type="number" value="25000" />
-      <span>Button 1</span>
-      <input type="number" value="50000" />
-      <span>Button 1</span>
-      <input type="number" value="100000" />
-  </div>
+    <div class="button-flex">
+      <span>Button 5</span>
+      <input type="number" [value]="buttonAmounts['Button 5']" (input)="handleInputChange('Button 5', $event)" />
+      <span>Button 6</span>
+      <input type="number" [value]="buttonAmounts['Button 6']" (input)="handleInputChange('Button 6', $event)" />
+    </div>
 </div>
   <button class="update-button">Update Stake</button>
   <div class="balance">

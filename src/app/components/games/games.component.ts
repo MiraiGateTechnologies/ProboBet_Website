@@ -33,11 +33,13 @@ export class GamesComponent {
   }
 
   isActive(sport: string): boolean {
-    return this.activeSport == sport
+    return this.router.url.endsWith('/' + sport);
   }
 
   isCurrentRouteCricket(): boolean {
-    return this.router.url.endsWith('/cricket');
+    return this.router.url.endsWith('/cricket') ||
+    this.router.url.endsWith('/football') ||
+    this.router.url.endsWith('/tennis');
   }
   back(){
     window.history.back()

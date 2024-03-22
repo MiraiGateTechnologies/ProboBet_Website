@@ -45,7 +45,6 @@ export class PlaceBetsComponent implements OnInit, OnDestroy {
   }
   selectAmount(amount: number) {
     this.selectedAmount = amount;
-
   }
 
   dismiss() {
@@ -80,9 +79,17 @@ export class PlaceBetsComponent implements OnInit, OnDestroy {
     if(this.errorMessage == ''){
       this.amountBetService.placeBetPosition(this.betForm.value).subscribe({
         next:(res)=>{
-          this.toastr.success('update successfully',res.msg)
-          console.log(res)
-          this.modal.dismiss('Cross click');
+          if (res.status == false){
+            this.toastr.error('Bet Not Placed',res.msg,{
+              timeOut:3000,
+            })
+            console.log(res)
+            this.modal.dismiss('Cross click');
+          }else{
+            this.toastr.success('update successfully',res.msg)
+            console.log(res)
+            this.modal.dismiss('Cross click');
+          }
         },
         error:(e)=>{
           console.log(e)

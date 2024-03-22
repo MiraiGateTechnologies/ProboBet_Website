@@ -8,4 +8,5 @@ export interface BetPlace{
   sid:number;
   team:string;
   type:number;
+  status:boolean;
 }

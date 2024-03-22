@@ -90,7 +90,7 @@ export class SportDetailsComponent implements OnDestroy {
     window.history.back()
   }
   truncateTitle(title: string): string {
-    if (title.length > 25) {
+    if (title.length > 28) {
       return title.substring(0, 25) + '...';
     } else {
       return title;

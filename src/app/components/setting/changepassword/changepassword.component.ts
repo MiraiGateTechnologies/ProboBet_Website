@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit,ElementRef,HostListener} from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+import { ChangePasswordService } from '../../../service/change-password.service';
 export function passwordStrengthValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
     const value = control.value;
@@ -33,7 +34,7 @@ export class ChangepasswordComponent implements OnInit{
   // @HostListener('window:scroll', [])
 
 
-  constructor(private formBuilder:FormBuilder,private elRef: ElementRef){}
+  constructor(private formBuilder:FormBuilder,private elRef: ElementRef,private changePasswordService:ChangePasswordService){}
   onScroll(event: Event) {
     const videoContainer = this.elRef.nativeElement.querySelector('#videoContainer');
     const videoPlayer = this.elRef.nativeElement.querySelector('#myVideo');
@@ -88,6 +89,8 @@ export class ChangepasswordComponent implements OnInit{
     if (this.changePasswordForm.valid) {
       // Handle form submission
       console.log(this.changePasswordForm.value);
+
+      // this.changePasswordService.changePassword()
     } else {
       // Trigger validation for all form fields
       Object.keys(this.changePasswordForm.controls).forEach(field => {
