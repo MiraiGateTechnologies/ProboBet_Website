@@ -1,11 +1,11 @@
-.header {
+/* .header {
   background: linear-gradient(
                   180deg,
                   rgba(21, 20, 37, 0.7) 0%,
                   rgba(55, 54, 71, 0) 100%
   );
   mix-blend-mode: multiply;
-}
+} */
 
 .bg-image {
   height: 150px;
@@ -258,25 +258,30 @@ span.Switch-to {
     font-size: 18px;
   }
   .card-header{
-    margin: 0;
+    margin: 10px;
     padding: 0;
     height: 50px;
-    background: rgb(232,170,13);
-    background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rgba(14,13,13,1) 94%);
+    border: none;
+    background: black;
+    /* background: linear-gradient(90deg, #FFB449 37%, #272727 38%, #272727 94%); */
+  }
+  .sport-details-button-left{
+    display: flex;
   }
   .second{
-    margin-top: 10px !important;
      display: flex;
      font-size: 24px;
-     margin-right: 15px;
-     margin-top: 0;
+      margin-top: 10px;
+     margin-right: 5px;
      justify-content: end;
   }
   .second-for-yes-no{
     display: flex;
     list-style-type: none;
+    justify-content: flex-end; /* Aligns content to the bottom */
+
     color :white;
-    gap: 35px;
+    gap: 40px;
     font-size: 18.27px;
     font-family: 'Poppins',sans-serif
   }
@@ -289,9 +294,12 @@ span.Switch-to {
     font-family: 'Poppins',sans-serif
   }
   .row-body {
-    height: 60px;
-    margin-top:0 ;
-      padding-top: 10px;
+    margin-top:-15px ;
+    padding-top: 10px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    background-color: black;
+    color: white;
   }
   .row {
     margin-top:0 ;
@@ -300,34 +308,35 @@ span.Switch-to {
 
   h5{
     padding-left: 7px;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 5px;
     margin-left: 0;
     line-height: 0.5em;
-    font-family: 'Poppins',sans-serif;font-weight: 900;
+    font-family: 'Poppins',sans-serif;
   }
 }
 
 @media only screen and (max-width: 1120px) {
   .card-header{
-    margin: 0;
+    margin: 10px;
     padding: 0;
+    border: none;
     height: 50px;
-
-    background: rgb(232,170,13);
-    background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rgba(14,13,13,1) 94%);
+    background: black;
+    /* background: linear-gradient(90deg, #FFB449 37%, #272727 38%, #272727 94%); */
   }
   .second{
-    margin-top: 10px !important;
     display: flex;
     font-size: 24px;
-    margin-right: 15px;
-    margin-top: 0;
+    margin-top: 10px;
+    justify-content: flex-end; /* Aligns content to the bottom */
+    margin-right: 5px;
     justify-content: end;
   }
   .card{
     border-radius: 10px;
     border: none;
+    background-color: black;
   }
   ul{
     display: flex;list-style-type: none; color :white; gap: 27px; font-size: 24px;
@@ -335,8 +344,9 @@ span.Switch-to {
   .second-for-yes-no{
     display: flex;
     list-style-type: none;
+
     color :white;
-    gap: 35px;
+    gap: 40px;
     font-size: 18.27px;
     font-family: 'Poppins',sans-serif
   }
@@ -344,13 +354,17 @@ span.Switch-to {
     font-size: 18px;
   }
   .row-body {
-    height: 60px;
-    margin-top:0 ;
-      padding-top: 10px;
+    margin-top:-15px ;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    background-color: black;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    color: white;
+
   }
   .row {
     margin-top:0 ;
-      padding-top: 10px;
   }
   .first-body{
     margin-left: 0;
@@ -363,7 +377,7 @@ span.Switch-to {
     margin-left: 0;
     line-height: 0.5em;
     font-size: 13.92;
-    font-family: 'Poppins',sans-serif;font-weight: 900;
+    font-family: 'Poppins',sans-serif;
   }
   .sport-details-text{
     line-height: 0.9em !important;
@@ -379,6 +393,9 @@ span.Switch-to {
   }
   .bet-table .table thead tr{
     border: 2px solid gray;
+  }
+  .i-frame{
+    margin-top: 10px !important;
   }
 h4{
   color :#FFB449;
@@ -403,9 +420,19 @@ h4{
 .team{
   margin-left: 0;
   line-height: 1rem!important;
+  display: flex;
   font-size: 14px;
   font-family: 'Poppins',sans-serif;
   font-weight: 900 !important;
+}
+.score{
+  background-color: #272727;
+  color: white;
+  font-family: 'poppins';
+}
+.score-1{
+  position: absolute;
+  right: 15px;
 }
 }
 
@@ -421,15 +448,28 @@ h4{
     border: none;
   }
   .second{
-    margin-top: 10px !important;
     display: flex;
     font-size: 24px;
-    margin-right: 15px;
+    margin-top: 10px;
+    margin-right: 5px;
+    justify-content: flex-end; /* Aligns content to the bottom */
+
     margin-top: 0;
     justify-content: end;
   }
   ul{
     display: flex;list-style-type: none; color :white; gap: 27px; font-size: 18.27px;font-family: 'Poppins',sans-serif;
+  }
+  .market-button{
+    width: 100px;
+    padding-top: 5px;
+    padding-left: 2px;
+    font-size: 14px;
+    font-family: 'poppins';
+  }
+  .market-button:hover{
+    width: 100px;
+    background-color: white;
   }
   .second-for-yes-no{
     display: flex;
@@ -440,9 +480,14 @@ h4{
     font-family: 'Poppins',sans-serif
   }
   .row-body {
-    height: 60px;
-    margin-top:0;
+    margin-top:-15px;
+    margin-bottom: 10px;
+    background-color: black;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
     padding-top: 10px;
+    color: white;
+
   }
   .row {
     margin-top:0 ;
@@ -454,11 +499,14 @@ h4{
     margin-top: 5px;
     margin-left: 0;
     line-height: 0.5em;
-    font-family: 'Poppins',sans-serif;font-weight: 700;
+    font-family: 'Poppins',sans-serif;
   }
 
 
 @media screen and (max-width: 767px) {
+  .market-icon{
+    width: 26px; height: 20px; border-radius: 50%; background-color: green; margin: 2px;
+    }
   .card{
     border-radius: 10px;
     border: none;
@@ -467,17 +515,25 @@ h4{
     font-size: 12px;
   }
   .second{
-    margin-top: 10px !important;
     display: flex;
     font-size: 24px;
-    margin-right: 15px;
-    margin-top: 0;
+    margin-right: 5px;
+    margin-top: 10px;
     justify-content: end;
   }
   .row-body {
-    height: 60px;
-    margin-top:0 ;
-      padding-top: 10px;
+    margin-top:-15px ;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    background-color: black;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    color: white;
+
+  }
+  .i-frame{
+    border: 1px solid gray;
+    color: white;
   }
   .row {
     margin-top:0 ;
@@ -490,7 +546,7 @@ h4{
     font-size: 14px;
     margin-left: 0;
     line-height: 0.5em;
-    font-family: 'Poppins';font-weight: 700;
+    font-family: 'Poppins';
   }
   button.live-tv.popupBtn span {
     display: none;
@@ -502,11 +558,10 @@ h4{
     padding: 9px 16px 10px !important;
   }
   .second{
-    margin-top: 10px !important;
     display: flex;
     font-size: 24px;
-    margin-right: 15px;
-    margin-top: 0;
+    margin-right: 5px;
+    margin-top: 10px;
     justify-content: end;
   }
   h2{
@@ -523,7 +578,6 @@ h4{
     margin-left: 0;
     line-height: 0.5em;
     font-family: 'Poppins';
-    font-weight: 700;
   }
 }
 
@@ -532,12 +586,15 @@ h4{
     max-width: 27%;
     width: 27% !important;
   }
+  .market-icon{
+    width: 26px; height: 20px; border-radius: 50%; background-color: green; margin-right: 2px;
+
+  }
   .second{
-    margin-top: 10px !important;
     display: flex;
     font-size: 24px;
-    margin-right: 15px;
-    margin-top: 0;
+    margin-right: 5px;
+    margin-top: 10px;
     justify-content: end;
   }
   h5{
@@ -546,17 +603,16 @@ h4{
     font-size: 14px;
     margin-left: 0;
     line-height: 0.5em;
-    font-family: 'Poppins';font-weight: 700;
+    font-family: 'Poppins';
   }
 }
 
 @media screen and (max-width: 320px) {
   .second{
-    margin-top: 10px !important;
     display: flex;
     font-size: 24px;
-    margin-right: 15px;
-    margin-top: 0;
+    margin-right: 10px;
+    margin-top: 10px;
     justify-content: end;
   }
   .score-summary {
@@ -576,9 +632,14 @@ h4{
     justify-content: center;
   }
   .row-body {
-    height: 60px;
-    margin-top:0 ;
-      padding-top: 10px;
+    margin-top:-15px ;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    background-color: black;
+    color: white;
+
   }
   .row {
     margin-top:0 ;
@@ -591,7 +652,7 @@ h4{
     margin-left: 0;
     font-size: 14px;
     line-height: 0.5em;
-    font-family: 'Poppins';font-weight: 700;
+    font-family: 'Poppins';
   }
 }
 
@@ -599,12 +660,15 @@ h4{
 
 
 @media screen and (max-width: 767px) {
+  .market-icon{
+    width: 26px; height: 20px; border-radius: 50%; background-color: green; margin: 2px;
+    }
   .card-header{
-    margin: 0;
+    margin-top: 10;
     padding: 0;
     height: 50px;
-    background: rgb(232,170,13);
-    background: linear-gradient(90deg, rgba(232,170,13,1) 37%, rgba(0,0,0,1) 38%, rgba(14,13,13,1) 94%);
+    background: black;
+    /* background: linear-gradient(90deg, #FFB449 37%, #272727 38%, #272727 94%); */
   }
   .card{
     border-radius: 10px;
@@ -612,11 +676,11 @@ h4{
     margin-top: 8px;
   }
   .second{
-    margin-top: 10px !important;
     display: flex;
     font-size: 24px;
-    margin-right: 15px;
-    margin-top: 0;
+    justify-content: flex-end; /* Aligns content to the bottom */
+    margin-right: 5px;
+    margin-top: 10px;
     justify-content: end;
   }
 .custom-modal-content{
@@ -638,7 +702,7 @@ h4{
     display: flex;
     list-style-type: none;
     color :white;
-    gap: 35px;
+    gap: 40px;
     font-size: 18.27px;
     font-family: 'Poppins',sans-serif
   }
@@ -646,11 +710,12 @@ h4{
     border:none;
     border-radius: 5px;
     margin: 1px;
-    border: 1px solid #ddd;
+    margin: 5px 5px 0px 5px;
+    /* border: 1px solid #ddd; */
     padding: 5px;
     text-align: center;
     width: 130px;
-    height: 50px;
+    height: 41px;
     background: #888888;
     display: flex;
     justify-content: center;
@@ -660,30 +725,89 @@ h4{
     display: flex;
     width: 100px;
     border-radius: 20px;
-    border: 1px solid #ddd;
-    height: 40px;
+    font-size: 12px;
+    /* border: 1px solid #ddd; */
+    height: 30px;
     font-family: 'poppins';
-    background-color: #E0E0E0;
+    background-color: black;
     justify-content: center;
     align-items: center;
     padding-top: 10px;
   }
   .row-body {
-    height: 60px;
-    margin-top:0 ;
-      padding-top: 10px;
+    margin-top:-15px ;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    background-color: black;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    color: white;
   }
+  /* .bottom-hr{
+    border-bottom: 1px solid white;
+  } */
+  .markit-icon{
+    width: 20px; height: 20px; border-radius: 50%; background-color: green; margin-right: 5px;
+  }
+/* This will ensure the .nav-tabs fill the width completely */
+.nav-tabs {
+  display: flex;
+  flex-wrap: nowrap; /* This prevents the tabs from wrapping */
+  justify-content: space-between; /* This spreads the tabs evenly across the width */
+  padding-left: 0; /* Removes padding on the left */
+  margin-bottom: 0; /* Removes space between the nav-tabs and the tab content */
+  border-bottom: none; /* Removes the bottom border */
+}
+
+/* Style for each tab link */
+.nav-tabs .nav-link {
+  flex-grow: 1; /* This makes each tab grow to fill the available space */
+  text-align: center; /* Centers the text within each tab */
+  background-color: #272727; /* Orange background */
+  color: White;
+  font-family: 'poppins',sans-serif;
+  border: none; /* Removes border */
+  border-radius: 0; /* Removes rounded corners */
+  margin-right: 0; /* Removes the space between tabs */
+  transition: background-color 0.3s ease; /* Adds a transition for background color */
+}
+
+/* Active tab style */
+  .nav-tabs .nav-link.active {
+    background-color: rgb(78, 78, 78); /* Darker orange for active tab */
+    color: white !important;
+    border-bottom: 4px solid white !important; /* Adds the blue line underneath the active tab */
+  }
+  .nav-tabs .nav-link:not(.active) {
+    border-bottom: 4px solid transparent;
+  }
+  .border-bottom{
+    border-top: 2px solid white;
+  }
+  .score{
+    width: 100%;
+    height: 300px;
+    border: 2px solid white;
+  }
+  .team{
+    border-bottom: 1px solid black;
+  }
+
+/* Tab content styling */
+.tab-content {
+  border-top: none; /* Removes the top border */
+}
+
   .row {
     margin-top:0 ;
       padding-top: 10px;
   }
   h5{
-    font-size: 14px;
+    font-size: 12px;
     padding-left: 7px;
     margin-top: 10px;
     font-size: 14px;
     font-family: 'Poppins',sans-serif;
-    font-weight: 700;
   }
 
 }}

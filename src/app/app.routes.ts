@@ -21,5 +21,4 @@ export const routes: Routes = [
     { path: 'sportDetails/:matchcode',canActivate:[AuthGuard], loadComponent:() => import('./sport-details/sport-details.component').then(m => m.SportDetailsComponent)},
     { path: 'reports',canActivate:[AuthGuard],loadChildren:() => import('./components/setting/setting.routing').then(m => m.settingRouters)},
     { path: '**',pathMatch:'full',component: NotFoundComponent },  // Wildcard route for a 404 page
-
 ];

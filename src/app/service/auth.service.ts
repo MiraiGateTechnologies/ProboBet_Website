@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { response } from 'express';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { LoginResponse, User } from '../interface/login.interface';
+import jwt_decode from 'jwt-decode';
+
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +19,7 @@ export class AuthService {
   login(data: any): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(this.url, data).pipe(
       map((response) => {
+        console.log(response);
         let token = response.data.jwt.accessToken;
         sessionStorage.setItem('token', token);
         return response;
@@ -34,6 +37,18 @@ export class AuthService {
     }
     return null;
   }
+  // isTokenExpired(): any {
+  //   const token = this.getToken();
+  //   if (!token) return this.router.navigate(['/login']);
+  //   try {
+  //     const decoded: any = jwt_decode(token);
+  //     const currentTime = Math.floor(new Date().getTime() / 1000);
+  //     return decoded.exp < currentTime;
+  //   } catch (error) {
+  //     console.error('Failed to decode token', error);
+  //     return true;
+  //   }
+  // }
 
    logOut() {
      sessionStorage.removeItem('token')

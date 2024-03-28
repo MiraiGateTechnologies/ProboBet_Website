@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProbobetService } from '../betting/probobet.service';
+import { LoadingComponent } from '../components/loading/loading.component';
 import { liveCricketMatch, TeamBet } from './inpaly.interface';
 // import * as cricketData from '../../assets/JSON/cricket-bet.json';
 @Component({
   selector: 'app-in-play',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,LoadingComponent],
   templateUrl: './in-play.component.html',
   styleUrl: './in-play.component.css',
   providers:[ProbobetService]
@@ -17,25 +18,29 @@ export class InPlayComponent implements OnInit{
    @Input() sport!: string;
    cricketData:any[]=[];
    footballData:any[]=[];
+   isLoading:boolean = false;
   constructor(private activatedRoute:ActivatedRoute,private BetService:ProbobetService,private router:Router){
     this.activatedRoute.params.subscribe(data => {
-      console.log(data)
       this.sport = data.sport;
     });
   }
 
   ngOnInit(): void {
+    this.isLoading =true;
     this.BetService.getCricketBet().subscribe({
       next: (res: any) => { // Specify the type of 'res' as 'any'
         if (res.gameList.length > 0) {
+          this.isLoading =false;
           const currentTime: Date = new Date(); // Specify the type of 'currentTime' as 'Date'
           const liveCricketMatches: any[] = res.gameList.filter((data: any) => data.type === 'CRICKET' && new Date(data.time) <= currentTime);
           const liveFootBallMatches: any[] = res.gameList.filter((data: any) => data.type === 'FOOTBALL' && new Date(data.time) <= currentTime);
           if (liveCricketMatches.length > 0) {
+            this.isLoading =false;
             this.cricketData.push(...liveCricketMatches);
             this.cricketData.sort((a: any, b: any) => Number(new Date(a.time)) - Number(new Date(b.time)));
           }
           if(liveFootBallMatches.length > 0){
+            this.isLoading =false;
             this.footballData.push(...liveFootBallMatches);
             this.footballData.sort((a: any, b: any) => Number(new Date(a.time)) - Number(new Date(b.time)));
           }

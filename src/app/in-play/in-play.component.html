@@ -19,19 +19,17 @@
       <div class="row" *ngFor="let data of cricketData"  (click)="inPlayDetails(data.matchcode)">
         <div class="col-5">
           <h5 class="first-body">{{truncateTitle(data.title)}}</h5>
-
         </div>
         <div class="col-7 second-body justify-content-end">
             <div class="box-1">
-              <p style="line-height: 0.2rem; margin-top: 20px;" *ngIf="data.mbet == 0">-</p>
-              <p style="line-height: 0.2rem; margin-top: 20px;" *ngIf="data.mbet != 0">{{data.mbet}}</p>
+              <p style="line-height: 0.2rem; margin-top: 20px;" *ngIf="data.mbet == 0">{{data.mbet}}</p>
 
             </div>
             <div class="box-1"><p style="line-height: 0.2rem;margin-top: 20px;">-</p>
             </div>
             <div class="box-1">
-              <p style="line-height: 0.2rem; margin-top: 20px;" *ngIf="data.sbet == 0">-</p>
-              <p style="line-height: 0.2rem; margin-top: 20px;" *ngIf="data.sbet != 0">{{data.sbet}}</p>
+              <!-- <p style="line-height: 0.2rem; margin-top: 20px;" *ngIf="data.sbet == 0">-</p> -->
+              <p style="line-height: 0.2rem; margin-top: 20px;" *ngIf="data.sbet == 0">{{data.sbet}}</p>
             </div>
           </div>
       </div>
@@ -84,8 +82,4 @@
     </div>
   </div>
 </div>
-
-
-      <!-- </div> -->
-
-
+<app-loading *ngIf="isLoading"></app-loading>

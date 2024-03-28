@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="col-md-12 col-sm-12">
+      <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                      <img src="assets/pb1.png" class="navbar-brand" alt="Your Image">
+                  </a>
+                  <div class="d-flex ">
+                    <div class="deposit-header">
+                      <img src="https://m.kheloyaar360.net/assets/images/cash1.svg"  class="d-flex justify-content-center header-deposit" alt="Your Image">
+                      <span (click)="navigateToDeposit()">Deposit</span>
+                    </div>
+                    <div class="d-block header-main-txt" >
+                      <p class="header-txt" >Libility:0</p>
+                      <p class="header-txt-1" >Bal:{{coin}}</p>
+                    </div>
+                    <i class="bi bi-gear big-icon" id="openSidebar" (click)="toggleSidebar()"></i>
+                  </div>
+              </div>
+          </nav>
+
+      </div>
+  </div>
+</div>

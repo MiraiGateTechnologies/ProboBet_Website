@@ -10,8 +10,9 @@ import { tokenInterceptor } from './interceptors/token.interceptor';
 // import { LoadingInterceptor } from './interceptors/loading.interceptor';
 // import { errorIntercepter } from './interceptors/error.interceptor';
 import { provideToastr } from 'ngx-toastr';
+import { errorIntercepter } from './interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),provideHttpClient(withFetch()), provideToastr(), provideClientHydration(), provideAnimations(),
-  provideHttpClient(withInterceptors([tokenInterceptor]))]
+  provideHttpClient(withInterceptors([tokenInterceptor,errorIntercepter]))]
 };

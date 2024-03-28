@@ -28,7 +28,13 @@ export class PlaceBetsComponent implements OnInit, OnDestroy {
   countDown: number = 6;
   private countdownInterval: any;
   errorMessage: string = '';
-      constructor(public modal: NgbActiveModal,private loadingService: LoadingService,private amountBetService:PlaceBetPositionService,private toastr: ToastrService,private formBuilder:FormBuilder){
+      constructor(
+                    public modal: NgbActiveModal,
+                    private loadingService: LoadingService,
+                    private amountBetService:PlaceBetPositionService,
+                    private toastr: ToastrService,
+                    private formBuilder:FormBuilder
+                  ){
   }
   ngOnInit(): void {
     this.betForm = this.formBuilder.group({
@@ -83,11 +89,9 @@ export class PlaceBetsComponent implements OnInit, OnDestroy {
             this.toastr.error('Bet Not Placed',res.msg,{
               timeOut:3000,
             })
-            console.log(res)
             this.modal.dismiss('Cross click');
           }else{
             this.toastr.success('update successfully',res.msg)
-            console.log(res)
             this.modal.dismiss('Cross click');
           }
         },

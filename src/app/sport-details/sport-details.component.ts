@@ -1,23 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HostListener, OnDestroy, OnInit} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
-// import {ToastrService} from 'ngx-toastr';
 import {of, Subscription, timer} from 'rxjs';
 import {catchError, filter, switchMap} from 'rxjs/operators';
 import { LoadingComponent } from '../components/loading/loading.component';
-import { MatchData, SessionBet } from '../interface/sportdetails.interface';
-import { LoadingService } from '../service/loading.service';
+import {  SessionBet } from '../interface/sportdetails.interface';
 import { SportService } from '../service/sport.service';
+import { TopHeaderComponent } from '../top-header/top-header.component';
 import {liveCricketMatch, MatchOdds, OddsModel, SessionOdds} from './OddsModel';
 import { PlaceBetsComponent } from './place-bets/place-bets.component';
 
 @Component({
   selector: 'app-sport-details',
   standalone: true,
-  imports: [CommonModule,PlaceBetsComponent,NgbModule,LoadingComponent],
+  imports: [CommonModule,PlaceBetsComponent,NgbModule,LoadingComponent,TopHeaderComponent],
   templateUrl: './sport-details.component.html',
   styleUrl: './sport-details.component.css'
 })
@@ -25,7 +24,10 @@ import { PlaceBetsComponent } from './place-bets/place-bets.component';
 export class SportDetailsComponent implements OnDestroy {
   matchcode:any;
   isOld = false;
+  activeTab: string = '';
+  activeTabPrime:string = 'fancy';
   public innerWidth: any;
+  private subscriptions = new Subscription();
   oddsModel: OddsModel[]=[];
   checkOdds = true;
   cricketMatch = liveCricketMatch;
@@ -33,6 +35,7 @@ export class SportDetailsComponent implements OnDestroy {
   team1:string = ''||'Team 1';
   team2:string=''||'Team 2';
   ballOnlySession: SessionOdds[] = [];
+  scoreDetails:any;
   ballByBall: SessionOdds[] = [];
   MatchOdds:MatchOdds[]=[]
   oddsLink: any;
@@ -41,12 +44,13 @@ export class SportDetailsComponent implements OnDestroy {
   sessionPM: any;
   matchBets: any = [];
   sessionBets: any = [];
-
+  private sanitizer =inject(DomSanitizer)
+  streamLink:any='';
+  isStreamAvailable: boolean = false;
   Matchods: any;
   subscription: Subscription;
   active = 1;
   id: any;
-  streamLink: any;
   bitsposition: any = [];
   matchTitle = '';
   streamTv: boolean = false;
@@ -54,38 +58,66 @@ export class SportDetailsComponent implements OnDestroy {
   bettDetails:SessionBet[] =[];
   errorMessage: string = '';
   loading:boolean =false;
-  // @HostListener('window:resize', ['$event'])
-  // onResize(event) {
-  //     this.innerWidth = event.target.innerWidth;
-  // }
+  visibilityStates:any = {
+    market: false,
+    mybet: false,
+    liveTv:false,
+    score:false,
+  };
+  visibilityFancyAndPrime={
+    fancy:true,
+    prime:true,
+  }
 
+  showIframe: boolean = false;
   constructor(
       public router: Router,
       private route: ActivatedRoute,
-      // private headerService: HeaderService,
       private modalService: NgbModal,
       private sportServive:SportService,
-
-      // public matchDetail: MatchDetailService,
-      // private toastr: ToastrService,
-      // private dashsvc: DashboardService,
-      public sanitizer: DomSanitizer,
   ) {
-      // this.innerWidth = window.innerWidth;
       this.subscription = new Subscription();
       this.matchcode = this.route.snapshot.paramMap.get('matchcode');
-      // headerService.getMsg();
   }
 
   ngOnInit(): void {
-    this.SportDetails();
-    this.sportServive.getPlaceCricketDetails(this.matchcode).subscribe({
-      next:(res)=>{
-        this.bettDetails = res.sessionBet
-        console.log(res)
-      }
-    })
+    this.subscriptions.add(this.SportDetails());
+    this.subscriptions.add(this.getStreemData());
+
   }
+
+  getStreemData() {
+    const sub = this.sportServive.getPlaceCricketDetails(this.matchcode).subscribe({
+      next: (res) => {
+        this.bettDetails = res.sessionBet;
+        if (res.streamLink) {
+          this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl(res.streamLink);
+        }
+      }
+    });
+    return sub;
+  }
+
+  toggleVisibility(sectionKey: string): void {
+    this.activeTab = sectionKey;
+    const wasAlreadyVisible = this.visibilityStates[sectionKey];
+    for (const key in this.visibilityStates) {
+      if (this.visibilityStates.hasOwnProperty(key)) {
+        this.visibilityStates[key] = false;
+        this.getStreemData();
+      }
+    }
+    this.visibilityStates[sectionKey] = !wasAlreadyVisible;
+  }
+  toggleVisibilityPrime(sectionKey: string): void {
+    this.activeTabPrime = sectionKey;
+    if(sectionKey == 'fancy' ){
+      this.visibilityFancyAndPrime.fancy =true;
+    }else if(sectionKey == 'prime'){
+      this.visibilityFancyAndPrime.prime = true;
+    }
+  }
+
   goBack(){
     window.history.back()
   }
@@ -99,12 +131,14 @@ export class SportDetailsComponent implements OnDestroy {
   SportDetails(){
     this.loading =true;
     this.filteredSessionBets = setInterval(() => {
-    if(this.matchcode != undefined ||this.matchcode != ''){
-      this.sportServive.getSportDetails(this.matchcode).subscribe({
-        next:(res)=>{
+      if(this.matchcode != undefined ||this.matchcode != ''){
+        this.sportServive.getSportDetails(this.matchcode).subscribe({
+          next:(res)=>{
+          console.log(res.score)
           this.loading=false;
           this.MatchOdds = res.matchOdds.slice(0,2);
           this.sessionBets = res.sessionOdds;
+          this.scoreDetails = res.score;
           this.team1 = res.score.team1;
           this.team2 = res.score.team2;
           this.sessionBets.filter((item:any,index:any)=> index %2 ==0)
@@ -144,7 +178,6 @@ export class SportDetailsComponent implements OnDestroy {
               type = 1;
               break;
       }
-      // console.log(rate)
       if (rate > 0) {
           const modalRef = this.modalService.open(PlaceBetsComponent, {
 
@@ -169,11 +202,11 @@ export class SportDetailsComponent implements OnDestroy {
       }
   }
 
-
-
   ngOnDestroy() {
-    clearInterval(this.filteredSessionBets); // Corrected: Pass the interval ID directly
-    this.subscription.unsubscribe();
+    this.subscriptions.unsubscribe();
+    if (this.filteredSessionBets) {
+        clearInterval(this.filteredSessionBets);
+    }
   }
 
 
@@ -187,26 +220,6 @@ export class SportDetailsComponent implements OnDestroy {
       return parseFloat(value).toFixed(2);
   }
 
-  private filterData(sessions: SessionOdds[]): void {
 
-      const mainSession: SessionOdds[] = [];
-      const onlySession: SessionOdds[] = [];
-      const ballSession: SessionOdds[] = [];
-
-      sessions.forEach((value, index, array) => {
-          if (value.name.includes('ONLY')) {
-              onlySession.push(value);
-          } else if (value.name.includes('BALL RUN')) {
-              ballSession.push(value);
-          } else {
-              mainSession.push(value);
-          }
-      });
-
-      this.mainSession = mainSession;
-      this.ballByBall = ballSession.sort((a, b) => (a.name < b.name ? -1 : 1));
-      this.ballOnlySession = onlySession.sort((a, b) => (a.name < b.name ? -1 : 1));
-
-  }
 
 }

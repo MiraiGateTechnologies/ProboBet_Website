@@ -5,11 +5,12 @@ import { GamesComponent } from '../components/games/games.component';
 import { UpCommingComponent } from '../up-comming/up-comming.component';
 import { ResultComponent } from '../result/result.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { TopHeaderComponent } from '../top-header/top-header.component';
 
 @Component({
   selector: 'app-cricket',
   standalone: true,
-  imports: [GamesComponent,InPlayComponent,UpCommingComponent,ResultComponent,MatTabsModule],
+  imports: [GamesComponent,InPlayComponent,UpCommingComponent,ResultComponent,MatTabsModule,TopHeaderComponent],
   templateUrl: './cricket.component.html',
   styleUrl: './cricket.component.css'
 })
